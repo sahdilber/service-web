@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ServisWeb | Teknik Servis Hizmetleri</title>
+  <meta name="description" content="Garantisi bitmiş beyaz eşya ve elektronik cihazlarınız için hızlı, güvenilir ve uygun fiyatlı teknik servis hizmeti." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Lrx+3B/bJv8tT8Pscn9nY1PS5CXt7nb82AbwtsuDh0D6xUeN5XxzkBRyxBMiJ5kK1R2o+ov09CzEF8UijKCU2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* Global Renk Paleti ve Temel Stiller */
+    :root {
+      --primary: #3498db; /* Modern, canlı bir mavi */
+      --dark: #2c3e50;    /* Koyu lacivert/gri tonu */
+      --light: #ecf0f1;   /* Çok açık gri */
+      --accent: #27ae60;  /* Canlı, doğal bir yeşil */
+      --text-color: #34495e; /* Okunabilir koyu gri metin */
+      --border-color: #bdc3c7; /* Açık gri kenarlıklar */
+      --background-light: #ffffff; /* Ana arka plan rengi */
+      --footer-bg: #212121; /* Koyu gri, görseldeki gibi */
+      --footer-text-color: #bdbdbd; /* Açık gri metin rengi */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text-color);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased; /* Fontları daha pürüzsüz yapar */
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Başlık Stilleri */
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--dark);
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+    }
+
+    /* Header Stilleri */
+    header {
+      background: var(--background-light);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Hafif gölge */
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.7rem; /* Logo fontu büyütüldü */
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none; /* Logo link ise alt çizgi olmasın */
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    .menu {
+      display: flex;
+      gap: 1.5rem; /* Menü öğeleri arası boşluk arttırıldı */
+      align-items: center;
+    }
+    .menu a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+    .menu a:hover {
+      color: var(--primary);
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--background-light);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Daha belirgin gölge */
+      border-radius: 8px;
+      top: 2.2rem; /* Dropdown konumu ayarlandı */
+      left: 0;
+      min-width: 220px; /* Genişlik arttırıldı */
+      z-index: 99;
+      border: 1px solid var(--border-color); /* Hafif kenarlık */
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 0.8rem 1.2rem; /* Padding arttırıldı */
+      color: var(--text-color);
+      text-decoration: none;
+    }
+    .dropdown-content a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        background: var(--background-light);
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        padding: 1rem;
+      }
+      .menu.show {
+        display: flex;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        background: none;
+      }
+      .dropdown-content a {
+        padding: 0.6rem 0;
+      }
+    }
+
+    /* Hero Section Stilleri */
+    .hero {
+      background: var(--background-light); /* Ana arka plan rengiyle aynı, kaldırılmış hissi */
+      padding: 5rem 1rem; /* Daha fazla boşluk */
+      text-align: center;
+      border-bottom: 1px solid var(--border-color); /* Hafif alt çizgi */
+    }
+
+    .hero-content {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem; /* Daha büyük başlık */
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.3rem; /* Daha büyük paragraf metni */
+      color: var(--text-color);
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+    }
+
+    .hero-features {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem; /* Özellikler arası boşluk arttırıldı */
+        margin-top: 2rem;
+        margin-bottom: 2.5rem; /* Butondan önce boşluk */
+        flex-wrap: wrap;
+    }
+
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem; /* İkon ve metin arası boşluk */
+        font-weight: 600;
+        color: var(--dark); /* Koyu metin rengi */
+        font-size: 1.1rem; /* Özellik metin boyutu */
+    }
+
+    .feature-item span {
+        font-size: 1.8rem; /* İkon boyutu büyütüldü */
+        color: var(--accent); /* Vurgu rengi */
+    }
+
+    /* CTA Butonu: Hemen Arayın! */
+    .cta-hero {
+      background: linear-gradient(135deg, var(--primary), var(--accent)); /* Önceki degrade rengi */
+      color: #fff;
+      padding: 1.2rem 3rem; /* Daha büyük CTA */
+      border-radius: 50px; /* Daha yuvarlak buton */
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      font-size: 1.2rem; /* Daha büyük font */
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Hafif gölge */
+    }
+
+    .cta-hero:hover {
+      opacity: 0.95;
+      transform: translateY(-3px); /* Daha belirgin yukarı hareket efekti */
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Hover'da daha belirgin gölge */
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            padding: 4rem 1rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+        }
+        .hero-features {
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .cta-hero {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+    }
+
+    /* Genel Bölüm Stilleri (section) */
+    section {
+      padding: 4rem 1rem; /* Daha fazla boşluk */
+      background: var(--light); /* Arka plan rengi */
+    }
+    .section-title {
+      font-size: 2.5rem; /* Başlık fontu büyütüldü */
+      margin-bottom: 2rem; /* Daha fazla boşluk */
+      text-align: center;
+      color: var(--dark);
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 80px; /* Alt çizgi genişliği */
+        height: 4px; /* Alt çizgi kalınlığı */
+        background-color: var(--primary); /* Alt çizgi rengi */
+        border-radius: 2px;
+    }
+
+    /* Kart Grubu ve Kart Stilleri */
+    .card-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem; /* Kartlar arası boşluk arttırıldı */
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--background-light);
+      color: var(--text-color);
+      padding: 2rem; /* Padding arttırıldı */
+      border-radius: 12px;
+      max-width: 350px; /* Daha geniş kartlar */
+      text-align: left;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Daha belirgin, yumuşak gölge */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--border-color); /* Hafif kenarlık */
+    }
+    .card:hover {
+      transform: translateY(-7px); /* Daha belirgin lift efekti */
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18); /* Hover'da daha belirgin gölge */
+    }
+    .card h3 {
+      font-size: 1.5rem; /* Kart başlığı büyütüldü */
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .card p {
+      color: var(--text-color);
+      margin-bottom: 1.8rem; /* Daha fazla boşluk */
+      flex-grow: 1;
+    }
+    /* CTA Butonu: Detaylı Bilgi */
+    .card .cta {
+      align-self: flex-start;
+      padding: 0.7rem 1.8rem; /* CTA boyutu güncellendi */
+      font-size: 1rem;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--primary), var(--accent)); /* Önceki degrade rengi */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      color: #fff; /* Metin rengi beyaz olsun */
+      text-decoration: none; /* Alt çizgi olmasın */
+      font-weight: 600; /* Font kalınlığı */
+    }
+    .card .cta:hover {
+        opacity: 0.95;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Müşteri Yorumları Bölümü */
+    #customer-reviews {
+        background: #f9f9f9; /* Daha açık arka plan */
+        padding: 4rem 1rem;
+    }
+
+    /* Makale Bölümü Stilleri */
+    #article-section {
+        background: var(--background-light); /* Beyaz arka plan */
+        padding: 4rem 1rem;
+        max-width: 1000px; /* İçeriğin genişliğini sınırlayın */
+        margin: 0 auto; /* Ortalamak için */
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05); /* Hafif gölge */
+        margin-bottom: 3rem; /* Footer'dan önce boşluk */
+    }
+
+    #article-section .article-content {
+        line-height: 1.8;
+        font-size: 1.1rem;
+        color: var(--text-color);
+    }
+
+    #article-section .article-content h3 {
+        color: var(--dark);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+    }
+
+    #article-section .article-content p {
+        margin-bottom: 1.5rem;
+    }
+
+    #article-section .article-content ul {
+        margin-bottom: 1.5rem;
+        margin-left: 1.5rem;
+    }
+
+    #article-section .article-content ul li {
+        margin-bottom: 0.5rem;
+    }
+
+
+    /* Footer Stilleri */
+    footer {
+      background: var(--footer-bg); /* Koyu arka plan rengi */
+      color: var(--footer-text-color); /* Açık metin rengi */
+      padding: 3.5rem 1rem; /* Padding arttırıldı */
+      font-size: 0.95rem; /* Font boyutu biraz büyütüldü */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: flex-start;
+      text-align: left;
+      flex-direction: row;
+    }
+
+    footer .footer-column {
+      flex: 1;
+      min-width: 220px; /* Sütunlar için minimum genişlik */
+      margin: 1.5rem; /* Boşluklar arttırıldı */
+    }
+
+    footer .footer-column h3 {
+      font-size: 1.3rem; /* Başlık boyutu büyütüldü */
+      margin-bottom: 1.5rem;
+      color: #fff; /* Başlıklar için beyaz */
+      position: relative;
+      padding-bottom: 0.6rem;
+      font-weight: 700; /* Başlık font kalınlığı */
+    }
+
+    footer .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px; /* Alt çizgi genişliği */
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    footer .footer-column p,
+    footer .footer-column a {
+      color: var(--footer-text-color); /* Link ve paragraf için açık gri */
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.8rem;
+      transition: color 0.3s ease;
+    }
+
+    footer .footer-column p {
+        display: flex; /* İkon ve metni aynı satırda tutmak için */
+        align-items: flex-start; /* İkonu ve metni hizalamak için */
+    }
+
+    footer .footer-column p span {
+        margin-right: 10px; /* İkon ile metin arasına boşluk */
+        font-size: 1.1rem; /* İkon boyutu */
+        color: var(--primary); /* İkon rengi */
+    }
+
+    footer .footer-column a:hover {
+      color: var(--primary);
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 0.8rem; /* İkonlar arası boşluk */
+        margin-top: 1rem;
+    }
+
+    .social-icons a {
+        background-color: #333; /* İkon arka plan rengi */
+        color: #fff; /* İkon rengi */
+        width: 40px; /* İkon kutusu genişliği */
+        height: 40px; /* İkon kutusu yüksekliği */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%; /* Yuvarlak ikonlar */
+        font-size: 1.2rem; /* İkon boyutu */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        background-color: var(--primary); /* Hover'da arka plan rengi */
+        color: #fff;
+    }
+
+    footer .notice-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start; /* Sola hizala */
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-left: 1rem; /* Sol padding ekle */
+        padding-right: 1rem; /* Sağ padding ekle */
+    }
+
+    footer .notice {
+      background-color: transparent;
+      color: var(--footer-text-color);
+      padding: 0;
+      border-radius: 0;
+      font-weight: normal;
+      border: none;
+      text-align: left;
+      max-width: none;
+      box-shadow: none;
+      font-size: 0.9rem;
+      line-height: 1.4; /* Satır aralığını ayarla */
+    }
+
+    footer .notice strong {
+      font-weight: bold;
+      color: #fff;
+      margin-right: 5px; /* "Önemli Not:" ile metin arasına boşluk */
+    }
+
+    /* Footer Responsive Düzenlemeler */
+    @media screen and (max-width: 768px) {
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      footer .footer-column {
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      footer .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      footer .notice-container {
+          margin-top: 1.5rem;
+          justify-content: center; /* Mobil görünümde uyarıyı ortala */
+          padding-left: 0;
+          padding-right: 0;
+      }
+      footer .notice {
+        text-align: center; /* Mobil görünümde uyarı yazısını ortala */
+      }
+      .social-icons {
+        justify-content: center; /* Mobil görünümde ikonları ortala */
+      }
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("main-menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">ServisWeb</a>
+      <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+      <nav class="menu" id="main-menu">
+        <a href="index.html">Ana Sayfa</a>
+        <div class="dropdown">
+          <span style="cursor:pointer; font-weight:500; color:var(--text-color);">Hizmetlerimiz</span>
+          <div class="dropdown-content">
+            <a href="hizmet.html?service=beyazesya">Beyaz Eşya</a>
+            <a href="hizmet.html?service=buzdolabi">Buzdolabı</a>
+            <a href="hizmet.html?service=camasirmakinesi">Çamaşır Makinesi</a>
+            <a href="hizmet.html?service=bulasikmakinesi">Bulaşık Makinesi</a>
+            <a href="hizmet.html?service=firin">Fırın</a>
+            <a href="hizmet.html?service=klima">Klima</a>
+            <a href="hizmet.html?service=kombi">Kombi</a>
+            <a href="hizmet.html?service=televizyon">Televizyon</a>
+          </div>
+        </div>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="hero-content">
+      <h1>Teknik Servisiniz Burada: Hızlı ve Güvenilir Çözümler!</h1>
+      <p>Garantisi bitmiş beyaz eşya ve elektronik cihazlarınız için **yerinde, hızlı ve profesyonel teknik servis hizmetleri** sunuyoruz. Uzman ekibimizle sorunlarınıza kalıcı çözümler getiriyoruz.</p>
+      <div class="hero-features">
+        <div class="feature-item">
+            <span role="img" aria-label="Hız">⚡</span> Hızlı Servis
+        </div>
+        <div class="feature-item">
+            <span role="img" aria-label="Güvenilir">✅</span> Güvenilir Hizmet
+        </div>
+        <div class="feature-item">
+            <span role="img" aria-label="Uygun Fiyat">💰</span> Uygun Fiyat
+        </div>
+      </div>
+      <a href="tel:+905551112233" class="cta-hero">0555 111 22 33 - Hemen Arayın!</a>
+    </div>
+  </main>
+
+  <section>
+    <h2 class="section-title">Hizmetlerimiz</h2>
+    <div class="card-group">
+      <div class="card">
+        <h3>Beyaz Eşya Servisi</h3>
+        <p>Genel beyaz eşya arızaları ve bakımı için profesyonel çözümler.</p>
+        <a href="hizmet.html?service=beyazesya" class="cta">Detaylı Bilgi</a>
+      </div>
+      <div class="card">
+        <h3>Buzdolabı Tamiri</h3>
+        <p>Tüm marka ve modellerde hızlı arıza giderimi ve periyodik bakım.</p>
+        <a href="hizmet.html?service=buzdolabi" class="cta">Detaylı Bilgi</a>
+      </div>
+      <div class="card">
+        <h3>Çamaşır Makinesi Tamiri</h3>
+        <p>Sorunsuz çalışan makineler için profesyonel destek ve onarım.</p>
+        <a href="hizmet.html?service=camasirmakinesi" class="cta">Detaylı Bilgi</a>
+      </div>
+      <div class="card">
+        <h3>Bulaşık Makinesi Tamiri</h3>
+        <p>Bulaşık makinelerinizdeki tüm arızalar için hızlı ve etkili çözümler.</p>
+        <a href="hizmet.html?service=bulasikmakinesi" class="cta">Detaylı Bilgi</a>
+      </div>
+      <div class="card">
+        <h3>Fırın Tamiri</h3>
+        <p>Fırın ve ocak arızaları, parça değişimi ve bakım hizmetleri.</p>
+        <a href="hizmet.html?service=firin" class="cta">Detaylı Bilgi</a>
+      </div>
+      <div class="card">
+        <h3>Klima Servisi</h3>
+        <p>Klima bakımı, arıza tespiti, gaz dolumu ve montaj hizmetleri.</p>
+        <a href="hizmet.html?service=klima" class="cta">Detaylı Bilgi</a>
+      </div>
+      <div class="card">
+        <h3>Kombi Servisi</h3>
+        <p>Kombi arızaları, bakım, petek temizliği ve montaj hizmetleri.</p>
+        <a href="hizmet.html?service=kombi" class="cta">Detaylı Bilgi</a>
+      </div>
+      <div class="card">
+        <h3>Televizyon Tamiri</h3>
+        <p>Tüm marka ve model televizyonlarda ekran, ses ve görüntü arızaları.</p>
+        <a href="hizmet.html?service=televizyon" class="cta">Detaylı Bilgi</a>
+      </div>
+    </div>
+  </section>
+  <section id="customer-reviews">
+    <h2 class="section-title">Müşteri Yorumları</h2>
+    <div class="card-group">
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Çamaşır makinem bozulduğunda hemen iletişime geçtim. Çok hızlı ve profesyonel bir şekilde tamir edildi. Teşekkürler!"</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Ayşe Yılmaz</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Klima bakımı için çağırdım, işlerini titizlikle yaptılar. Artık klimam daha verimli çalışıyor."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Mehmet Can</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Buzdolabım aniden soğutmamaya başladı. Servis ekibi kısa sürede gelip arızayı giderdi. Gerçekten çok memnun kaldım."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Zeynep Demir</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Fırınımızın rezistansı değişmesi gerekiyordu. Uygun fiyata ve hızlıca hallettiler. Güvenle tercih edebilirsiniz."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Emre Kaya</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Televizyonumdaki görüntü sorununu çözdüler. Teknik bilgileri çok iyi, işlerini biliyorlar."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Fatma Öztürk</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Kombimizde ses vardı, bakıma geldiler ve sorunu giderdiler. Şimdi sessiz sedasız çalışıyor."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Ali Koç</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Bulaşık makinem su akıtıyordu, tamir ekibi çok kısa sürede geldi ve sorunumu çözdü. Güvenilir hizmet!"</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Elif Yıldırım</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Beyaz eşya servisi konusunda gerçekten profesyoneller. Her şey için teşekkürler."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Caner Solmaz</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Acil servis ihtiyacım oldu, hemen geri dönüş yaptılar ve sorunumu hallettiler. Kesinlikle tavsiye ederim."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Burcu Aksoy</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Kombi bakımı için düzenli olarak çağırıyorum. Her zaman aynı kalitede hizmet alıyorum."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Deniz Avcı</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Eski buzdolabım için parça bulamamıştım, ServisWeb ekibi sağ olsunlar temin edip taktı."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Mert Günay</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Servis hızı ve çözüm odaklı yaklaşımları takdire şayan. Her kuruşuna değdi."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Pınar Yılmaz</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="article-section">
+    <h2 class="section-title">Makalelerimiz</h2>
+    <div class="article-content">
+      <p>
+        Beyaz Eşya Servisi, Buzdolabı, Çamaşır Makinesi, Bulaşık Makinesi, Fırın, Klima, Kombi Ve Televizyon, evimizdeki en önemli elektronik cihazlardır. Bu cihazlar, günlük yaşantımızda büyük kolaylıklar sağlar. Fakat, bu cihazlar zamanla arızalanabilir veya performansları düşebilir. Bu durumda, Elektronik Cihaz Tamiri alanında uzmanlaşmış hizmetlere ihtiyaç duyarız. Beyaz Eşya Servisi, bu tür durumlarda etkili çözümler sunar ve kullanıcıların hayatını kolaylaştırır. Kullanıcılar, düzenli Ev Aletleri Bakımı ile cihazlarının ömrünü uzatır ve verimliliğini artırır. Bakım işlemleri, uzun vadede maliyetlerinizi önemli ölçüde düşürür.
+      </p>
+      <p>
+        Buzdolabı ve fırın gibi soğutma ve ısıtma cihazları, düzenli bakım gerektirir. Soğutma Sistemleri Onarımı, bu cihazların sağlıklı bir şekilde çalışmasını sağlar. Aynı zamanda klima hizmetleri de önemli bir yer tutar. Yaz aylarında serin bir ortam yaratmak için klimaların düzgün çalışması gerekir. Isıtma Cihazları Servisi, kış aylarında sıcak bir ev için gereklidir. Ayrıca, görüntü ve ses sistemleri teknik desteği de kullanıcılar için büyük önem taşır. Bu hizmetler, Beyaz Eşya Servisi’nden alınarak evdeki tüm elektronik cihazların yüksek verimle çalışmasını sağlar. Bu nedenle, evdeki her türlü cihazın bakımını ve onarımını düzenli olarak yaptırmak, günlük yaşamı kolaylaştırır.
+      </p>
+
+      <h3>Buzdolabı Neden Çok Isınıyor</h3>
+      <p>
+        Buzdolabının ısı ile ilgili sorunları sık karşılaşan bir durumdur. Eğer buzdolabınız gereğinden fazla ısınıyorsa, çeşitli nedenler bu durumu tetikleyebilir. İlk olarak, doğru hava akışının sağlanmaması söz konusu olabilir. Buzdolabının etrafında yeterli boş alan yoksa, sıcaklığı dengelemek zorlaşır. Ayrıca, motorun aşırı çalışması da bu durumu etkileyebilir. Buzdolabının termostatı arızalıysa, buzdolabı sürekli çalışacaktır. Dolayısıyla, bu gibi durumlarda Beyaz Eşya Servisi'nden destek almalısınız.
+      </p>
+      <p>
+        Diğer bir sebep, buzdolabının içindeki yiyeceklerin düzenli yerleştirilmemesidir. Eğer buzdolabı aşırı doluysa, yiyecekler soğuk havanın dolaşımını engeller. Yani, yiyecekler buzdolabının motorunu daha fazla çalışmaya zorlar. Bu durumu göz önünde bulundurarak, buzdolabınızı şu şekilde düzenleyebilirsiniz:
+      </p>
+      <ul>
+        <li>Yeterli Hava Dolaşımını Sağlayın: Buzdolabının etrafında en az beş santimetre boş yer bırakmalısınız.</li>
+        <li>Yüksek Isı Kaynaklarından Uzak Tutun: Cihazı ısı kaynaklarından uzak bir yere yerleştirin.</li>
+        <li>Termostatı Kontrol Edin: Termostatınızın düzgün çalıştığından emin olun.</li>
+        <li>Düzenli Temizlik Yapın: Buzdolabının arka kısmında biriken toz ve kir, ısıtmayı artırır.</li>
+        <li>Yiyecekleri Düzenli Silin: Aşırı doluluğu önlemek için yiyeceklerinizi düzenli bir şekilde yerleştirin.</li>
+      </ul>
+      <p>
+        Bu yöntemler, buzdolabınızın ısınıp ısınmadığını kontrol etmenize yardımcı olacaktır. Uygun bakım ve dikkat ile buzdolabının ömrünü uzatabilirsiniz. Buzdolabınız, Elektronik Cihaz Tamiri hizmeti alarak hızlı bir şekilde onarılabilir. Eğer bu sorun devam ederse, uzmanlardan destek almayı ihmal etmeyin.
+      </p>
+
+      <h3>Çamaşır Makinesi Deterjan Almıyor</h3>
+      <p>
+        Çamaşır makinesi, evdeki en önemli beyaz eşya cihazlarından biridir. Bu makinenin sağlıklı çalışması, temiz giysilerinizi garanti eder. Ancak bazen, çamaşır makinesi deterjan almaz ve bu durum sorunlara yol açar. Deterjan gözüne yeterli miktarda deterjan koymanıza rağmen, makine bu deterjanı almazsa, bunun bazı nedenleri vardır. Öncelikle, deterjan gözü tıkanmış olabilir. Ayrıca, suyun sıcaklığı veya basıncı yetersizse, çamaşır makinesi gerektiği gibi çalışmaz. Bu sorunları çözmek için makineleri düzenli olarak kontrol etmelisiniz.
+      </p>
+      <p>
+        Sorununuzun kaynağını bulmak için şu adımları uygulayabilirsiniz:
+      </p>
+      <ul>
+        <li>Deterjan gözünü açarak tıkanıklıkları kontrol edin.</li>
+        <li>Su filtresini temizleme işlemini gerçekleştirin.</li>
+        <li>Su bağlantılarını kontrol edin ve gerektiğinde sıkılaştırın.</li>
+        <li>Makinenizin suyun sıcaklığını kontrol edin.</li>
+        <li>Bir teknik servis çağırarak durumu değerlendirin.</li>
+      </ul>
+      <p>
+        Çamaşır makinenizde bu adımları uyguladıktan sonra, deterjan alma sorununu çözebilirsiniz. Eğer sorunlar devam ederse, bir beyaz eşya servisine başvurmak uygun olacaktır. Çamaşır makinesi gibi önemli bir aletin düzgün çalışması, günlük hayatınızda büyük rahatlık sağlar. Unutmayın, erken müdahale sorunları büyümeden çözmeyi sağlar.
+      </p>
+      <p>
+        Ayrıca, bir araştırmaya göre, evdeki beyaz eşyaların %30'u bakım gerektirmektedir. Bu nedenle, ev aletleri bakımı her zaman önemlidir. Bakım yaptığınızda sorunları önceden belirleyip, büyük tamir ihtiyaçlarını engelleyebilirsiniz. Beyaz eşya servisi, bu tür sorunlarla ilgilenir ve makinenizin performansını artırır. Çamaşır makinesi, bu ihtimalleri en aza indirmek için düzenli olarak kontrol edilmeli ve gerekiyorsa servis hizmetlerinden faydalanmalısınız.
+      </p>
+
+      <h3>Bulaşık Makinesi Bardakları Çiziyor</h3>
+      <p>
+        Bulaşık makineleri, günlük yaşamda büyük bir kolaylık sağlar. Ancak bazen bu makineler bardakları çizebilir. Bu durum, özellikle güzel ve değerli cam eşyalar için oldukça can sıkıcı bir hal alabilir. Çiziklerin birçok nedeni olabilir. Örneğin, aşındırıcı deterjanlar ya da sert su, cam yüzeyleri zedeleyebilir. Ayrıca yetersiz kurutma ve düşük kalitedeki bulaşık makineleri de bu duruma yol açar. Bulaşık makinesi alırken, kaliteli ürün seçmek ve doğru deterjanları kullanmak önemli bir tercihtir. Bulaşık makinelerinde kullanılan kablaj ve yerleştirme şekli de önem taşır. Bu özelliklere dikkat ettiğin takdirde, sorun yaşamazsın.
+      </p>
+      <p>
+        Bulaşık makineni kullanırken dikkat etmen gereken bazı noktalar vardır. İşte dikkat edilmesi gereken unsurlar:
+      </p>
+      <ul>
+        <li>Deterjanın kalitesi: Kaliteli ve cam dostu deterjan kullanmalısın.</li>
+        <li>Su sıcaklığı: Bulaşık makinesi için önerilen sıcaklığı sağlamalısın.</li>
+        <li>Yükleme şekli: Cam eşyaları uygun şekilde yerleştirmelisin.</li>
+        <li>Kurutma süresi: Bulaşıkların yeterince kurumasına izin vermelisin.</li>
+        <li>Bakım: Düzenli bakım yaparak makinenin performansını artırmalısın.</li>
+      </ul>
+      <p>
+        Sonuç olarak, bu önerilere dikkat ederek bulaşık makineni kullanabilirsin. Böylece bardakların güvenle temizlenir. Bunda ev aletleri bakımına özen göstermek, uzun ömür ve verim sağlamak için çok önemlidir. Beyaz eşyalarının uzun ömürlü olması için bu ipuçlarını göz önünde bulundurmalısın.
+      </p>
+
+      <h3>Fırın Altı Pişirmiyor Sorunu Nasıl Çözülür</h3>
+      <p>
+        Fırın, mutfaktaki önemli elektronik cihazlardan biridir. Ancak zaman zaman arızalanabilir ve istenen performansı göstermez. Pişirme işlemi sırasında alt kısımda yeterli ısı oluşmadığını fark edebilirsin. Bu durum, yemeklerin pişmemesine veya tamamen çiğ kalmasına yol açar. Fırın altı pişirmiyor sorunu birçok kullanıcının karşılaştığı bir durumdur. Sorunu çözmek için öncelikle fırınının neden böyle davrandığını anlamalısın. Belirli kontroller yaparak durumu iyileştirmek mümkündür. Bu makalede, sorunu çözmek için yapman gerekenleri detaylı bir şekilde ele alacağım.
+      </p>
+      <p>
+        Öncelikle, fırınının alt ısıtma elemanını kontrol etmelisin. Arızalı bir alt ısıtıcı, pişirme sorunlarına yol açar. Ayrıca, fırının hava sirkülasyonu sistemi de bu durumu etkileyebilir. İşte dikkat etmen gereken bazı önemli noktalar:
+      </p>
+      <ul>
+        <li>Isı ayarını kontrol et: Doğru ayar sağlanmadıysa, alt kısım pişirme yapmaz.</li>
+        <li>Kapak contalarını kontrol et: Eğer contalar hasar görmüşse, ısı kaybı yaşanır.</li>
+        <li>Hava deliklerini kontrol et: Hava akışının düzgün olması gerekir.</li>
+      </ul>
+      <p>
+        Bunların yanında, bir araştırmaya göre, kullanıcıların %30'u fırınlarının alt ısısında sorun yaşadıklarını belirtmiştir. Bu yüzden, fırın altı pişirmiyor sorunu için mutlaka bu basamakları uygulayıp, gerekirse beyaz eşya servisi ile iletişime geçmelisin. "Endüstrileşmiş Konut Üretiminde Kitlesel Bireyselleştirme" başlıklı çalışmada A Sariyar tarafından, endüstrileşmiş üretim süreçlerindeki kişiselleştirme olanakları incelenmiş ve bu bağlamda, fırın gibi beyaz eşyaların üretiminde de kullanıcı ihtiyaçlarına yönelik özelleştirmelerin, potansiyel arızaların önlenmesinde ve kullanıcı memnuniyetinin artırılmasında önemli bir rol oynayabileceği vurgulanmıştır. Elektronik cihaz tamiri yapılmadan önce sorunların iyi tespit edilmesi önemlidir. Yanlış teşhis, daha fazla arıza yaratabilir. Unutma, her zaman güvenilir ve profesyonel bir destek almak en mantıklısıdır.
+      </p>
+
+      <h3>Klima Gazı Ne Kadar Sürede Biter</h3>
+      <p>
+        Sıcak yaz günlerinde klimanın önemi büyük. Klimanın gazı, cihazın verimli çalışması için kritik bir unsurdur. Klimanın gazı, zamanla azalır ve bu da etkinliğini etkiler. Kullanım sıklığına ve çevresel koşullara göre klima gazının bitiş süresi değişir. Örneğin, yoğun yaz aylarında sürekli çalışan bir klima, daha hızlı gaz kaybeder. Ayrıca, dış hava sıcaklıkları ve nem düzeyleri de gaz tüketimi üzerinde etkilidir. Bahar ve sonbahar aylarında kullanıldığında, gazın azalması daha yavaş gerçekleşir. Ancak, klima sorunları ve gaz sızıntıları, bu durumu kötüleştirebilir.
+      </p>
+      <p>
+        Klimanın gazı ne kadar sürede biter sorusuna birçok faktör yanıt verir. Önemli olan, cihazın bakımını düzenli olarak gerçekleştirmektir. Bu noktada dikkat etmeniz gereken bazı hususlar:
+      </p>
+      <ul>
+        <li>Climayı doğru boyutta seçmek, gaz tasarrufu sağlar.</li>
+        <li>Yüksek verimli klimayı tercih etmek, enerji tüketimini azaltır.</li>
+        <li>Düzenli olarak filtre değişimi yapmalısınız, bu performansı artırır.</li>
+        <li>Gaz sızıntılarının önüne geçmek için uzman bakımları ihmal etmemelisiniz.</li>
+        <li>Kullanmadığınız zaman klimayı kapatmak, gaz tasarrufu sağlar.</li>
+      </ul>
+      <p>
+        Bu maddelere dikkat ederek, klima gazının süresi uzatılabilir. Sonuç olarak, Gazın ne kadar sürede biteceği, hem cihazın türüne hem de kullanım şekline bağlıdır. Yine de düzenli bakım ve doğru kullanımla bu süreyi uzatmayı başarabilirsiniz. Beyaz Eşya Servisi ve Soğutma Sistemleri Onarımı, bu konuda çok daha fazla bilgi ve destek sağlayabilir. Unutmayın, iyi bir bakım, cihazın ömrünü uzatır ve verimliliği artırır.
+      </p>
+
+      <h3>Kombi Su Akıtıyor Ne Yapmalıyım</h3>
+      <p>
+        Bir kombinin su akıtması, birçok evde karşılaşılabilecek yaygın bir sorundur. Bu duruma neden olan faktörler genellikle sistemin içindeki bileşenlerdeki aşınma veya arızalardır. İlk olarak, su sızıntısının kaynağını belirlemelisiniz. İşte bu noktada dikkat etmeniz gereken bazı adımlar yer alır. Öncelikle, kombinin dış yüzeyini ve su bağlantı noktalarını kontrol edin. Eğer su damlaları bu noktalar etrafında birikiyorsa, sorun buradan kaynaklanabilir. Ancak, sorun daha derin bir mekanizmal kaynaklanıyorsa, bu durum tamir ve bakım gerektirebilir. Size göstereceğim bu adımlarla, kombinizi kısa sürede sorunsuz hale getirebilirsiniz.
+      </p>
+      <p>
+        Kombinizin sızıntı yapmasının ana nedenlerinden bazıları şunlardır:
+      </p>
+      <ul>
+        <li>Bağlantı yerlerindeki aşınma: Zamanla bağlantı yerleri gevşer ve sızıntıya neden olur.</li>
+        <li>Basınç sorunları: Kombinin iç basıncı dengesizse, su sızmaları görülür.</li>
+        <li>İç bileşenlerin hasarı: Sıcak su ısıtıcı elemanları zamanla yıpranır.</li>
+        <li>Su filtrelerindeki tıkanıklık: Tıkanıklık, su akışını engeller.</li>
+        <li>Genleşme tankı arızası: Genleşme tankı, sızıntı yapma eğilimindedir.</li>
+      </ul>
+      <p>
+        Kombinizde su akıntısı problemi yaşıyorsanız, bu nedenleri incelemekte fayda var. Üstelik, bir araştırmaya göre, kullanıcıların %60’ı bu sorun yüzünden profesyonel yardım almayı tercih ediyor. Bu durum, beyaz eşya servisi ekibinin size nasıl yardımcı olabileceğine dair bir fikir verir. Unutmayın ki, bu gibi durumlarda uzman desteği almak, sorununuzun kalıcı çözümüne yardımcı olur. Ayrıca, elektronik cihaz tamiri ve ev aletleri bakımı açısından da profesyonellerle çalışmak her zaman en iyisidir.
+      </p>
+
+      <h3>Televizyon Kumandası Çalışmıyor</h3>
+      <p>
+        Televizyon kumandası sorunları günlük yaşamda sık karşılaşılan bir durumdur. Sinema keyfi sırasında kumandanın çalışmaması, izleyicileri zor durumda bırakır. Eğer kumanda yanıt vermiyorsa, bu problemi gidermek için dikkatli bir şekilde sorunları tespit etmelisin. İlk olarak, kumandanın pil durumunu kontrol etmelisin. Pil bitmesi en yaygın sorunlardan biridir. Ayrıca, kumandanın üzerindeki tuşların işlevlerini denemelisin. Hepsinin çalışıp çalışmadığını kontrol ederek, sorunu daha iyi anlayabilirsin. Kumandanın üzerindeki tuşlar arasında bazen sıkışma yaşanır. Dolayısıyla, bu durum da ekranın yanıt vermemesine yol açabilir. Eğer sorun devam ediyorsa, kumandayı silmek veya temizlemek de faydalı olabilir.
+      </p>
+      <p>
+        Kumandanın çalışmaması sıkça karşılaşılan bir durumdur. Bununla birlikte, sabırlı olmalısın. İlk olarak, kumandanın pili bitmiş olabilir; bu yüzden pili değiştirmelisin. Ardından, kumandanın tüm tuşlarını kontrol etmelisin. Geri bildirim vermeyen düğmeler varsa, kumandayı temizlemeye deneyebilirsin. Sorun sadece kumanda ile ilgili değil; televizyonun kendisinde de bir arıza olabilir. Örneğin, televizyonun iletim kutusundaki bağlantılar sağlam değilse, görüntü veya ses sorunları yaşanabilir. Ayrıca, bir araştırmaya göre, kullanıcıların %30'u televizyon kumandası sorunlarını zamanında çözmek için profesyonel destek alır. Elektronik cihaz tamiri konusunda güvenilir beyaz eşya servisi ile çalışmak, sorunları hızla çözmen için iyi bir yöntemdir.
+      </p>
+      <p>
+        Sorunun kaynağını bulduğunda, gerekli önlemleri alarak televizyonunu ve kumandanı kullanılabilir hale getirebilirsin.
+      </p>
+
+      <h3>En İyi Beyaz Eşya Markaları Hangileri</h3>
+      <p>
+        Beyaz eşya servisi, buzdolabı, çamaşır makinesi, bulaşık makinesi, fırın, klima, kombi ve televizyon, günlük yaşamda büyük bir öneme sahiptir. Bu ürünler, ev konforunu artırır ve yaşamı kolaylaştırır. Ancak, bu cihazların kaliteli ve güvenilir markalardan seçilmesi kritik bir durumdur. Kaliteli markalar, bu ürünlerin uzun ömürlü olmasını sağlar ve arızalanma ihtimalini en aza indirir. İyi bir beyaz eşya servisi, bu ürünlerin performansını artırabilir ve kullanıcıların memnuniyetini yükseltebilir.
+      </p>
+      <p>
+        Bilinçli bir tüketici olarak, en iyi beyaz eşya markalarını bilmek önemlidir. Şu anda piyasada öne çıkan markalar arasında Arçelik, Bosch, Siemens, LG ve Samsung bulunmaktadır. Bu markalar, enerji verimliliği, dayanıklılık ve tasarım açısından büyük yenilikler sunar. Ayrıca, genellikle sağladıkları garanti ve servis hizmetleri ile de dikkat çekerler. Örneğin, 2023 yılında yapılan araştırmalara göre, tüketicilerin %75’i Arçelik gibi markaların müşteri memnuniyetini yüksek buluyor ve tercih ediyor. Bunun yanı sıra, bu teknik destekle yaşam konforunu artırmak mümkündür.
+      </p>
+      <p>
+        Beyaz eşya servisi, buzdolabı gibi ürünler için düzenli bakım ve onarım sağlama konusunda gereklidir. Doğru markaları ve modelleri seçtiğinizde, ürünlerin ek maliyetlerini düşürme imkanına sahip olursunuz. Sebepler arasında şu maddeler yer alır:
+      </p>
+      <ul>
+        <li>Uzun ömür: Kaliteli markalar, dayanıklı malzemeler kullanır.</li>
+        <li>Enerji verimliliği: İyi markalar düşük enerji tüketimi sağlar.</li>
+        <li>Kullanım kolaylığı: Modern tasarımlar işinizi kolaylaştırır.</li>
+        <li>İyi hizmet: Sağladıkları teknik destekler, sorunları hızlıca çözer.</li>
+        <li>Yüksek teknoloji: Yeni özellikler, kullanıcı deneyimini zenginleştirir.</li>
+      </ul>
+      <p>
+        Bu avantajlar, beyaz eşya seçiminde etkili faktörlerdir. Yani, doğru markaları tercih ettiğinizde, ileride ortaya çıkabilecek sorunların önüne geçebileceksiniz. Bu nedenle, bulaşık makinesi veya fırın için tercih ettiğiniz marka uzun ömürlü ve verimli olmalıdır. Klimada da aynı durum geçerlidir. Özetle, markaların sağladığı hizmetler ve ürün kalitesi, alışveriş deneyiminizi olumlu şekilde etkiler.
+      </p>
+
+      <h3>Buzdolabı Alırken Nelere Dikkat Etmeli</h3>
+      <p>
+        Buzdolabı alırken pek çok faktörü göz önünde bulundurmalısın. Bu cihazın enerji verimliliği, boyutu ve tasarımı önemli detaylardır. İlk olarak, alacağın buzdolabının enerji sınıfına dikkat etmelisin. Enerji sınıfı A++ veya A+++ olan buzdolapları, uzun vadede tasarruf sağlar. Ayrıca, buzdolabının hacmi de senin için önemli bir kriterdir. Ailenin büyüklüğüne göre uygun hacmi seçerek ihtiyacını karşılayabilirsin. Ek olarak, tasarım konusunda da kişisel zevklerin ön plana çıkar. Klasik renklerin yanında, modern ve canlı renk seçeneklerini değerlendirebilirsin.
+      </p>
+      <p>
+        Bir diğer önemli faktörse buz makineleri ve soğutma sistemlerinin özellikleridir. Bu özellikler genellikle alacağın buzdolabının konforunu artırır. Kullanım kolaylığına ve iç düzenlemelere özen göster. Örneğin, ayarlanabilir raflar ve sebzelik bölmeleri, buzdolabının kullanımını pratik hale getirir. Bunun yanı sıra, dikkat etmen gereken bir diğer detay, buzdolabının gürültü seviyesidir. Gürültülü bir cihaz rahatsızlık verebilir. Yapılan araştırmalar, modern buzdolaplarının %25’inin gürültü düzeyinin 40 desibelin altında olduğunu göstermektedir. Doğru seçim yaparak yaşam alanını da daha konforlu hale getirebilirsin.
+      </p>
+      <p>
+        Buzdolabı alırken dikkat etmen gereken temel özellikler şunlardır:
+      </p>
+      <ul>
+        <li>Enerji verimliliği: Uzun süre boyunca tasarruf sağlar.</li>
+        <li>Hacim seçimleri: Aileye uygun kapasite önemli.</li>
+        <li>Tasarım seçenekleri: Kişisel zevklere göre seçim yapmalısın.</li>
+        <li>İç düzenleme özellikleri: Kullanım kolaylığı açısından önemlidir.</li>
+        <li>Gürültü düzeyi: Konfor için düşük desibel tercih edilmeli.</li>
+      </ul>
+      <p>
+        Sonuç olarak, sen de bu noktaları göz önünde bulundurarak, uygun beyaz eşya servisi ile kaliteli bir buzdolabı seçebilirsin. Unutma, doğru seçim, uzun ömür ve tasarruf sayesinde sana fayda sağlar. Bu aşamalara dikkat etmek, alacağın buzdolabının çalışma performansını artırır. Aynı zamanda, diğer ev aletleri ile uyum içinde çalışmasını sağlar.
+      </p>
+
+      <h3>Çamaşır Makinesi Seçimi Nasıl Yapılır</h3>
+      <p>
+        Çamaşır makinesi seçimi, evdeki en önemli elektronik cihazlardan biri olan beyaz eşyaların en başında gelir. Uygun seçimi yapmak, hem enerji tasarrufu hem de verimlilik açısından büyük önem taşır. Merak ettiğiniz konular arasında, çamaşır makinenizin kapasitesi, motor tipi ve enerji verimliliği yer alır. Bu bilgiler ışığında, ideal çamaşır makinesini seçmek oldukça kolaydır. Doğru makineyi tercih ederek, hem özel ihtiyaçlarınıza uygun çözümler bulursunuz hem de uzun ömürlü bir kullanım sağlarsınız. Farklı markalarda mevcut olan çamaşır makineleri, değişik özellikler ve fiyat aralıkları ile karşınıza çıkar. Geniş bir yelpazede modellerle karşılaşabilirsiniz.
+      </p>
+      <p>
+        Seçim yaparken dikkat etmeniz gereken bazı noktalar bulunmaktadır. Bunlar arasında şunlar yer alır:
+      </p>
+      <ul>
+        <li>Kapasite: Makineyi ne sıklıkta kullanacağınıza bağlı olarak, uygun kapasitede bir ürün seçin.</li>
+        <li>Enerji tasarrufu: Yüksek enerji verimliliği sağlayan modeller, elektrik tüketimini azaltır.</li>
+        <li>Program seçenekleri: Kullanım amacınıza göre farklı yıkama programları bulunan makineler tercih edin.</li>
+        <li>Gürültü seviyesi: Sessiz çalışan makineler, daha konforlu bir deneyim sunar.</li>
+        <li>Fiyat ve garanti: Rekabetçi fiyatlar ve iyi garanti koşulları sunan markalar tercih edilmeli.</li>
+      </ul>
+      <p>
+        Sonuç olarak, çamaşır makinesi seçerken yalnızca fiyat odaklı düşünmemek gerekir. İlk olarak ihtiyacınıza en uygun modelin belirlenmesi önemlidir. Doğru teknik özelliklere sahip çamaşır makinesi, sizlere zaman ve enerji tasarrufu sağlar. Yapılan bir araştırmaya göre, kullanıcıların %65’i enerji verimliliği açısından doğru seçim yaptıklarında memnuniyet yaşadıklarını belirtmektedir. Beyaz Eşya Servisi, bu aşamada devreye girer ve kullanıcıların doğru seçim yapmalarına yardımcı olur. İyi bir beyaz eşya servisi, size çamaşır makineleri hakkında detaylı bilgi sunarak daha iyi bir karar vermenizi sağlar.
+      </p>
+
+      <h3>Bulaşık Makinesi Alırken Hangi Özelliklere Bakmalı</h3>
+      <p>
+        Bulaşık makinesi alırken göz önünde bulundurulması gereken birçok özellik bulunmaktadır. Bu özellikler, hem kullanım kolaylığına hem de enerji verimliliğine etki eder. İlk olarak, bulaşık makinesinin boyutu önem taşır. Yeterli kapasiteye sahip bir makine, sizin mutfak ihtiyaçlarınıza uygun olmalıdır. Ayrıca, enerji sınıfına dikkat etmelisiniz. A+++ sınıfı makineler, daha az enerji tüketir. Bu durum, hem çevre dostudur hem de uzun vadede tasarruf sağlar. Ayrıca, sessiz çalışma özelliği, özellikle açık mutfaklarda kullanışlıdır. Ayrıca, makinenin su tüketimi de önemlidir. Günlük hayatınızda sağladığı su tasarrufu, hem çevre hem de bütçeniz için avantajlı olur.
+      </p>
+      <p>
+        Bunun yanı sıra, bulaşık makinesinin ek özellikleri de dikkat çekici olabilir. Bu özellikler şunlardır:
+      </p>
+      <ul>
+        <li>Farklı yıkama programları: Her tür bulaşığa uygun programlarla esneklik sağlar.</li>
+        <li>Yüksek sıcaklıkla yıkama: Bulaşıkları daha hijyenik hale getirir.</li>
+        <li>Giriş ve çıkış sensörleri: Enerji verimliliğini artırarak tasarruf sağlar.</li>
+        <li>Dış yüzeyin paslanmaz oluşu: Uzun ömürlü kullanım ve dayanıklılık sunar.</li>
+      </ul>
+      <p>
+        Bu özelliklere sahip bir bulaşık makinesi, elektronik cihaz tamiri veya ev aletleri bakımı ihtiyacını en aza indirecektir. Böylece, hayatınızda daha az bakım ile uzun süreli kullanım sağlamış olursunuz. Ayrıca, çok yönlü özellikleriyle birlikte, makine ihtiyacınızı karşılayacak bir çözüm sunar.
+      </p>
+      <p>
+        Sonuç olarak, bulaşık makinesi alırken birçok faktör değerlendirirsiniz. Kapasite, enerji verimliliği ve ek özellikler, seçim sürecinde kritik rol oynar. Bu makale sayesinde, kendinize en uygun bulaşık makinesini rahatlıkla bulabilirsiniz. Uzun ömürlü ve verimli kullanmak, sizin için önemli olmalıdır. Alacağınız ürünün kalitesi, ileride karşılaşacağınız sorunları da azaltır. Bu durumda; beyaz eşya servisi veya elektronik cihaz tamiri ihtiyacını en aza indirmiş olursunuz.
+      </p>
+
+      <h3>Fırın Tipleri Arasındaki Farklar Nelerdir</h3>
+      <p>
+        Fırın çeşitleri, mutfaktaki en popüler aletlerden biridir. Farklı kullanım alanlarına göre çeşitli tipleri bulunmaktadır. Bu yazıda, fırın tipleri arasındaki farkları inceleyeceğim. Bilgilerim, fırın alacak kişilere rehberlik edecektir. Manuel fırınlar, elektrikli fırınlar ve gazlı fırınlar gibi birçok seçenek mevcut. Bunların her birinin kendine has avantajları ve dezavantajları bulunur. Bu farklar, özellikle pişirme yöntemleri ve enerji tüketimi açısından önem taşır. Örneğin, elektrikli fırınlar genellikle daha homojen bir ısı dağılımı sağlar. Bunun yanı sıra, gazlı fırınlar, aniden sıcaklık artırma konusunda daha etkilidir.
+      </p>
+      <p>
+        Fırın seçiminde dikkate almanız gereken temel unsurlar arasında; enerji verimliliği, pişirme seçenekleri ve bakım kolaylığı yer alır. Farklı fırın türlerinin özelliklerini değerlendirmek önemlidir. Aşağıdaki maddeler, fırın çeşitleri arasındaki farkları özetlemektedir:
+      </p>
+      <ul>
+        <li>Farklı enerji kaynağı kullanmaları: Gazlı fırınlar doğalgaz ile çalışırken, elektrikli fırınlar elektrikle çalışır.</li>
+        <li>Pişirme yöntemleri: Kombi fırınlar hem pişirme hem de ızgara seçenekleri sunar.</li>
+        <li>Temizlik işlemi: Otomatik temizleme özelliği bulunan fırınlar, temizlik konusunda kolaylık sağlar.</li>
+        <li>Isı dağılımı: Dikey ısıtma sistemleri, yiyeceklerin eşit pişmesini sağlar.</li>
+        <li>Boyut ve kapasite: Küçük mutfaklar için ideal olan mini fırınlar, sınırlı alanlarda kullanışlıdır.</li>
+      </ul>
+      <p>
+        Bu bilgiler, fırın tipleri arasında karar verirken yardımcı olacaktır. Uzun vadede sağlarlar, bu nedenle doğru fırın seçimi önemlidir. Markaların sunduğu garanti süreleri değişebilir, bu yüzden beyaz eşya servisi sağlayan firmalarla iletişim kurmanız faydalı olacaktır. Sonuç olarak, doğru fırını seçtiğinizde mutfağınızda yenilikler yapabilirsiniz. Ayrıca bu seçim, daha lezzetli yemekler pişirmenizi sağlar.
+      </p>
+
+      <h3>Klima Alırken BTU Değeri Ne Olmalı</h3>
+      <p>
+        Klima alırken BTU değeri, önemli bir kriterdir. Bu değer, klimanın ne kadar ısıyı alıp verebileceğini gösterir. Bu nedenle, doğru BTU değerine sahip bir klima seçmek, konforu artırır. Uygun BTU değeri, mekânın büyüklüğüne bağlıdır. Örneğin, 20 metrekarelik bir odayı soğutmak için yaklaşık 6.000 BTU değeri yeterlidir. Ancak, alanınız daha büyükse, bu değeri artırmanız gerekir. Ayrıca, alanda pencerelerin sayısı ve güneş ışığı da hesabınızı etkiler. Odanız güneş alan bir yerdeyse, daha yüksek bir BTU değeri tercih etmelisiniz. Dolayısıyla, bu bilgileri göz önünde bulundurmak, klima seçiminde faydalı olur.
+      </p>
+      <p>
+        Elde ettiğin bilgilerle birlikte, BTU değerine dikkat etmelisin. Klima alırken, şu noktaları göz önünde bulundurarak seçimini yapabilirsin:
+      </p>
+      <ul>
+        <li>Oda Alanı: Mevcut alanın büyüklüğüne göre hedef BTU değerini belirle.</li>
+        <li>Yalıtım Durumu: Evin veya ofisin yalıtım durumu, BTU ihtiyacını etkiler.</li>
+        <li>Güneş Işığı: Odanın doğrudan güneş ışığı alıp almadığına bağlı olarak ayarlamalar yap.</li>
+        <li>Aletin Kullanımı: Odaya kaç kişi gireceğini ve klima ne sıklıkla çalışacak, buna karar ver.</li>
+        <li>Cihaz Verimliliği: Seçtiğin cihazın enerji verimliliği, uzun vadeli tasarruf sağlar.</li>
+      </ul>
+      <p>
+        Bu unsurlara bağlı olarak, doğru BTU değerini bulabilirsin. 2023 yılında yapılan bir araştırmaya göre, kullanıcıların %65’i klima seçiminde BTU değerini göz önünde bulunduruyor. Dolayısıyla, sen de bu kriteri öncelikli hale getirerek, ihtiyaçların doğrultusunda en uygun klimayı seçebilirsin. Bu bilgileri kullanarak, yazın serin kalacak bir klima sahibi olabilirsin. Beyaz Eşya Servisi ile ilgili her türlü teknik destek sağlanır.
+      </p>
+
+      <h3>Kombi Markaları ve Fiyatları Karşılaştırması</h3>
+      <p>
+        Kombiler, ısıtma ve sıcak su temini açısından önemli bir role sahip. Bu nedenle, en uygun kombi seçimi yapmak kullanıcılar için büyük önem taşır. Kombi markalarında pek çok alternatif sunulmaktadır. Markaların sunduğu özellikler ile fiyatları arasında birçok fark bulunur. Siz de bu yazıda kombi markalarını ve fiyatlarını değerlendirirken bazı noktalar üzerinde düşünmelisiniz. Öncelikle, markanın kalitesi ve sağladığı destek büyük bir belirleyici faktördür. Ayrıca, kullanıcı yorumları da almak istediğiniz performans hakkında bilgi verir.
+      </p>
+      <p>
+        Kombi seçiminde dikkat etmeniz gereken bazı önemli noktalar şunlardır:
+      </p>
+      <ul>
+        <li>Marka Güvenilirliği: İyi bilinen markaları tercih etmelisiniz. Bu markalar genellikle iyi destek sunar.</li>
+        <li>Enerji Verimliliği: Enerji verimli kombiler, uzun vadede tasarruf sağlar.</li>
+        <li>Fiyat Aralıkları: Fiyatlar, 2023 yılı itibarıyla 5.000 TL ile 15.000 TL arasında değişmektedir.</li>
+        <li>Garanti Süresi: Uzun garanti süreleri, ürünün dayanıklılığına dair iyi bir göstergedir.</li>
+        <li>Yedek Parça Ulaşılabilirliği: Araç genelindeki servis ağı sıkı bir şekilde incelenmeli.</li>
+      </ul>
+      <p>
+        Bunlara ek olarak, Elektronik Cihaz Tamiri konusunda uzman bir servis bulmak da önemlidir. Kullanıcı deneyimi, kombi seçiminde belirleyici olabilir. Bu nedenle, kullanıcıların deneyimlerini incelemek faydalıdır. Kaliteli bir Beyaz Eşya Servisi, arızalanan cihazlarınızı hızlıca onarıp, uzun ömürlü hale getirebilir. Böylece, ısıtma cihazlarınızda düzenli bir bakım sağlar. Unutmayın, doğru seçim yapmanız gelecekte büyük tasarruf edinmenizi sağlar.
+      </p>
+
+      <h3>Televizyon Alırken Ekran Boyutu Nasıl Seçilir</h3>
+      <p>
+        Televizyon alırken ekran boyutunu seçerken birkaç önemli faktörü göz önünde bulundurmalısın. Öncelikle, ekran boyutu oturma mesafene göre değişiklik gösterir. Uzun bir mesafeden izlersen daha büyük bir ekran tercih edebilirsin. Diğer yandan, daha yakın mesafeler için daha küçük bir ekran yeterli olur. Ekran boyutunu seçerken, izleme alanının genişliğini ve derinliğini göz önünde bulundur. Televizyonun boyu ile odanın boyutunu dengelemek, rahat bir izleme deneyimi sunar.
+      </p>
+      <p>
+        Bu aşamada belirli ölçüm yöntemleri kullanabilirsin. Mesela, ekranın boyutunu belirlemek için odanın uzunluğunu ölçebilirsin. Odanın uzunluğu, ekran boyutunu belirlemede önemli bir etkendir. Genel bir kural olarak, oturma noktan ile ekran arasında olan mesafeyi ikiye böler ve bu sonuç, tercih edeceğin ekran boyutunu belirler. Örneğin, oturma alanın 2.5 metre ise, 55-65 inç boyutundaki bir televizyon idealdir. Ayrıca, TV’nin çözünürlüğü de önemli bir faktör. 4K TV'ler daha yüksek çözünürlük sağladığı için daha büyük ekranlar seçebilirsin. Unutma ki, Beyaz Eşya Servisi, Buzdolabı, Çamaşır Makinesi, Bulaşık Makinesi, Fırın, Klima, Kombi Ve Televizyon konusuna dikkat etmek, uzun ömürlü bir kullanım sunar.
+      </p>
+      <p>
+        Ekran boyutunu seçerken göz önünde bulundurulması gereken ayrıntılar şunlardır:
+      </p>
+      <ul>
+        <li>İzleme mesafesi: Ekrana ne kadar uzaktasın?</li>
+        <li>Çoklu kullanım: Televizyonu hangi amaçlarla kullanacaksın?</li>
+        <li>Odanın atmosferi: Odanın aydınlatması ekranın görünürlüğünü etkiler.</li>
+        <li>İç mekan tasarımı: Televizyonun odanın dekorasyonuna uyumu önemlidir.</li>
+        <li>Bütçe: Hedeflediğin ekran boyutu bütçene uygun mu?</li>
+      </ul>
+      <p>
+        Tüm bu faktörleri dikkate alarak, rahat bir izleme deneyimi için doğru ekran boyutunu seçebilirsin. Yapılan araştırmalar, doğru ekran boyutu seçimi ile izleme deneyiminin %80 oranında iyileştiğini gösteriyor. Televizyon alımında yapacağın seçimin, uzun yıllar boyunca keyif almanı sağlayacağını unutma. Doğru tercihler, sonuç olarak Beyaz Eşya Servisi, Buzdolabı, Çamaşır Makinesi, Bulaşık Makinesi, Fırın, Klima, Kombi Ve Televizyon alanında da huzurlu bir yaşam sunar.
+      </p>
+
+      <h3>Beyaz Eşya Servisi Ne Kadar Ücret Alır</h3>
+      <p>
+        Beyaz eşya servisi, evdeki cihazların düzgün çalışmasını sağlamak için oldukça önemli bir yer tutar. Genellikle bu hizmet, cihazların bakım, onarım ve kurulumunu kapsar. Beyaz Eşya Servisi, Buzdolabı, Çamaşır Makinesi, Bulaşık Makinesi, Fırın, Klima, Kombi ve Televizyon gibi çeşitli cihazların onarımını yapar. Bu tür hizmetlerin maliyeti ise birçok faktöre göre değişir. Cihazın türü, arıza durumu ve gerekli yedek parçaların fiyatı, servis ücretini etkileyen ana etkenlerdendir. Örneğin, bulaşık makinesi tamiri, çamaşır makinesi onarımına göre farklı bedeller alabilir. Dolayısıyla, bu hizmetlerin maliyeti hakkında net bir rakam vermek zordur.
+      </p>
+      <p>
+        Ayrıca, beyaz eşya servisi için genel olarak belirli bir fiyat aralığı vardır. Çoğu zaman, bu tür hizmetler için ortalama 150 TL ila 500 TL arasında değişen ücretler söz konusudur. Bu ücret, yapılan işin karmaşıklığına göre artabilir. Bunun yanı sıra, Elektronik Cihaz Tamiri, Ev Aletleri Bakımı gibi benzer hizmetlerin maliyetleri de göz önünde bulundurulmalıdır. Ortalama olarak, Türkiye’de beyaz eşya tamiri, bu tür durumların %70’inde 300TL civarında gerçekleşir. Unutulmaması gereken bir diğer husus ise, her firma kendi politikalarına göre fiyatlandırma yapar. Dolayısıyla, en güncel fiyatları öğrenmek için belirli servisler ile iletişime geçmekte fayda vardır.
+      </p>
+      <p>
+        Beyaz eşya servisi konusunda dikkat edilecek birkaç nokta bulunmaktadır:
+      </p>
+      <ul>
+        <li>Cihazın markası ve modeli, fiyatı etkiler.</li>
+        <li>Servisin ulaşım ücreti, toplam fiyata yansır.</li>
+        <li>Gelen servisin deneyimi, tamirin kalitesini belirler.</li>
+        <li>Yedek parçanın kalitesi, uzun ömürlü kullanım sağlar.</li>
+        <li>Garanti kapsamındaki tamiratlar, ücretlendirilmez.</li>
+      </ul>
+      <p>
+        Bu koşulları göz önünde bulundurarak, beyaz eşya servisinden faydalanırken ihtiyacınızı karşılayan en uygun fiyatı bulmanız kolaylaşır. Sonuç olarak, Beyaz Eşya Servisi için belirlenen ücretler, yukarıda belirtilen unsurlara göre farklılık gösterir. Onarım sürecinde, kullanıcıdan alınacak geri bildirimler de fiyatlandırmayı etkileyebilir. Ancak her durumda, fiyatın yanı sıra hizmet kalitesi de göz önünde bulundurulmalıdır.
+      </p>
+
+      <h3>Buzdolabı Tamiri Ne Kadar Sürer</h3>
+      <p>
+        Buzdolabı tamiri süresi, arıza türüne göre değişiklik gösterir. Genellikle, bu işlemler birkaç saat içinde tamamlanır. Ancak duruma göre bu süre uzayabilir. Beyaz eşyaların tamiri gibi teknik süreçlerde uzman kişilerin etkin rol oynaması önem taşır. Buzdolabı tamiri sırasında, arıza kaynağını belirlemek esastır. Problemin en hızlı şekilde tespit edilmesi için, kullanıcıların belirli adımları takip etmesi gereklidir. Öncelikle, buzdolabının çalışmama sebebini analiz etmeleri faydalı olur. Bunun yanı sıra, uzman bir beyaz eşya servisi ile çalışmak, güvenilir sonuçlar almanıza yardımcı olur. Bu süreçte yaşadığınız sorunları tarif etmek, süreci hızlandırır.
+      </p>
+      <p>
+        Tamir işlemleri genellikle 2 ile 4 saat arasında tamamlanır. Bu süre, arızanın karmaşıklığına bağlıdır. Örneğin, kompresör veya motor değişimi gereken durumlar daha uzun sürebilir. Ancak, basit bir parça değişimi ortalama 1-2 saatte yapılmaktadır. Geçtiğimiz yıllarda yapılan araştırmalara göre, buzdolabı kullanıcılarının %60’ı, servis sürecinin uygun sürelerde tamamlandığını belirtmektedir. Sonuç olarak, soğutma sistemleri onarımı sırasında, yapılacak işlem türü ve ihtiyaç duyulan parçaların temin süresi, buzdolabı tamir süresini etkilemektedir. Unutmayın ki, tamir süreçlerinde deneyimli bir noktanın yardımını almak, sürecin verimliliğini artırır.
+      </p>
+      <p>
+        Buzdolabı tamiri sürecinin avantajlarını şöyle sıralayabiliriz:
+      </p>
+      <ul>
+        <li>Kullanıcı kadar, profesyoneller önemli görev üstlenir.</li>
+        <li>Hızlı çözüm arayışları zaman kaybını azaltır.</li>
+        <li>Kesin arıza tespiti sonrası doğru işlemler uygulanır.</li>
+        <li>Deneyimli kişiler tarafından işleme alınır.</li>
+        <li>Uzun süreli çözümler sağlanır.</li>
+      </ul>
+      <p>
+        Bu maddelerin altında, beyaz eşya servisi deneyiminizi olumlu yönde etkileyen detayları görebilirsiniz. Ayrıca bu aşamada dikkat ettiğiniz durumlar, sonuca ulaşmanıza aracılık eder. Buzdolabı tamir sürecinde, yaşadığınız sorunlar üzerine düşünmek ve çözüm yolları aramak oldukça önemlidir.
+      </p>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-column">
+      <h3>İletişim</h3>
+      <p><span class="fa-solid fa-location-dot"></span> Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul</p>
+      <p><span class="fa-solid fa-phone"></span> +90 (555) 111 22 33</p>
+      <p><span class="fa-solid fa-envelope"></span> info@servisweb.com</p>
+    </div>
+    <div class="footer-column">
+      <h3>Hizmetlerimiz</h3>
+      <a href="hizmet.html?service=beyazesya">Beyaz Eşya Servisi</a>
+      <a href="hizmet.html?service=buzdolabi">Buzdolabı Tamiri</a>
+      <a href="hizmet.html?service=camasirmakinesi">Çamaşır Makinesi Servisi</a>
+      <a href="hizmet.html?service=bulasikmakinesi">Bulaşık Makinesi Servisi</a>
+      <a href="hizmet.html?service=firin">Fırın Tamiri</a>
+      <a href="hizmet.html?service=klima">Klima Bakımı</a>
+      <a href="hizmet.html?service=kombi">Kombi Servisi</a>
+      <a href="hizmet.html?service=televizyon">Televizyon Tamiri</a>
+    </div>
+    <div class="footer-column">
+      <h3>Hızlı Linkler</h3>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+      <a href="gizlilik.html">Gizlilik Politikası</a>
+      <a href="kvkk.html">KVKK</a>
+    </div>
+    <div class="footer-column">
+      <h3>Bizi Takip Edin</h3>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="notice-container">
+      <div class="notice">
+        <strong>Önemli Not:</strong> Bu site yetkili servis değildir. Garantisi olmayan cihazlara hizmet verilmektedir.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

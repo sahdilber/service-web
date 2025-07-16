@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KVKK Aydınlatma Metni | ServisWeb</title>
+  <meta name="description" content="ServisWeb KVKK Aydınlatma Metni - Kişisel verilerinizin korunması hakkında detaylı bilgi alın." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Global Renk Paleti ve Temel Stiller */
+    :root {
+      --primary: #3498db; /* Modern, canlı bir mavi */
+      --dark: #2c3e50;    /* Koyu lacivert/gri tonu */
+      --light: #ecf0f1;   /* Çok açık gri */
+      --accent: #27ae60;  /* Canlı, doğal bir yeşil */
+      --text-color: #34495e; /* Okunabilir koyu gri metin */
+      --border-color: #bdc3c7; /* Açık gri kenarlıklar */
+      --background-light: #ffffff; /* Ana arka plan rengi */
+      --footer-bg: #212121; /* Koyu gri, görseldeki gibi */
+      --footer-text-color: #bdbdbd; /* Açık gri metin rengi */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text-color);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Header Stilleri */
+    header {
+      background: var(--background-light);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .menu a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+    }
+    .menu a:hover {
+      color: var(--primary);
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--background-light);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      top: 2.2rem;
+      left: 0;
+      min-width: 220px;
+      z-index: 99;
+      border: 1px solid var(--border-color);
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 0.8rem 1.2rem;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .dropdown-content a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        background: var(--background-light);
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        padding: 1rem;
+      }
+      .menu.show {
+        display: flex;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        background: none;
+      }
+      .dropdown-content a {
+        padding: 0.6rem 0;
+      }
+    }
+
+    /* Main Section Stilleri */
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      background: var(--background-light);
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--dark);
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-align: justify;
+      color: var(--text-color);
+    }
+    ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+        list-style-type: disc;
+    }
+    ul li {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+    }
+
+    .notice {
+      background: #fff3cd;
+      color: #856404;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      border: 1px solid #ffeeba;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .notice strong {
+        color: #6a5000;
+    }
+
+    .action-button {
+      display: block;
+      width: fit-content;
+      margin: 2.5rem auto 1.5rem auto;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3);
+    }
+    .action-button:hover {
+      background: #219d53;
+      transform: translateY(-2px);
+    }
+    .action-button i {
+        margin-right: 10px;
+    }
+
+
+    /* Footer Stilleri */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text-color);
+      padding: 3.5rem 1rem;
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: flex-start;
+      text-align: left;
+      flex-direction: row;
+      margin-top: 2rem;
+    }
+
+    footer .footer-column {
+      flex: 1;
+      min-width: 220px;
+      margin: 1.5rem;
+    }
+
+    footer .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      position: relative;
+      padding-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    footer .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    footer .footer-column p,
+    footer .footer-column a {
+      color: var(--footer-text-color);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.8rem;
+      transition: color 0.3s ease;
+    }
+
+    footer .footer-column p {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    footer .footer-column p span {
+        margin-right: 10px;
+        font-size: 1.1rem;
+        color: var(--primary);
+    }
+
+    footer .footer-column a:hover {
+      color: var(--primary);
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .social-icons a {
+        background-color: #333;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        background-color: var(--primary);
+        color: #fff;
+    }
+
+    footer .notice-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    footer .notice {
+      background-color: transparent;
+      color: var(--footer-text-color);
+      padding: 0;
+      border-radius: 0;
+      font-weight: normal;
+      border: none;
+      text-align: left;
+      max-width: none;
+      box-shadow: none;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    footer .notice strong {
+      font-weight: bold;
+      color: #fff;
+      margin-right: 5px;
+    }
+
+    /* Footer Responsive Düzenlemeler */
+    @media screen and (max-width: 768px) {
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      footer .footer-column {
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      footer .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      footer .notice-container {
+          margin-top: 1.5rem;
+          justify-content: center;
+          padding-left: 0;
+          padding-right: 0;
+      }
+      footer .notice {
+        text-align: center;
+      }
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "KVKK Aydınlatma Metni - ServisWeb",
+      "image": [
+        "https://servisweb.com/kvkk-banner.jpg" 
+       ],
+      "datePublished": "2025-07-16T00:00:00+03:00",
+      "dateModified": "2025-07-16T00:00:00+03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "ServisWeb"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ServisWeb",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://servisweb.com/logo.png"
+        }
+      },
+      "description": "ServisWeb olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu uyarınca kişisel verilerinizin işlenmesi ve korunması hakkında detaylı bilgi alın.",
+      "articleSection": [
+        "Giriş",
+        "Veri Sorumlusu",
+        "Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi",
+        "Kişisel Verilerin İşlenme Amaçları",
+        "İşlenen Kişisel Veriler",
+        "Kişisel Verilerin Kimlere ve Hangi Amaçla Aktarılabileceği",
+        "KVKK'nın 11. Maddesinde Sayılan İlgili Kişi Hakları",
+        "Başvuru ve İletişim"
+      ]
+    }
+  </script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('main-menu');
+      menu.classList.toggle('show');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">ServisWeb</a>
+      <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+      <nav class="menu" id="main-menu">
+        <a href="index.html">Ana Sayfa</a>
+        <div class="dropdown">
+          <span style="cursor:pointer; font-weight:500; color:var(--text-color);">Hizmetlerimiz</span>
+          <div class="dropdown-content">
+            <a href="hizmet.html?service=beyazesya">Beyaz Eşya</a>
+            <a href="hizmet.html?service=buzdolabi">Buzdolabı</a>
+            <a href="hizmet.html?service=camasirmakinesi">Çamaşır Makinesi</a>
+            <a href="hizmet.html?service=bulasikmakinesi">Bulaşık Makinesi</a>
+            <a href="hizmet.html?service=firin">Fırın</a>
+            <a href="hizmet.html?service=klima">Klima</a>
+            <a href="hizmet.html?service=kombi">Kombi</a>
+            <a href="hizmet.html?service=televizyon">Televizyon</a>
+          </div>
+        </div>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>KVKK Aydınlatma Metni</h1>
+
+    <p>ServisWeb olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") ve ilgili mevzuat uyarınca, kişisel verilerinizin güvenliği hususuna azami hassasiyet göstermekteyiz. İşbu Aydınlatma Metni, ServisWeb tarafından kişisel verilerinizin ne şekilde işlendiği, kimlerle paylaşıldığı, toplama yöntemleri ve hukuki sebepleri ile KVKK kapsamındaki haklarınız hakkında sizleri bilgilendirmek amacıyla hazırlanmıştır.</p>
+
+    <h2>1. Veri Sorumlusu</h2>
+    <p>Kişisel verileriniz, veri sorumlusu sıfatıyla "ServisWeb" tarafından aşağıda açıklanan amaçlar doğrultusunda ve KVKK'ya uygun olarak işlenebilecektir.</p>
+
+    <h2>2. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi</h2>
+    <p>Kişisel verileriniz, ServisWeb'e yapacağınız başvurular, web sitemiz üzerindeki formlar (iletişim formu, servis talep formu vb.), e-posta, telefon gibi kanallar aracılığıyla otomatik veya otomatik olmayan yollarla sözlü, yazılı veya elektronik ortamda toplanmaktadır.</p>
+    <p>Kişisel verileriniz, KVKK'nın 5. maddesinde belirtilen aşağıdaki hukuki sebeplere dayanarak işlenmektedir:</p>
+    <ul>
+        <li>Kanunlarda açıkça öngörülmesi.</li>
+        <li>Bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması kaydıyla, sözleşmenin taraflarına ait kişisel verilerin işlenmesinin gerekli olması.</li>
+        <li>Veri sorumlusunun hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması.</li>
+        <li>İlgili kişinin kendisi tarafından alenileştirilmiş olması.</li>
+        <li>Bir hakkın tesisi, kullanılması veya korunması için veri işlemenin zorunlu olması.</li>
+        <li>İlgili kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri sorumlusunun meşru menfaatleri için veri işlenmesinin zorunlu olması.</li>
+    </ul>
+
+    <h2>3. Kişisel Verilerin İşlenme Amaçları</h2>
+    <p>Toplanan kişisel verileriniz, aşağıda belirtilen amaçlar doğrultusunda işlenmektedir:</p>
+    <ul>
+        <li>Teknik servis hizmetlerinin sunulması ve taleplerinizin karşılanması.</li>
+        <li>Müşteri memnuniyetinin sağlanması ve şikayet/talep yönetimi.</li>
+        <li>İletişim faaliyetlerinin yürütülmesi.</li>
+        <li>Mal/hizmet satış ve satış sonrası destek hizmetlerinin ifası.</li>
+        <li>Yasal yükümlülüklerin yerine getirilmesi (örneğin faturalandırma).</li>
+        <li>Web sitesi performansının ve kullanıcı deneyiminin geliştirilmesi.</li>
+        <li>Bilgi güvenliği süreçlerinin yürütülmesi.</li>
+        <li>Pazarlama ve tanıtım faaliyetlerinin yürütülmesi (onayınız olması halinde).</li>
+    </ul>
+
+    <h2>4. İşlenen Kişisel Veriler</h2>
+    <p>ServisWeb tarafından işlenebilecek kişisel veri kategorileri aşağıda belirtilmiştir:</p>
+    <ul>
+        <li><strong>Kimlik Bilgileri:</strong> Ad, soyad, T.C. kimlik numarası (gerektiğinde).</li>
+        <li><strong>İletişim Bilgileri:</strong> Telefon numarası, e-posta adresi, adres.</li>
+        <li><strong>Müşteri İşlem Bilgileri:</strong> Talep ve şikayet kayıtları, hizmet geçmişi, fatura bilgileri.</li>
+        <li><strong>Cihaz Bilgileri:</strong> Arızalı cihazın türü, markası, modeli, seri numarası.</li>
+        <li><strong>Dijital Ortam Bilgileri:</strong> IP adresi, çerez kayıtları (web sitesi ziyareti sırasında).</li>
+    </ul>
+
+    <h2>5. Kişisel Verilerin Kimlere ve Hangi Amaçla Aktarılabileceği</h2>
+    <p>Kişisel verileriniz, yukarıda belirtilen işleme amaçları doğrultusunda ve KVKK'nın 8. ve 9. maddelerinde belirtilen şartlara uygun olarak;</p>
+    <ul>
+        <li>Hizmet aldığımız tedarikçilerimize (örneğin lojistik firmaları, yedek parça tedarikçileri),</li>
+        <li>Yasal yükümlülüklerimizi yerine getirmek amacıyla kamu kurum ve kuruluşlarına (adli ve idari makamlar),</li>
+        <li>Gerekli güvenlik önlemleri alınmak kaydıyla ve iş süreçlerimizin gerektirdiği hallerde iş ortaklarımıza aktarılabilecektir.</li>
+    </ul>
+    <p>Verilerinizin aktarılması durumunda, ilgili kişilerin hakları ve veri güvenliği prensipleri gözetilmektedir.</p>
+
+    <h2>6. KVKK'nın 11. Maddesinde Sayılan İlgili Kişi Hakları</h2>
+    <p>KVKK'nın 11. maddesi uyarınca, kişisel veri sahibi olarak aşağıdaki haklara sahipsiniz:</p>
+    <ul>
+        <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme.</li>
+        <li>Kişisel verileriniz işlenmişse buna ilişkin bilgi talep etme.</li>
+        <li>Kişisel verilerinizin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme.</li>
+        <li>Yurt içinde veya yurt dışında kişisel verilerinizin aktarıldığı üçüncü kişileri bilme.</li>
+        <li>Kişisel verilerinizin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme.</li>
+        <li>KVKK 7. maddede öngörülen şartlar çerçevesinde kişisel verilerinizin silinmesini veya yok edilmesini isteme.</li>
+        <li>(e) ve (f) bentleri uyarınca yapılan işlemlerin, kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme.</li>
+        <li>İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme.</li>
+        <li>Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme.</li>
+    </ul>
+
+    <h2>7. Başvuru ve İletişim</h2>
+    <p>Yukarıda belirtilen haklarınızı kullanmak ile ilgili taleplerinizi, yazılı olarak veya Kişisel Verileri Koruma Kurulu tarafından belirlenen diğer yöntemlerle veri sorumlusu ServisWeb'e iletebilirsiniz. Başvurularınızı aşağıda belirtilen e-posta adresimize gönderebilir veya posta adresimize iadeli taahhütlü mektupla iletebilirsiniz.</p>
+    <p><strong>E-posta:</strong> info@servisweb.com</p>
+    <p><strong>Adres:</strong> Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul</p>
+    <p>ServisWeb, talebin niteliğine göre talebi en kısa sürede ve en geç otuz gün içinde ücretsiz olarak sonuçlandıracaktır. Ancak, işlemin ayrıca bir maliyeti gerektirmesi hâlinde, Kişisel Verileri Koruma Kurulu’nca belirlenen tarifedeki ücret alınabilir.</p>
+
+    <a href="tel:+905551112233" class="action-button">
+        <i class="fas fa-phone-alt"></i> Bizi Arayın
+    </a>
+
+    <div class="notice">
+      <strong>Önemli Not:</strong> Bu site <strong>yetkili servis</strong> değildir. Garantisi bitmiş ürünler için hizmet sağlamaktadır.
+    </div>
+  </main>
+  <footer>
+    <div class="footer-column">
+      <h3>İletişim</h3>
+      <p><span class="fa-solid fa-location-dot"></span> Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul</p>
+      <p><span class="fa-solid fa-phone"></span> +90 (555) 111 22 33</p>
+      <p><span class="fa-solid fa-envelope"></span> info@servisweb.com</p>
+    </div>
+    <div class="footer-column">
+      <h3>Hizmetlerimiz</h3>
+      <a href="hizmet.html?service=beyazesya">Beyaz Eşya Servisi</a>
+      <a href="hizmet.html?service=buzdolabi">Buzdolabı Tamiri</a>
+      <a href="hizmet.html?service=camasirmakinesi">Çamaşır Makinesi Servisi</a>
+      <a href="hizmet.html?service=bulasikmakinesi">Bulaşık Makinesi Servisi</a>
+      <a href="hizmet.html?service=firin">Fırın Tamiri</a>
+      <a href="hizmet.html?service=klima">Klima Bakımı</a>
+      <a href="hizmet.html?service=kombi">Kombi Servisi</a>
+      <a href="hizmet.html?service=televizyon">Televizyon Tamiri</a>
+          </div>
+    <div class="footer-column">
+      <h3>Hızlı Linkler</h3>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+      <a href="gizlilik.html">Gizlilik Politikası</a>
+      <a href="kvkk.html">KVKK</a>
+    </div>
+    <div class="footer-column">
+      <h3>Bizi Takip Edin</h3>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="notice-container">
+      <div class="notice">
+        <strong>Önemli Not:</strong> Bu site yetkili servis değildir. Garantisi olmayan cihazlara hizmet verilmektedir.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

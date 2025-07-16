@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İletişim | ServisWeb</title>
+  <meta name="description" content="ServisWeb ile hızlıca iletişime geçin. Teknik servis talepleriniz için bizi arayın veya form üzerinden ulaşın." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta property="og:title" content="İletişim - ServisWeb" />
+  <meta property="og:description" content="Teknik servis talepleriniz ve sorularınız için bizimle iletişime geçin." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://servisweb.com/iletisim.html" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #3498db; /* Modern, canlı bir mavi */
+      --dark: #2c3e50;    /* Koyu lacivert/gri tonu */
+      --light: #ecf0f1;   /* Çok açık gri */
+      --accent: #27ae60;  /* Canlı, doğal bir yeşil */
+      --text-color: #34495e; /* Okunabilir koyu gri metin */
+      --border-color: #bdc3c7; /* Açık gri kenarlıklar */
+      --background-light: #ffffff; /* Ana arka plan rengi */
+      --footer-bg: #212121; /* Koyu gri, görseldeki gibi */
+      --footer-text-color: #bdbdbd; /* Açık gri metin rengi */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text-color);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Header Stilleri */
+    header {
+      background: var(--background-light);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .menu a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+    }
+    .menu a:hover {
+      color: var(--primary);
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--background-light);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      top: 2.2rem;
+      left: 0;
+      min-width: 220px;
+      z-index: 99;
+      border: 1px solid var(--border-color);
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 0.8rem 1.2rem;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .dropdown-content a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        background: var(--background-light);
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        padding: 1rem;
+      }
+      .menu.show {
+        display: flex;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        background: none;
+      }
+      .dropdown-content a {
+        padding: 0.6rem 0;
+      }
+    }
+
+    /* Main Section Stilleri */
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      background: var(--background-light);
+      padding: 2.5rem 2rem; /* Daha geniş padding */
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      font-size: 2.5rem; /* Daha büyük başlık */
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--dark);
+    }
+    h2 {
+      font-size: 2rem; /* Büyük başlık */
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--primary);
+    }
+    h3 {
+      font-size: 1.5rem; /* Orta başlık */
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+    .contact-info {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Hafif iç gölge */
+    }
+    .contact-info p {
+      margin: 0.7rem 0;
+      font-size: 1.15rem;
+      color: var(--text-color);
+    }
+    .contact-info p a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-info p a:hover {
+      text-decoration: underline;
+    }
+
+    /* Call to Action Button */
+    .call-to-action-button {
+      display: block;
+      width: fit-content;
+      margin: 2rem auto 2.5rem auto; /* Ortala ve boşluk ekle */
+      padding: 1rem 2rem;
+      background: var(--accent); /* Canlı yeşil renk */
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.4rem; /* Daha büyük font */
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3); /* Gölge efekti */
+    }
+    .call-to-action-button:hover {
+      background: #219d53; /* Hover'da daha koyu yeşil */
+      transform: translateY(-2px); /* Hafif yukarı kalkma efekti */
+    }
+    .call-to-action-button i {
+        margin-right: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem; /* Boşluk arttırıldı */
+      margin-top: 2rem;
+      padding: 2rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      background: #fdfdfd;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    input, textarea {
+      padding: 1rem; /* Padding arttırıldı */
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 1.1rem;
+      resize: vertical;
+      color: var(--text-color);
+      background: #fff;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+      outline: none;
+    }
+    button[type="submit"] {
+      padding: 1rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    button[type="submit"]:hover {
+      background: #2980b9;
+      transform: translateY(-1px);
+    }
+
+    .notice {
+      background: #fff3cd;
+      color: #856404;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      border: 1px solid #ffeeba;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .notice strong {
+        color: #6a5000;
+    }
+
+    .reviews-section, .faq-section, .article-section {
+      margin-top: 3rem; /* Bölümler arası boşluk */
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color); /* Hafif ayırıcı çizgi */
+    }
+    .review-item {
+      background: #f9f9f9;
+      padding: 1.2rem;
+      border-radius: 10px;
+      margin-bottom: 1.2rem;
+      border: 1px solid #eee;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+    .review-item p {
+      margin-bottom: 0.6rem;
+      font-style: italic;
+      color: var(--text-color);
+    }
+    .review-item strong {
+      display: block;
+      text-align: right;
+      font-size: 1rem;
+      color: #555;
+    }
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 1rem;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item h3 {
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+      color: var(--primary);
+      cursor: pointer; /* Expand/collapse için ipucu */
+    }
+    .faq-item p {
+      color: var(--text-color);
+    }
+    .article-content p {
+        margin-bottom: 1rem;
+    }
+    .article-content ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .article-content ul li {
+        margin-bottom: 0.5rem;
+    }
+
+
+    /* Footer Stilleri */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text-color);
+      padding: 3.5rem 1rem;
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: flex-start;
+      text-align: left;
+      flex-direction: row;
+      margin-top: 2rem; /* Main ile footer arası boşluk */
+    }
+
+    footer .footer-column {
+      flex: 1;
+      min-width: 220px;
+      margin: 1.5rem;
+    }
+
+    footer .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      position: relative;
+      padding-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    footer .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    footer .footer-column p,
+    footer .footer-column a {
+      color: var(--footer-text-color);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.8rem;
+      transition: color 0.3s ease;
+    }
+
+    footer .footer-column p {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    footer .footer-column p span {
+        margin-right: 10px;
+        font-size: 1.1rem;
+        color: var(--primary);
+    }
+
+    footer .footer-column a:hover {
+      color: var(--primary);
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .social-icons a {
+        background-color: #333;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        background-color: var(--primary);
+        color: #fff;
+    }
+
+    footer .notice-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    footer .notice {
+      background-color: transparent;
+      color: var(--footer-text-color);
+      padding: 0;
+      border-radius: 0;
+      font-weight: normal;
+      border: none;
+      text-align: left;
+      max-width: none;
+      box-shadow: none;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    footer .notice strong {
+      font-weight: bold;
+      color: #fff;
+      margin-right: 5px;
+    }
+
+    /* Footer Responsive Düzenlemeler */
+    @media screen and (max-width: 768px) {
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      footer .footer-column {
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      footer .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      footer .notice-container {
+          margin-top: 1.5rem;
+          justify-content: center;
+          padding-left: 0;
+          padding-right: 0;
+      }
+      footer .notice {
+        text-align: center;
+      }
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("address").textContent = CONFIG.address;
+    document.getElementById("address-footer").textContent = CONFIG.address;
+
+    document.getElementById("phone-link").textContent = CONFIG.phone;
+    document.getElementById("phone-link").href = `tel:${CONFIG.phone.replace(/\s+/g, '')}`;
+    document.getElementById("phone-footer").textContent = CONFIG.phone;
+
+    document.getElementById("email-link").textContent = CONFIG.email;
+    document.getElementById("email-link").href = `mailto:${CONFIG.email}`;
+    document.getElementById("email-footer").textContent = CONFIG.email;
+
+    document.getElementById("company").textContent = CONFIG.companyName;
+    document.getElementById("disclaimer").textContent = CONFIG.disclaimer;
+
+    const serviceList = document.getElementById("services");
+    CONFIG.services.forEach(service => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.textContent = service;
+      a.href = `hizmet.html?service=${service.toLowerCase().replace(/\s+/g, '')}`;
+      li.appendChild(a);
+      serviceList.appendChild(li);
+    });
+  });
+</script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ServisWeb",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Örnek Mah. Servis Cad. No:7",
+        "addressLocality": "İstanbul",
+        "postalCode": "34000",
+        "addressCountry": "TR"
+      },
+      "telephone": "+905551112233",
+      "email": "info@servisweb.com",
+      "url": "https://servisweb.com/iletisim.html",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "image": "https://servisweb.com/logo.png",
+      "priceRange": "$$",
+      "description": "ServisWeb, garantisi bitmiş beyaz eşyalarınız için profesyonel tamir, bakım ve onarım hizmetleri sunar."
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hangi beyaz eşyaların tamirini yapıyorsunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Buzdolabı, çamaşır makinesi, bulaşık makinesi, fırın, klima, kombi ve televizyon gibi garantisi sona ermiş tüm beyaz eşyaların tamirini yapmaktayız."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Yetkili servis misiniz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, ServisWeb yetkili servis değildir. Sadece garantisi sona ermiş cihazlar için özel teknik servis hizmeti sunmaktayız."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Tamir sonrası garanti veriyor musunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, yaptığımız tamiratlar ve değişen parçalar için belirli bir süre garanti vermekteyiz. Detaylı bilgi için lütfen bizimle iletişime geçin."
+          }
+        }
+      ]
+    }
+  </script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('main-menu');
+      menu.classList.toggle('show');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">ServisWeb</a>
+      <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+      <nav class="menu" id="main-menu">
+        <a href="index.html">Ana Sayfa</a>
+        <div class="dropdown">
+          <span style="cursor:pointer; font-weight:500; color:var(--text-color);">Hizmetlerimiz</span>
+          <div class="dropdown-content">
+            <a href="hizmet.html?service=beyazesya">Beyaz Eşya</a>
+            <a href="hizmet.html?service=buzdolabi">Buzdolabı</a>
+            <a href="hizmet.html?service=camasirmakinesi">Çamaşır Makinesi</a>
+            <a href="hizmet.html?service=bulasikmakinesi">Bulaşık Makinesi</a>
+            <a href="hizmet.html?service=firin">Fırın</a>
+            <a href="hizmet.html?service=klima">Klima</a>
+            <a href="hizmet.html?service=kombi">Kombi</a>
+            <a href="hizmet.html?service=televizyon">Televizyon</a>
+          </div>
+        </div>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Bizimle İletişime Geçin</h1>
+    <div class="contact-info">
+      <p>Telefon: <a href="tel:+905551112233">0555 111 22 33</a></p>
+      <p>Email: info@servisweb.com</p>
+      <p>Adres: Örnek Mah. Servis Cad. No:7 İstanbul</p>
+    </div>
+
+    <a href="tel:+905551112233" class="call-to-action-button">
+        <i class="fas fa-phone-alt"></i> Hemen Arayın
+    </a>
+
+    <form>
+      <input type="text" name="name" placeholder="Adınız Soyadınız" required />
+      <input type="email" name="email" placeholder="E-posta adresiniz" required />
+      <textarea name="message" rows="5" placeholder="Mesajınız" required></textarea>
+      <button type="submit">Gönder</button>
+    </form>
+
+    <div class="notice">
+      <strong>Önemli Not:</strong> ServisWeb, <strong>yetkili servis</strong> değildir. Garantisi sona ermiş ürünlere hizmet sağlamaktadır.
+    </div>
+
+    <div class="faq-section">
+      <h2>Sıkça Sorulan Sorular</h2>
+      <div class="faq-item">
+        <h3>Hangi beyaz eşyaların tamirini yapıyorsunuz?</h3>
+        <p>Buzdolabı, çamaşır makinesi, bulaşık makinesi, fırın, klima, kombi ve televizyon gibi garantisi sona ermiş tüm beyaz eşyaların tamirini yapmaktayız.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Yetkili servis misiniz?</h3>
+        <p>Hayır, ServisWeb yetkili servis değildir. Sadece garantisi sona ermiş cihazlar için özel teknik servis hizmeti sunmaktayız.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Tamir sonrası garanti veriyor musunuz?</h3>
+        <p>Evet, yaptığımız tamiratlar ve değişen parçalar için belirli bir süre garanti vermekteyiz. Detaylı bilgi için lütfen bizimle iletişime geçin.</p>
+      </div>
+    </div>
+
+    <div class="reviews-section">
+      <h2>Müşteri Yorumları</h2>
+      <div class="review-item">
+        <p>"Çamaşır makinem arızalandığında çok hızlı geldiler ve sorunu anında çözdüler. Teşekkürler!"</p>
+        <strong>- Ayşe K.</strong>
+      </div>
+      <div class="review-item">
+        <p>"Kombi bakımı için çağırdık, çok profesyonel ve titiz çalıştılar. Kesinlikle tavsiye ederim."</p>
+        <strong>- Mehmet Y.</strong>
+      </div>
+      <div class="review-item">
+        <p>"Buzdolabımın motoru bozulmuştu, uygun fiyata orijinal parça ile değişim yaptılar. Güvenilir bir ekip."</p>
+        <strong>- Zeynep D.</strong>
+      </div>
+      <div class="review-item">
+        <p>"Televizyonumdaki görüntü sorununu kısa sürede giderdiler. Mükemmel hizmet!"</p>
+        <strong>- Can B.</strong>
+      </div>
+      <div class="review-item">
+        <p>"Fırınım çalışmıyordu, aradım aynı gün gelip tamir ettiler. Çok memnun kaldım."</p>
+        <strong>- Elif S.</strong>
+      </div>
+      <div class="review-item">
+        <p>"Klima bakımı için her sene tercih ettiğimiz servis. Hızlı, temiz ve etkili."</p>
+        <strong>- Deniz M.</strong>
+      </div>
+      <div class="review-item">
+        <p>"Bulaşık makinemdeki su sızıntısı sorununu çok kısa sürede hallettiler. Güvenilir işçilik."</p>
+        <strong>- Burak T.</strong>
+      </div>
+      <div class="review-item">
+        <p>"Çamaşır makinesinin kapağı kapanmıyordu, teknik ekip çok ilgiliydi ve sorunu hızlıca çözdüler."</p>
+        <strong>- Gamze A.</strong>
+      </div>
+      <div class="review-item">
+        <p>"Eski buzdolabım için parça bulmak zordu ama ServisWeb ekibi sağ olsun temin edip onarımını yaptı."</p>
+        <strong>- Hasan P.</strong>
+      </div>
+      <div class="review-item">
+        <p>"Kombimin yıllık bakımını yaptırdık, içimiz rahat etti. Fiyatlar da gayet makul."</p>
+        <strong>- Seda R.</strong>
+      </div>
+    </div>
+
+    <div class="article-section">
+        <h2>Makale: Çamaşır Makinesi Tamircisi Nereden Bulunur</h2>
+        <div class="article-content">
+            <p>Çamaşır makineleri, evlerimizde sıkça kullandığımız önemli beyaz eşya ürünlerindendir. Bazen arızalanma durumu ortaya çıkar. İşte böyle durumlarda çamaşır makinesi tamircisi bulmak için bazı yöntemler kullanabilirsin. Öncelikle çevrenden, arkadaşlarından veya komşularından referans alabilirsin. Güvendiğin kişilerin önerileri, doğru servis ile iletişim kurmanı sağlar. Ayrıca, internet üzerinden araştırma yaparak bölgende yer alan beyaz eşya servisi firmalarına ulaşabilirsin. Firmaların yorumlarını incelemek, seçiminde yardımcı olur.</p>
+            <p>Eğer internet üzerinden bulduğun işletmelere ulaşmak istersen, sosyal medya platformları ve yerel dizinler de seni bilgilendirir. Ek olarak, beyaz eşya tamircileri, genellikle kısa süreli sorunların çözümünde hızlı ve etkili destek sunar. Bu nedenle, profesyonel bir hizmet almak, sonuç almanı kolaylaştırır. Sonuç olarak, çamaşırı makinesi tamircisi bulmak için hem çevredeki referansları değerlendirmeli hem de internetin gücünden faydalanmalısın.</p>
+            <p>Çamaşır makinesi tamirini sağlarken dikkat edilmesi gereken bazı noktalar vardır. Bu noktalar şunlardır:</p>
+            <ul>
+                <li>**Uzmanlık**: Çamaşır makinesi tamircisinin uzman üç yıllık bir tecrübeye sahip olması önemli.</li>
+                <li>**Hızlı Erişim**: Ulaşılabilir bir servis, arızanın hızla çözülmesini sağlar.</li>
+                <li>**Garanti**: Tamir sonrası verilen garanti, hizmetin kalitesini gösterir.</li>
+                <li>**Müşteri Yorumları**: Diğer kullanıcıların deneyimleri, doğru seçim yapmana yardımcı olur.</li>
+                <li>**Fiyatlandırma**: Farklı servislerin fiyatlarını karşılaştırmak maliyet açısından avantaj sağlar.</li>
+            </ul>
+            <p>Bu unsurlara dikkat etmek, karşılaşacağın sorunlarda daha iyi bir hizmet almanı sağlar. Ayrıca, çamaşır makinelerinin yanı sıra diğer beyaz eşya servislerinin de kapsamlı bir destek sunduğunu unutmamalısın. Bu anlamda, ilk aşamada arıza durumu hakkında bilgi almaya çalışmalısın. Beyaz eşya servisi, bu süreçte sana daha fazla yardımcı olur.</p>
+            </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-column">
+      <h3>İletişim</h3>
+      <p><span class="fa-solid fa-location-dot"></span> Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul</p>
+      <p><span class="fa-solid fa-phone"></span> +90 (555) 111 22 33</p>
+      <p><span class="fa-solid fa-envelope"></span> info@servisweb.com</p>
+    </div>
+    <div class="footer-column">
+      <h3>Hizmetlerimiz</h3>
+      <a href="hizmet.html?service=beyazesya">Beyaz Eşya Servisi</a>
+      <a href="hizmet.html?service=buzdolabi">Buzdolabı Tamiri</a>
+      <a href="hizmet.html?service=camasirmakinesi">Çamaşır Makinesi Servisi</a>
+      <a href="hizmet.html?service=bulasikmakinesi">Bulaşık Makinesi Servisi</a>
+      <a href="hizmet.html?service=firin">Fırın Tamiri</a>
+      <a href="hizmet.html?service=klima">Klima Bakımı</a>
+      <a href="hizmet.html?service=kombi">Kombi Servisi</a>
+      <a href="hizmet.html?service=televizyon">Televizyon Tamiri</a>
+    </div>
+    <div class="footer-column">
+      <h3>Hızlı Linkler</h3>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+      <a href="gizlilik.html">Gizlilik Politikası</a>
+      <a href="kvkk.html">KVKK</a>
+    </div>
+    <div class="footer-column">
+      <h3>Bizi Takip Edin</h3>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="notice-container">
+      <div class="notice">
+        <strong>Önemli Not:</strong> Bu site yetkili servis değildir. Garantisi olmayan cihazlara hizmet verilmektedir.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

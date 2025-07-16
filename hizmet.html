@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="dynamic-title">Hizmet Detayı | ServisWeb</title>
+  <meta name="description" id="dynamic-meta-description" content="Seçtiğiniz servis türü hakkında detaylı bilgi alın. Hızlı ve güvenilir teknik servis çözümleri.">
+  <link rel="icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Global Renk Paleti ve Temel Stiller */
+    :root {
+      --primary: #3498db; /* Modern, canlı bir mavi */
+      --dark: #2c3e50;    /* Koyu lacivert/gri tonu */
+      --light: #ecf0f1;   /* Çok açık gri */
+      --accent: #27ae60;  /* Canlı, doğal bir yeşil */
+      --text-color: #34495e; /* Okunabilir koyu gri metin */
+      --border-color: #bdc3c7; /* Açık gri kenarlıklar */
+      --background-light: #ffffff; /* Ana arka plan rengi */
+      --footer-bg: #212121; /* Koyu gri, görseldeki gibi */
+      --footer-text-color: #bdbdbd; /* Açık gri metin rengi */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text-color);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Header Stilleri */
+    header {
+      background: var(--background-light);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .menu a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+      padding: 0.5rem 0;
+    }
+    .menu a:hover {
+      color: var(--primary);
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--background-light);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      top: 2.2rem;
+      left: 0;
+      min-width: 220px;
+      z-index: 99;
+      border: 1px solid var(--border-color);
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 0.8rem 1.2rem;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .dropdown-content a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        background: var(--background-light);
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        padding: 1rem;
+      }
+      .menu.show {
+        display: flex;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        background: none;
+      }
+      .dropdown-content a {
+        padding: 0.6rem 0;
+      }
+    }
+
+    /* Main Section Stilleri */
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      background: var(--background-light);
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--dark);
+    }
+    h2 {
+      font-size: 2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-align: justify;
+      color: var(--text-color);
+    }
+    ul {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+        list-style-type: disc;
+    }
+    ul li {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+    }
+
+    .notice {
+      background: #fff3cd;
+      color: #856404;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      border: 1px solid #ffeeba;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .notice strong {
+        color: #6a5000;
+    }
+
+    .action-button {
+      display: block;
+      width: fit-content;
+      margin: 2.5rem auto 1.5rem auto;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3);
+    }
+    .action-button:hover {
+      background: #219d53;
+      transform: translateY(-2px);
+    }
+    .action-button i {
+        margin-right: 10px;
+    }
+
+
+    /* Footer Stilleri */
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text-color);
+      padding: 3.5rem 1rem;
+      font-size: 0.95rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: flex-start;
+      text-align: left;
+      flex-direction: row;
+      margin-top: 2rem;
+    }
+
+    footer .footer-column {
+      flex: 1;
+      min-width: 220px;
+      margin: 1.5rem;
+    }
+
+    footer .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      position: relative;
+      padding-bottom: 0.6rem;
+      font-weight: 700;
+    }
+
+    footer .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    footer .footer-column p,
+    footer .footer-column a {
+      color: var(--footer-text-color);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.8rem;
+      transition: color 0.3s ease;
+    }
+
+    footer .footer-column p {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    footer .footer-column p span {
+        margin-right: 10px;
+        font-size: 1.1rem;
+        color: var(--primary);
+    }
+
+    footer .footer-column a:hover {
+      color: var(--primary);
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .social-icons a {
+        background-color: #333;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+        background-color: var(--primary);
+        color: #fff;
+    }
+
+    footer .notice-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    footer .notice {
+      background-color: transparent;
+      color: var(--footer-text-color);
+      padding: 0;
+      border-radius: 0;
+      font-weight: normal;
+      border: none;
+      text-align: left;
+      max-width: none;
+      box-shadow: none;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    footer .notice strong {
+      font-weight: bold;
+      color: #fff;
+      margin-right: 5px;
+    }
+
+    /* Footer Responsive Düzenlemeler */
+    @media screen and (max-width: 768px) {
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      footer .footer-column {
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      footer .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      footer .notice-container {
+          margin-top: 1.5rem;
+          justify-content: center;
+          padding-left: 0;
+          padding-right: 0;
+      }
+      footer .notice {
+        text-align: center;
+      }
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  </style>
+  <script type="application/ld+json" id="dynamic-schema">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Hizmet Detayı - ServisWeb",
+      "image": [
+        "https://servisweb.com/hizmet-default.jpg" 
+       ],
+      "datePublished": "2025-07-16T00:00:00+03:00",
+      "dateModified": "2025-07-16T00:00:00+03:00",
+      "author": {
+        "@type": "Organization",
+        "name": "ServisWeb"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ServisWeb",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://servisweb.com/logo.png"
+        }
+      },
+      "description": "Seçtiğiniz servis türü hakkında detaylı bilgi alın. Hızlı ve güvenilir teknik servis çözümleri.",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://servisweb.com/hizmet.html"
+      }
+    }
+  </script>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('main-menu');
+      menu.classList.toggle('show');
+    }
+
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceNameParam = urlParams.get('service');
+      const dynamicTitleElement = document.getElementById('dynamic-title');
+      const dynamicMetaDescriptionElement = document.getElementById('dynamic-meta-description');
+      const baslikElement = document.getElementById('baslik');
+      const aciklamaElement = document.getElementById('aciklama');
+      const makaleSection = document.getElementById('makale');
+      const dynamicSchemaElement = document.getElementById('dynamic-schema');
+
+      let serviceTitle = "Hizmet Detayı";
+      let serviceDescription = "Seçtiğiniz servis türü hakkında detaylı bilgi alın. Hızlı ve güvenilir teknik servis çözümleri.";
+      let articleHTML = '';
+      let serviceSchema = {};
+
+      if (serviceNameParam) {
+        const serviceName = serviceNameParam.toLowerCase();
+
+        switch (serviceName) {
+          case 'buzdolabi':
+            serviceTitle = "Buzdolabı Servisi ve Tamiri";
+            serviceDescription = "Buzdolabınız soğutmuyor, ses yapıyor veya su akıtıyorsa, uzman ekibimizle hızlı ve etkili çözümler sunuyoruz.";
+            articleHTML = `
+              <h2>Buzdolabı Servisi ve Tamiri</h2>
+              <h3>Yaygın Buzdolabı Arızaları</h3>
+              <p>Buzdolabınız soğutmuyor, fazla ses yapıyor, su akıtıyor veya kapak contası bozulduysa profesyonel ekibimizle hızlı ve etkili çözümler sunuyoruz. Gaz dolumu, motor değişimi, termostat onarımı gibi her türlü arızaya garantili çözümler sağlıyoruz.</p>
+              <p>Periyodik bakımlar, buzdolabınızın ömrünü uzatır ve enerji verimliliğini artırır. Detaylı arıza tespiti ve yerinde onarım hizmetlerimizle güvenilir destek sağlıyoruz.</p>
+            `;
+            serviceSchema = {
+              "@type": "Service",
+              "serviceType": "Buzdolabı Tamir Servisi",
+              "description": serviceDescription,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "ServisWeb",
+                "telephone": "+905551112233"
+              }
+            };
+            break;
+          case 'camasirmakinesi':
+            serviceTitle = "Çamaşır Makinesi Servisi ve Onarımı";
+            serviceDescription = "Çamaşır makineniz su almıyor, suyu boşaltmıyor, sıkmıyor veya gürültülü çalışıyorsa, profesyonel çözümler sunulmaktadır.";
+            articleHTML = `
+              <h2>Çamaşır Makinesi Servisi ve Onarımı</h2>
+              <h3>Sık Karşılaşılan Çamaşır Makinesi Sorunları</h3>
+              <p>Çamaşır makineniz su almıyor, suyu boşaltmıyor, sıkmıyor, gürültülü çalışıyor veya koku yapıyorsa, uzman teknisyenlerimiz yerinde tespit ve onarım hizmeti sunar. Kazan değişimi, pompa arızaları, elektronik kart tamiri gibi konularda güvenilir çözümler sunuyoruz.</p>
+              <p>Makinenizin verimli çalışması için düzenli bakımı önemlidir. Su kaçağı, deterjan gözü tıkanıklığı gibi sorunlarda hızlı müdahale sağlıyoruz.</p>
+            `;
+            serviceSchema = {
+              "@type": "Service",
+              "serviceType": "Çamaşır Makinesi Tamir Servisi",
+              "description": serviceDescription,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "ServisWeb",
+                "telephone": "+905551112233"
+              }
+            };
+            break;
+          case 'bulasikmakinesi':
+            serviceTitle = "Bulaşık Makinesi Servisi ve Bakımı";
+            serviceDescription = "Bulaşık makineniz bulaşıkları temiz yıkamıyor, su akıtıyor, çalışmıyor veya deterjan almıyorsa deneyimli ekibimizle hızlı çözümler üretiyoruz.";
+            articleHTML = `
+              <h2>Bulaşık Makinesi Servisi ve Bakımı</h2>
+              <h3>Bulaşık Makinesi Arızaları ve Çözümleri</h3>
+              <p>Bulaşık makineniz bulaşıkları temiz yıkamıyor, su akıtıyor, çalışmıyor veya deterjan almıyorsa deneyimli ekibimizle hızlı ve kalıcı çözümler üretiyoruz. Pompa tamiri, rezistans değişimi, su fıskiyelerinin onarımı gibi hizmetler sunmaktayız.</p>
+              <p>Tıkanıklıklar, su basıncı sorunları veya program hataları gibi durumlarda profesyonel destek alarak makinenizin ömrünü uzatabilirsiniz.</p>
+            `;
+            serviceSchema = {
+              "@type": "Service",
+              "serviceType": "Bulaşık Makinesi Tamir Servisi",
+              "description": serviceDescription,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "ServisWeb",
+                "telephone": "+905551112233"
+              }
+            };
+            break;
+          case 'firin':
+            serviceTitle = "Fırın Servisi ve Tamiri";
+            serviceDescription = "Fırınınız ısıtmıyor, gaz kaçırıyor, kapısı kapanmıyor veya elektrik aksamında sorun varsa, uzman ekiplerimiz güvenli ve etkin çözümler sunar.";
+            articleHTML = `
+              <h2>Fırın Servisi ve Tamiri</h2>
+              <h3>Fırın Arızaları ve Profesyonel Destek</h3>
+              <p>Fırınınız ısıtmıyor, gaz kaçırıyor, kapısı kapanmıyor veya elektrik aksamında sorun varsa, uzman ekiplerimiz güvenli ve etkin çözümler sunar. Termostat, rezistans, fan değişimi ve genel bakım hizmetleri ile fırınınızın ilk günkü performansına kavuşmasını sağlıyoruz.</p>
+              <p>Fırın kapı contası değişimi, iç aydınlatma arızaları gibi detaylı onarımlar için de servisimizden destek alabilirsiniz.</p>
+            `;
+            serviceSchema = {
+              "@type": "Service",
+              "serviceType": "Fırın Tamir Servisi",
+              "description": serviceDescription,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "ServisWeb",
+                "telephone": "+905551112233"
+              }
+            };
+            break;
+          case 'klima':
+            serviceTitle = "Klima Servisi, Bakımı ve Onarımı";
+            serviceDescription = "Klimanız yeterince soğutmuyor/ısıtmıyor, kötü koku yayıyor, ses yapıyor veya su akıtıyorsa, periyodik bakım ve onarım hizmetlerimizle yanınızdayız.";
+            articleHTML = `
+              <h2>Klima Servisi, Bakımı ve Onarımı</h2>
+              <h3>Klima Bakımının Önemi ve Sık Görülen Arızalar</h3>
+              <p>Klimanız yeterince soğutmuyor/ısıtmıyor, kötü koku yayıyor, ses yapıyor veya su akıtıyorsa, periyodik bakım ve onarım hizmetlerimizle yanınızdayız. Gaz dolumu, filtre temizliği, kompresör tamiri ve montaj/demontaj hizmetleri sunmaktayız. Düzenli bakımla klimanızın ömrünü uzatın ve daha sağlıklı hava soluyun.</p>
+              <p>Dış ünite arızaları, elektronik kart sorunları gibi karmaşık arızalarda da uzman çözümler sunuyoruz.</p>
+            `;
+            serviceSchema = {
+              "@type": "Service",
+              "serviceType": "Klima Bakım ve Onarım Servisi",
+              "description": serviceDescription,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "ServisWeb",
+                "telephone": "+905551112233"
+              }
+            };
+            break;
+          case 'kombi':
+            serviceTitle = "Kombi Servisi, Bakımı ve Onarımı";
+            serviceDescription = "Kombiniz ısıtmıyor, sıcak su vermiyor, ses yapıyor, basınç düşürüyor veya arıza kodu gösteriyorsa, kışa girmeden bize ulaşın.";
+            articleHTML = `
+              <h2>Kombi Servisi, Bakımı ve Onarımı</h2>
+              <h3>Kombi Arızaları ve Güvenli Çözümler</h3>
+              <p>Kombiniz ısıtmıyor, sıcak su vermiyor, ses yapıyor, basınç düşürüyor veya arıza kodu gösteriyorsa, kışa girmeden periyodik bakımı ve arıza onarımı için bize ulaşın. Kart tamiri, eşanjör temizliği, gaz valfi değişimi gibi hizmetler sunuyoruz. Can ve mal güvenliğiniz için kombi bakımlarını aksatmayın.</p>
+              <p>Petek temizliği ve genel tesisat kontrolleri ile ısınma verimliliğinizi artırıyoruz.</p>
+            `;
+            serviceSchema = {
+              "@type": "Service",
+              "serviceType": "Kombi Tamir ve Bakım Servisi",
+              "description": serviceDescription,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "ServisWeb",
+                "telephone": "+905551112233"
+              }
+            };
+            break;
+          case 'televizyon':
+            serviceTitle = "Televizyon Servisi ve Tamiri";
+            serviceDescription = "Televizyonunuz açılmıyor, görüntü gelmiyor, ses yok, piksel sorunları yaşıyor veya smart özellikleri çalışmıyorsa, uzman ekibimizle hizmet veriyoruz.";
+            articleHTML = `
+              <h2>Televizyon Servisi ve Tamiri</h2>
+              <h3>Televizyon Arızaları ve Teknik Destek</h3>
+              <p>Televizyonunuz açılmıyor, görüntü gelmiyor, ses yok, piksel sorunları yaşıyor veya smart özellikleri çalışmıyorsa, uzman ekibimizle LED, LCD, QLED, OLED fark etmeksizin tüm marka ve modellere hizmet veriyoruz. Ekran değişimi, anakart tamiri, yazılım güncellemeleri gibi çözümler sunuyoruz.</p>
+              <p>Yüksek çözünürlüklü ve akıllı TV'leriniz için en güncel teknik ekipmanlarla onarım yapmaktayız.</p>
+            `;
+            serviceSchema = {
+              "@type": "Service",
+              "serviceType": "Televizyon Tamir Servisi",
+              "description": serviceDescription,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "ServisWeb",
+                "telephone": "+905551112233"
+              }
+            };
+            break;
+          case 'beyazesya':
+            serviceTitle = "Genel Beyaz Eşya Servisi";
+            serviceDescription = "Buzdolabı, çamaşır makinesi, bulaşık makinesi, fırın ve diğer tüm beyaz eşyalarınızda karşılaştığınız her türlü arıza için tek adresten çözüm sunuyoruz.";
+            articleHTML = `
+              <h2>Genel Beyaz Eşya Servisi</h2>
+              <h3>Tüm Beyaz Eşyalarınız İçin Profesyonel Destek</h3>
+              <p>Buzdolabı, çamaşır makinesi, bulaşık makinesi, fırın ve diğer tüm beyaz eşyalarınızda karşılaştığınız her türlü arıza için tek adresten çözüm sunuyoruz. Deneyimli teknisyenlerimiz, yerinde müdahale ile hızlı ve güvenilir onarım hizmeti sağlar. Garantisi bitmiş tüm beyaz eşyalarınız için ekonomik ve kalıcı çözümler.</p>
+              <p>Marka bağımsız servis anlayışımızla, her türlü arıza tespiti ve onarımını titizlikle gerçekleştiriyoruz.</p>
+            `;
+            serviceSchema = {
+              "@type": "Service",
+              "serviceType": "Beyaz Eşya Tamir ve Bakım Servisi",
+              "description": serviceDescription,
+              "provider": {
+                "@type": "LocalBusiness",
+                "name": "ServisWeb",
+                "telephone": "+905551112233"
+              }
+            };
+            break;
+          default:
+            // Fallback for unknown service
+            serviceTitle = "Hizmet Detayı | ServisWeb";
+            serviceDescription = "Aradığınız hizmeti bulamadınız mı? Size özel çözümler için bizimle iletişime geçin.";
+            articleHTML = `
+              <h2>Aradığınız Hizmeti Bulamadınız mı?</h2>
+              <p>Aradığınız özel hizmeti veya cihaz türünü bulamamanız durumunda endişelenmeyin. ServisWeb olarak geniş bir yelpazede teknik servis hizmetleri sunmaktayız. İhtiyaçlarınıza özel çözümler için bizimle doğrudan iletişime geçebilirsiniz.</p>
+              <p>Uzman ekibimiz, her türlü arıza ve bakım talebiniz için size yardımcı olmaktan memnuniyet duyacaktır. Bize ulaşarak detaylı bilgi alabilir ve hızlı servis talebi oluşturabilirsiniz.</p>
+            `;
+            break;
+        }
+      }
+
+      // Update page title and meta description
+      dynamicTitleElement.textContent = serviceTitle;
+      dynamicMetaDescriptionElement.setAttribute('content', serviceDescription);
+      baslikElement.textContent = serviceTitle;
+      aciklamaElement.innerHTML = `<p>${serviceDescription}</p>`; // Use serviceDescription for main content intro
+
+      makaleSection.innerHTML = articleHTML;
+
+      // Update Schema.org data dynamically
+      let currentSchema = JSON.parse(dynamicSchemaElement.textContent);
+      currentSchema.headline = serviceTitle;
+      currentSchema.description = serviceDescription;
+
+      // Add Service schema if specific service is found
+      if (serviceNameParam && Object.keys(serviceSchema).length > 0) {
+        currentSchema.hasPart = serviceSchema;
+        currentSchema.image = [`https://servisweb.com/hizmet-${serviceNameParam}.jpg`]; // Dynamic image for schema
+      } else {
+         currentSchema.image = ["https://servisweb.com/hizmet-default.jpg"]; // Default image
+      }
+
+      dynamicSchemaElement.textContent = JSON.stringify(currentSchema, null, 2);
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">ServisWeb</a>
+      <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+      <nav class="menu" id="main-menu">
+        <a href="index.html">Ana Sayfa</a>
+        <div class="dropdown">
+          <span style="cursor:pointer; font-weight:500; color:var(--text-color);">Hizmetlerimiz</span>
+          <div class="dropdown-content">
+            <a href="hizmet.html?service=beyazesya">Beyaz Eşya</a>
+            <a href="hizmet.html?service=buzdolabi">Buzdolabı</a>
+            <a href="hizmet.html?service=camasirmakinesi">Çamaşır Makinesi</a>
+            <a href="hizmet.html?service=bulasikmakinesi">Bulaşık Makinesi</a>
+            <a href="hizmet.html?service=firin">Fırın</a>
+            <a href="hizmet.html?service=klima">Klima</a>
+            <a href="hizmet.html?service=kombi">Kombi</a>
+            <a href="hizmet.html?service=televizyon">Televizyon</a>
+          </div>
+        </div>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1 id="baslik"></h1>
+    <div id="aciklama"></div>
+    <section id="makale"></section>
+
+    <a href="tel:+905551112233" class="action-button">
+        <i class="fas fa-phone-alt"></i> Bizi Arayın
+    </a>
+
+    <div class="notice">
+      <strong>Önemli Not:</strong> Bu site <strong>yetkili servis</strong> değildir. Garantisi bitmiş ürünler için hizmet sağlamaktadır.
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-column">
+      <h3>İletişim</h3>
+      <p><span class="fa-solid fa-location-dot"></span> Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul</p>
+      <p><span class="fa-solid fa-phone"></span> +90 (555) 111 22 33</p>
+      <p><span class="fa-solid fa-envelope"></span> info@servisweb.com</p>
+    </div>
+    <div class="footer-column">
+      <h3>Hizmetlerimiz</h3>
+      <a href="hizmet.html?service=beyazesya">Beyaz Eşya Servisi</a>
+      <a href="hizmet.html?service=buzdolabi">Buzdolabı Tamiri</a>
+      <a href="hizmet.html?service=camasirmakinesi">Çamaşır Makinesi Servisi</a>
+      <a href="hizmet.html?service=bulasikmakinesi">Bulaşık Makinesi Servisi</a>
+      <a href="hizmet.html?service=firin">Fırın Tamiri</a>
+      <a href="hizmet.html?service=klima">Klima Bakımı</a>
+      <a href="hizmet.html?service=kombi">Kombi Servisi</a>
+      <a href="hizmet.html?service=televizyon">Televizyon Tamiri</a>
+          </div>
+    <div class="footer-column">
+      <h3>Hızlı Linkler</h3>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+      <a href="gizlilik.html">Gizlilik Politikası</a>
+      <a href="kvkk.html">KVKK</a>
+    </div>
+    <div class="footer-column">
+      <h3>Bizi Takip Edin</h3>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="notice-container">
+      <div class="notice">
+        <strong>Önemli Not:</strong> Bu site yetkili servis değildir. Garantisi olmayan cihazlara hizmet verilmektedir.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
