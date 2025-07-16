@@ -1,18 +1,8 @@
-const CONFIG = {
-  siteTitle: "ServisWeb",
-  phone: "0655 155 22 33",
-  email: "destek@servisweb.com",
-  address: "Örnek Mahallesi, Servis Sokak No:10, İstanbul",
-  companyName: "ServisWeb Teknik Servis",
-  disclaimer: "Bu site yetkili servis değildir. Sadece garantisi bitmiş ürünlere bakım ve onarım hizmeti sunulmaktadır.",
-  services: [
-    "Beyaz Eşya Servisi",
-    "Buzdolabı",
-    "Çamaşır Makinesi",
-    "Bulaşık Makinesi",
-    "Fırın",
-    "Klima",
-    "Kombi",
-    "Televizyon"
-  ]
+const companyInfo = {
+  name: "ServisWeb",
+  taxNumber: "1234567890",
+  address: "Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul",
+  phone: "0 (555) 111 22 33",
+  phoneRaw: "+905551112233",
+  email: "info@servisweb.com",
 };

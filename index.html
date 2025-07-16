@@ -8,7 +8,7 @@
   <link rel="icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Lrx+3B/bJv8tT8Pscn9nY1PS5CXt7nb82AbwtsuDh0D6xUeN5XxzkBRyxBMiJ5kK1R2o+ov09CzEF8UijKCU2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* Global Renk Paleti ve Temel Stiller */
     :root {
@@ -522,11 +522,35 @@
       menu.classList.toggle("show");
     }
   </script>
+ <script src="config.js"></script>
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Adres
+    document.querySelectorAll(".company-address").forEach(el => el.textContent = companyInfo.address);
+
+    // Telefon
+    document.querySelectorAll(".company-phone").forEach(el => {
+      el.href = "tel:" + companyInfo.phoneRaw;
+      el.textContent = companyInfo.phone + " – Hemen Ara!";
+    });
+
+    // E-posta
+    document.querySelectorAll(".company-email").forEach(el => el.textContent = companyInfo.email);
+
+    // Şirket adı (metin alanlarında)
+    document.querySelectorAll(".company-name").forEach(el => el.textContent = companyInfo.name);
+
+    // Başlık ve açıklama
+    document.title = companyInfo.name + " | Teknik Servis Hizmetleri";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", "Garantisi bitmiş cihazlar için teknik servis hizmeti. " + companyInfo.name + " ile güvenli ve hızlı çözüm.");
+  });
+</script>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <a href="index.html" class="logo">ServisWeb</a>
+      <a href="index.html" class="logo company-name"></a>
       <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
       <nav class="menu" id="main-menu">
         <a href="index.html">Ana Sayfa</a>
@@ -552,7 +576,7 @@
   <main class="hero">
     <div class="hero-content">
       <h1>Teknik Servisiniz Burada: Hızlı ve Güvenilir Çözümler!</h1>
-      <p>Garantisi bitmiş beyaz eşya ve elektronik cihazlarınız için **yerinde, hızlı ve profesyonel teknik servis hizmetleri** sunuyoruz. Uzman ekibimizle sorunlarınıza kalıcı çözümler getiriyoruz.</p>
+      <p>Garantisi bitmiş beyaz eşya ve elektronik cihazlarınız için yerinde, hızlı ve profesyonel teknik servis hizmetleri sunuyoruz. Uzman ekibimizle sorunlarınıza kalıcı çözümler getiriyoruz.</p>
       <div class="hero-features">
         <div class="feature-item">
             <span role="img" aria-label="Hız">⚡</span> Hızlı Servis
@@ -564,7 +588,7 @@
             <span role="img" aria-label="Uygun Fiyat">💰</span> Uygun Fiyat
         </div>
       </div>
-      <a href="tel:+905551112233" class="cta-hero">0555 111 22 33 - Hemen Arayın!</a>
+      <a class="cta-hero company-phone"></a>
     </div>
   </main>
 
@@ -998,9 +1022,9 @@
   <footer>
     <div class="footer-column">
       <h3>İletişim</h3>
-      <p><span class="fa-solid fa-location-dot"></span> Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul</p>
-      <p><span class="fa-solid fa-phone"></span> +90 (555) 111 22 33</p>
-      <p><span class="fa-solid fa-envelope"></span> info@servisweb.com</p>
+      <p><span class="fa-solid fa-location-dot"></span> <a class="company-address"></a></p>
+      <p><span class="fa-solid fa-phone"></span> <a class="company-phone"></a></p>
+      <p><span class="fa-solid fa-envelope"></span> <a class="company-email"></a></p>
     </div>
     <div class="footer-column">
       <h3>Hizmetlerimiz</h3>

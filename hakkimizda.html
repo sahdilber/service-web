@@ -12,7 +12,7 @@
   <meta property="og:description" content="Garantisi bitmiş cihazlarınıza özel, profesyonel ve hızlı teknik servis çözümleri sunuyoruz." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://servisweb.com/hakkimizda.html" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* Global Renk Paleti ve Temel Stiller */
     :root {
@@ -385,6 +385,33 @@
       }
     }
   </style>
+   <script src="config.js"></script>
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Adres
+    document.querySelectorAll(".company-address").forEach(el => el.textContent = companyInfo.address);
+
+    // Telefon
+    document.querySelectorAll(".company-phone").forEach(el => {
+      el.href = "tel:" + companyInfo.phoneRaw;
+      el.textContent = companyInfo.phone + " – Hemen Ara!";
+    });
+
+    // E-posta
+    document.querySelectorAll(".company-email").forEach(el => el.textContent = companyInfo.email);
+
+    // Şirket adı (metin alanlarında)
+    document.querySelectorAll(".company-name").forEach(el => el.textContent = companyInfo.name);
+     // Bizi Arayın butonu (tel link)
+document.querySelectorAll(".company-call-button").forEach(el => {
+  el.setAttribute("href", "tel:" + companyInfo.phoneRaw);
+});
+    // Başlık ve açıklama
+    document.title = companyInfo.name + " | Teknik Servis Hizmetleri";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", "Garantisi bitmiş cihazlar için teknik servis hizmeti. " + companyInfo.name + " ile güvenli ve hızlı çözüm.");
+  });
+</script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -415,7 +442,7 @@
 <body>
   <header>
     <div class="header-inner">
-      <a href="index.html" class="logo">ServisWeb</a>
+      <a href="index.html" class="logo company-name"></a>
       <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
       <nav class="menu" id="main-menu">
         <a href="index.html">Ana Sayfa</a>
@@ -451,16 +478,16 @@
         <li><strong>Çevreye Duyarlılık:</strong> Atık yönetimi ve enerji verimliliği konularında hassasiyet göstererek çevreye olan sorumluluklarımızı yerine getiririz.</li>
     </ul>
 
-    <a href="tel:+905551112233" class="action-button">
-        <i class="fas fa-phone-alt"></i> Bizi Arayın
-    </a>
+  <a class="action-button company-call-button">
+  <i class="fas fa-phone-alt"></i> Bizi Arayın
+</a>
   </main>
   <footer>
     <div class="footer-column">
       <h3>İletişim</h3>
-      <p><span class="fa-solid fa-location-dot"></span> Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul</p>
-      <p><span class="fa-solid fa-phone"></span> +90 (555) 111 22 33</p>
-      <p><span class="fa-solid fa-envelope"></span> info@servisweb.com</p>
+      <p><span class="fa-solid fa-location-dot"></span> <a class="company-address"></a></p>
+      <p><span class="fa-solid fa-phone"></span> <a class="company-phone"></a></p>
+      <p><span class="fa-solid fa-envelope"></span> <a class="company-email"></a></p>
     </div>
     <div class="footer-column">
       <h3>Hizmetlerimiz</h3>

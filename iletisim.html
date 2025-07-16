@@ -12,7 +12,7 @@
   <meta property="og:description" content="Teknik servis talepleriniz ve sorularınız için bizimle iletişime geçin." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://servisweb.com/iletisim.html" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     :root {
       --primary: #3498db; /* Modern, canlı bir mavi */
@@ -484,34 +484,48 @@
       }
     }
   </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("address").textContent = CONFIG.address;
-    document.getElementById("address-footer").textContent = CONFIG.address;
-
-    document.getElementById("phone-link").textContent = CONFIG.phone;
-    document.getElementById("phone-link").href = `tel:${CONFIG.phone.replace(/\s+/g, '')}`;
-    document.getElementById("phone-footer").textContent = CONFIG.phone;
-
-    document.getElementById("email-link").textContent = CONFIG.email;
-    document.getElementById("email-link").href = `mailto:${CONFIG.email}`;
-    document.getElementById("email-footer").textContent = CONFIG.email;
-
-    document.getElementById("company").textContent = CONFIG.companyName;
-    document.getElementById("disclaimer").textContent = CONFIG.disclaimer;
-
-    const serviceList = document.getElementById("services");
-    CONFIG.services.forEach(service => {
-      const li = document.createElement("li");
-      const a = document.createElement("a");
-      a.textContent = service;
-      a.href = `hizmet.html?service=${service.toLowerCase().replace(/\s+/g, '')}`;
-      li.appendChild(a);
-      serviceList.appendChild(li);
+  <script src="config.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Adres
+      document.querySelectorAll(".company-address").forEach(el => {
+        el.textContent = companyInfo.address;
+      });
+  
+      // Telefon (görsel + tel: link + çağrı butonu)
+      document.querySelectorAll(".company-phone").forEach(el => {
+        el.href = "tel:" + companyInfo.phoneRaw;
+        el.textContent = companyInfo.phone + " – Hemen Ara!";
+      });
+  
+      document.querySelectorAll(".company-phone-link").forEach(el => {
+        el.href = "tel:" + companyInfo.phoneRaw;
+        el.textContent = companyInfo.phone;
+      });
+  
+      document.querySelectorAll(".company-call-button").forEach(el => {
+        el.href = "tel:" + companyInfo.phoneRaw;
+      });
+  
+      // E-posta
+      document.querySelectorAll(".company-email").forEach(el => {
+        el.textContent = companyInfo.email;
+      });
+  
+      // Şirket adı (metin alanlarında)
+      document.querySelectorAll(".company-name").forEach(el => {
+        el.textContent = companyInfo.name;
+      });
+  
+      // Başlık ve açıklama
+      document.title = companyInfo.name + " | Teknik Servis Hizmetleri";
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute("content", "Garantisi bitmiş cihazlar için teknik servis hizmeti. " + companyInfo.name + " ile güvenli ve hızlı çözüm.");
+      }
     });
-  });
-</script>
+  </script>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -594,7 +608,7 @@
 <body>
   <header>
     <div class="header-inner">
-      <a href="index.html" class="logo">ServisWeb</a>
+      <a href="index.html" class="logo company-name"></a>
       <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
       <nav class="menu" id="main-menu">
         <a href="index.html">Ana Sayfa</a>
@@ -620,15 +634,14 @@
   <main>
     <h1>Bizimle İletişime Geçin</h1>
     <div class="contact-info">
-      <p>Telefon: <a href="tel:+905551112233">0555 111 22 33</a></p>
-      <p>Email: info@servisweb.com</p>
-      <p>Adres: Örnek Mah. Servis Cad. No:7 İstanbul</p>
+      <p>Telefon: <a class="company-phone-link"></a></p>
+      <p>Email: <span class="company-email"></span></p>
+      <p>Adres: <span class="company-address"></span></p>
     </div>
-
-    <a href="tel:+905551112233" class="call-to-action-button">
-        <i class="fas fa-phone-alt"></i> Hemen Arayın
+    
+    <a class="call-to-action-button company-call-button">
+      <i class="fas fa-phone-alt"></i> Hemen Arayın
     </a>
-
     <form>
       <input type="text" name="name" placeholder="Adınız Soyadınız" required />
       <input type="email" name="email" placeholder="E-posta adresiniz" required />
@@ -715,9 +728,9 @@
   <footer>
     <div class="footer-column">
       <h3>İletişim</h3>
-      <p><span class="fa-solid fa-location-dot"></span> Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul</p>
-      <p><span class="fa-solid fa-phone"></span> +90 (555) 111 22 33</p>
-      <p><span class="fa-solid fa-envelope"></span> info@servisweb.com</p>
+      <p><span class="fa-solid fa-location-dot"></span> <a class="company-address"></a></p>
+      <p><span class="fa-solid fa-phone"></span> <a class="company-phone"></a></p>
+      <p><span class="fa-solid fa-envelope"></span> <a class="company-email"></a></p>
     </div>
     <div class="footer-column">
       <h3>Hizmetlerimiz</h3>
