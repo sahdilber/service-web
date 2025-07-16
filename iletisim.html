@@ -12,10 +12,18 @@
   <meta property="og:description" content="Teknik servis talepleriniz ve sorularınız için bizimle iletişime geçin." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://servisweb.com/iletisim.html" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Font Awesome lazy load ve preconnect -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+<!-- Lazy-load Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</noscript>
   <style>
-  :root {
-  --primary: #3498db;
+    :root {
+  --primary: #1a4f85;
   --dark: #2c3e50;
   --light: #ecf0f1;
   --accent: #007a3d; /* Güncellendi */
@@ -25,6 +33,7 @@
   --footer-bg: #212121;
   --footer-text-color: #e0e0e0; /* Güncellendi */
 }
+
 
     * {
       box-sizing: border-box;
