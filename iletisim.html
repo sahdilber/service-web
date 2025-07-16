@@ -88,28 +88,27 @@
     .menu a:hover {
       color: var(--primary);
     }
-    .dropdown {
+     /* Dropdown Stilleri (Masaüstü için geçerli) */
+     .dropdown {
       position: relative;
     }
     .dropdown-content {
       display: none;
       position: absolute;
       background: var(--background-light);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Daha belirgin gölge */
       border-radius: 8px;
-      top: 2.2rem;
+      top: 2.2rem; /* Dropdown konumu ayarlandı */
       left: 0;
-      min-width: 220px;
+      min-width: 220px; /* Genişlik arttırıldı */
       z-index: 99;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border-color); /* Hafif kenarlık */
     }
     .dropdown-content a {
-      color: black;
-      padding: 0.8rem 1.2rem;
-      text-decoration: none;
       display: block;
-      text-align: left;
-      white-space: nowrap;
+      padding: 0.8rem 1.2rem; /* Padding arttırıldı */
+      color: var(--text-color);
+      text-decoration: none;
     }
     .dropdown-content a:hover {
       background: var(--primary);
@@ -118,12 +117,14 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
+    /* Mobil Görünüm Düzenlemeleri (768px ve altı) */
     @media screen and (max-width: 768px) {
       .menu-toggle {
-        display: block;
+        display: block; /* Hamburger ikonunu göster */
       }
       .menu {
-        display: none;
+        display: none; /* Varsayılan olarak menüyü gizle */
         flex-direction: column;
         width: 100%;
         margin-top: 1rem;
@@ -133,91 +134,150 @@
         padding: 1rem;
       }
       .menu.show {
-        display: flex;
+        display: flex; /* JavaScript ile menüyü göster */
       }
-      .dropdown:hover .dropdown-content {
+
+      /* Dropdown'ı mobil görünümde düz listeye çevir */
+      .dropdown {
+        width: 100%; /* Kendi genişliğini alsın */
+        position: static; /* Dropdown konumlandırmasını iptal et */
+      }
+      .dropdown > span { /* "Hizmetlerimiz" metnini blok eleman yap */
         display: block;
-        position: static;
-        box-shadow: none;
-        padding: 0;
-        background: none;
+        padding: 0.6rem 0; /* Menü öğeleriyle aynı padding */
+        text-align: center;
+        color: var(--text-color);
+        font-weight: 500;
+      }
+      .dropdown-content {
+        display: flex; /* Dikey olarak liste şeklinde göster */
+        flex-direction: column;
+        position: static; /* Konumlandırmayı iptal et */
+        box-shadow: none; /* Gölgeyi kaldır */
+        border: none; /* Çizgiyi kaldır */
+        border-radius: 0; /* Yuvarlak köşeleri kaldır */
+        background: none; /* Arka planı kaldır */
+        width: 100%; /* Tam genişlikte olsun */
+        padding: 0; /* İç padding'i kaldır */
       }
       .dropdown-content a {
-        padding: 0.6rem 0;
+        padding: 0.6rem 0; /* Mobil menü öğeleriyle aynı padding */
+        text-align: center; /* Ortala */
+        font-weight: 400; /* Daha hafif font */
+      }
+      .dropdown:hover .dropdown-content {
+        display: flex; /* Hover yerine her zaman görünür (toggleMenu ile kontrol edilecek) */
       }
     }
 
-    /* Main Section Stilleri */
-    main {
-      max-width: 960px;
-      margin: 2rem auto;
-      background: var(--background-light);
-      padding: 2.5rem 2rem; /* Daha geniş padding */
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-    }
-    h1 {
-      font-size: 2.5rem; /* Daha büyük başlık */
-      margin-bottom: 1.5rem;
-      text-align: center;
-      color: var(--dark);
-    }
-    h2 {
-      font-size: 2rem; /* Büyük başlık */
-      margin-top: 3rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      color: var(--primary);
-    }
-    h3 {
-      font-size: 1.5rem; /* Orta başlık */
-      margin-top: 1.5rem;
-      margin-bottom: 0.8rem;
-      color: var(--dark);
-    }
-    .contact-info {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
+
+      main {
+    max-width: 960px;
+    margin: 2rem auto;
+    background: var(--background-light);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  }
+  h1 {
+    font-size: 2rem; /* Boyut küçültüldü: 2.5rem'den 2rem'e */
+    margin-bottom: 1rem; /* Boşluk azaltıldı: 1.5rem'den 1rem'e */
+    text-align: center;
+    color: var(--dark);
+  }
+  h2 {
+    font-size: 1.6rem; /* Boyut küçültüldü: 2rem'den 1.6rem'e */
+    margin-top: 2.5rem; /* Boşluk azaltıldı: 3rem'den 2.5rem'e */
+    margin-bottom: 1rem; /* Boşluk azaltıldı: 1.5rem'den 1rem'e */
+    text-align: center;
+    color: var(--primary);
+  }
+  h3 {
+    font-size: 1.3rem; /* Boyut küçültüldü: 1.5rem'den 1.3rem'e */
+    margin-top: 1.2rem; /* Boşluk azaltıldı: 1.5rem'den 1.2rem'e */
+    margin-bottom: 0.6rem; /* Boşluk azaltıldı: 0.8rem'den 0.6rem'e */
+    color: var(--dark);
+  }
+    /* İletişim Bilgileri Kartları */
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem; /* Kartlar arası boşluk */
       margin-bottom: 2rem;
+    }
+
+    .contact-card { /* .hours-card stili kaldırıldı */
+      background: var(--light);
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 200px;
+      max-width: 30%; /* Üç kartın yan yana durması için daha küçük max-width */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Hafif iç gölge */
+      transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover efekti */
     }
-    .contact-info p {
-      margin: 0.7rem 0;
+
+    .contact-card:hover {
+        transform: translateY(-3px);
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .contact-card i {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
       font-size: 1.15rem;
-      color: var(--text-color);
     }
-    .contact-info p a {
+
+    .contact-card p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+      color: var(--text-color);
+      line-height: 1.4;
+    }
+
+    .contact-card p a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 600;
     }
-    .contact-info p a:hover {
+
+    .contact-card p a:hover {
       text-decoration: underline;
     }
-
+    
     /* Call to Action Button */
     .call-to-action-button {
       display: block;
       width: fit-content;
-      margin: 2rem auto 2.5rem auto; /* Ortala ve boşluk ekle */
+      margin: 2rem auto 2.5rem auto;
       padding: 1rem 2rem;
-      background: var(--accent); /* Canlı yeşil renk */
+      background: var(--accent);
       color: #fff;
       border: none;
       border-radius: 8px;
-      font-size: 1.4rem; /* Daha büyük font */
+      font-size: 1.4rem;
       font-weight: 700;
       cursor: pointer;
       text-decoration: none;
       text-align: center;
       transition: background 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3); /* Gölge efekti */
+      box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3);
     }
     .call-to-action-button:hover {
-      background: #219d53; /* Hover'da daha koyu yeşil */
-      transform: translateY(-2px); /* Hafif yukarı kalkma efekti */
+      background: #219d53;
+      transform: translateY(-2px);
     }
     .call-to-action-button i {
         margin-right: 10px;
@@ -226,7 +286,7 @@
     form {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem; /* Boşluk arttırıldı */
+      gap: 1.2rem;
       margin-top: 2rem;
       padding: 2rem;
       border: 1px solid var(--border-color);
@@ -235,13 +295,14 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     }
     input, textarea {
-      padding: 1rem; /* Padding arttırıldı */
+      padding: 1rem;
       border: 1px solid var(--border-color);
       border-radius: 8px;
       font-size: 1.1rem;
       resize: vertical;
       color: var(--text-color);
       background: #fff;
+      font-family: 'Inter', sans-serif;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
     input:focus, textarea:focus {
@@ -281,9 +342,9 @@
     }
 
     .reviews-section, .faq-section, .article-section {
-      margin-top: 3rem; /* Bölümler arası boşluk */
+      margin-top: 3rem;
       padding-top: 2rem;
-      border-top: 1px solid var(--border-color); /* Hafif ayırıcı çizgi */
+      border-top: 1px solid var(--border-color);
     }
     .review-item {
       background: #f9f9f9;
@@ -316,7 +377,7 @@
       margin-top: 0;
       margin-bottom: 0.7rem;
       color: var(--primary);
-      cursor: pointer; /* Expand/collapse için ipucu */
+      cursor: pointer;
     }
     .faq-item p {
       color: var(--text-color);
@@ -333,159 +394,179 @@
     }
 
 
-    /* Footer Stilleri */
-    footer {
-      background: var(--footer-bg);
-      color: var(--footer-text-color);
-      padding: 3.5rem 1rem;
-      font-size: 0.95rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: flex-start;
-      text-align: left;
-      flex-direction: row;
-      margin-top: 2rem; /* Main ile footer arası boşluk */
-    }
+   /* Footer Stilleri */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text-color);
+  padding: 3.5rem 1rem;
+  font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: left;
+  flex-direction: row;
+}
 
-    footer .footer-column {
-      flex: 1;
-      min-width: 220px;
-      margin: 1.5rem;
-    }
+footer .footer-column {
+  flex: 1;
+  min-width: 220px;
+  margin: 1.5rem;
+}
 
-    footer .footer-column h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1.5rem;
-      color: #fff;
-      position: relative;
-      padding-bottom: 0.6rem;
-      font-weight: 700;
-    }
+footer .footer-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  position: relative;
+  padding-bottom: 0.6rem;
+  font-weight: 700;
+}
 
-    footer .footer-column h3::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 60px;
-      height: 3px;
-      background-color: var(--primary);
-    }
+footer .footer-column h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary);
+}
 
-    footer .footer-column p,
-    footer .footer-column a {
-      color: var(--footer-text-color);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.8rem;
-      transition: color 0.3s ease;
-    }
+/* İletişim bilgileri için özel stiller */
+footer .footer-column .contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
 
-    footer .footer-column p {
-        display: flex;
-        align-items: flex-start;
-    }
+footer .footer-column .contact-info-item span {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    padding-top: 2px;
+}
 
-    footer .footer-column p span {
-        margin-right: 10px;
-        font-size: 1.1rem;
-        color: var(--primary);
-    }
+footer .footer-column .contact-info-item a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+    word-break: break-word;
+}
 
-    footer .footer-column a:hover {
-      color: var(--primary);
-    }
+footer .footer-column .contact-info-item a:hover {
+    color: var(--primary);
+}
 
-    .social-icons {
-        display: flex;
-        gap: 0.8rem;
-        margin-top: 1rem;
-    }
+/* Diğer linkler ve paragraflar için genel stil */
+footer .footer-column a:not(.contact-info-item a) {
+  color: var(--footer-text-color);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+}
+footer .footer-column a:not(.contact-info-item a):hover {
+  color: var(--primary);
+}
 
-    .social-icons a {
-        background-color: #333;
-        color: #fff;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        font-size: 1.2rem;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    justify-content: flex-start;
+}
 
-    .social-icons a:hover {
-        background-color: var(--primary);
-        color: #fff;
-    }
+.social-icons a {
+    background-color: transparent;
+    color: var(--footer-text-color);
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
 
-    footer .notice-container {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        margin-top: 2rem;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+.social-icons a:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
 
-    footer .notice {
-      background-color: transparent;
-      color: var(--footer-text-color);
-      padding: 0;
-      border-radius: 0;
-      font-weight: normal;
-      border: none;
-      text-align: left;
-      max-width: none;
-      box-shadow: none;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
+/* İkonun kendisi için ekstra ayarlama */
+.social-icons a i {
+    line-height: 1;
+}
 
-    footer .notice strong {
-      font-weight: bold;
-      color: #fff;
-      margin-right: 5px;
-    }
+footer .notice-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
-    /* Footer Responsive Düzenlemeler */
-    @media screen and (max-width: 768px) {
-      footer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+footer .notice {
+  background-color: transparent;
+  color: var(--footer-text-color);
+  padding: 0;
+  border-radius: 0;
+  font-weight: normal;
+  border: none;
+  text-align: left;
+  max-width: none;
+  box-shadow: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
 
-      footer .footer-column {
-        margin-bottom: 2rem;
-        width: 100%;
-        max-width: 300px;
-      }
+footer .notice strong {
+  font-weight: bold;
+  color: #fff;
+  margin-right: 5px;
+}
 
-      footer .footer-column h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      footer .notice-container {
-          margin-top: 1.5rem;
-          justify-content: center;
-          padding-left: 0;
-          padding-right: 0;
-      }
-      footer .notice {
-        text-align: center;
-      }
-      .social-icons {
-        justify-content: center;
-      }
-    }
+/* Footer Responsive Düzenlemeler */
+@media screen and (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  footer .footer-column {
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  footer .footer-column h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  footer .notice-container {
+      margin-top: 1.5rem;
+      justify-content: center;
+      padding-left: 0;
+      padding-right: 0;
+  }
+  footer .notice {
+    text-align: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}
   </style>
   <script src="config.js"></script>
   <script>
+
     document.addEventListener("DOMContentLoaded", () => {
       // Adres
       document.querySelectorAll(".company-address").forEach(el => {
@@ -495,7 +576,7 @@
       // Telefon (görsel + tel: link + çağrı butonu)
       document.querySelectorAll(".company-phone").forEach(el => {
         el.href = "tel:" + companyInfo.phoneRaw;
-        el.textContent = companyInfo.phone + " – Hemen Ara!";
+        el.textContent = companyInfo.phone ;
       });
   
       document.querySelectorAll(".company-phone-link").forEach(el => {
@@ -509,6 +590,7 @@
   
       // E-posta
       document.querySelectorAll(".company-email").forEach(el => {
+        el.href = "mailto:" + companyInfo.email; // Mailto linki eklendi
         el.textContent = companyInfo.email;
       });
   
@@ -541,26 +623,6 @@
       "telephone": "+905551112233",
       "email": "info@servisweb.com",
       "url": "https://servisweb.com/iletisim.html",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday"
-          ],
-          "opens": "09:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "09:00",
-          "closes": "14:00"
-        }
-      ],
       "image": "https://servisweb.com/logo.png",
       "priceRange": "$$",
       "description": "ServisWeb, garantisi bitmiş beyaz eşyalarınız için profesyonel tamir, bakım ve onarım hizmetleri sunar."
@@ -633,14 +695,27 @@
 
   <main>
     <h1>Bizimle İletişime Geçin</h1>
-    <div class="contact-info">
-      <p>Telefon: <a class="company-phone-link"></a></p>
-      <p>Email: <span class="company-email"></span></p>
-      <p>Adres: <span class="company-address"></span></p>
+    
+    <div class="contact-section">
+      <div class="contact-card">
+        <i class="fas fa-phone-alt"></i>
+        <h3>Telefon</h3>
+        <p><a class="company-phone-link"></a></p>
+      </div>
+      <div class="contact-card">
+        <i class="fas fa-envelope"></i>
+        <h3>E-posta</h3>
+        <p><a class="company-email"></a></p>
+      </div>
+      <div class="contact-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Adres</h3>
+        <p><span class="company-address"></span></p>
+      </div>
     </div>
     
     <a class="call-to-action-button company-call-button">
-      <i class="fas fa-phone-alt"></i> Hemen Arayın
+      <i class="fas fa-phone-alt"></i> Bizi Arayın
     </a>
     <form>
       <input type="text" name="name" placeholder="Adınız Soyadınız" required />
@@ -728,9 +803,14 @@
   <footer>
     <div class="footer-column">
       <h3>İletişim</h3>
-      <p><span class="fa-solid fa-location-dot"></span> <a class="company-address"></a></p>
-      <p><span class="fa-solid fa-phone"></span> <a class="company-phone"></a></p>
-      <p><span class="fa-solid fa-envelope"></span> <a class="company-email"></a></p>
+      <div class="contact-info-item"> <span class="fa-solid fa-location-dot"></span> <a class="company-address">Örnek Mah. Örnek Sk. No:1 D:2, Örnek ilçe/İstanbul</a>
+      </div>
+      <div class="contact-info-item">
+        <span class="fa-solid fa-phone"></span> <a class="company-phone">0 (555) 111 22 33 - Hemen Ara!</a>
+      </div>
+      <div class="contact-info-item">
+        <span class="fa-solid fa-envelope"></span> <a class="company-email">info@servisweb.com</a>
+      </div>
     </div>
     <div class="footer-column">
       <h3>Hizmetlerimiz</h3>

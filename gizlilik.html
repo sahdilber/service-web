@@ -89,6 +89,7 @@
     .menu a:hover {
       color: var(--primary);
     }
+    /* Dropdown Stilleri (Masaüstü için geçerli) */
     .dropdown {
       position: relative;
     }
@@ -96,21 +97,19 @@
       display: none;
       position: absolute;
       background: var(--background-light);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Daha belirgin gölge */
       border-radius: 8px;
-      top: 2.2rem;
+      top: 2.2rem; /* Dropdown konumu ayarlandı */
       left: 0;
-      min-width: 220px;
+      min-width: 220px; /* Genişlik arttırıldı */
       z-index: 99;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border-color); /* Hafif kenarlık */
     }
     .dropdown-content a {
-      color: black;
-      padding: 0.8rem 1.2rem;
-      text-decoration: none;
       display: block;
-      text-align: left;
-      white-space: nowrap;
+      padding: 0.8rem 1.2rem; /* Padding arttırıldı */
+      color: var(--text-color);
+      text-decoration: none;
     }
     .dropdown-content a:hover {
       background: var(--primary);
@@ -119,12 +118,14 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
+
+    /* Mobil Görünüm Düzenlemeleri (768px ve altı) */
     @media screen and (max-width: 768px) {
       .menu-toggle {
-        display: block;
+        display: block; /* Hamburger ikonunu göster */
       }
       .menu {
-        display: none;
+        display: none; /* Varsayılan olarak menüyü gizle */
         flex-direction: column;
         width: 100%;
         margin-top: 1rem;
@@ -134,49 +135,71 @@
         padding: 1rem;
       }
       .menu.show {
-        display: flex;
+        display: flex; /* JavaScript ile menüyü göster */
       }
-      .dropdown:hover .dropdown-content {
+
+      /* Dropdown'ı mobil görünümde düz listeye çevir */
+      .dropdown {
+        width: 100%; /* Kendi genişliğini alsın */
+        position: static; /* Dropdown konumlandırmasını iptal et */
+      }
+      .dropdown > span { /* "Hizmetlerimiz" metnini blok eleman yap */
         display: block;
-        position: static;
-        box-shadow: none;
-        padding: 0;
-        background: none;
+        padding: 0.6rem 0; /* Menü öğeleriyle aynı padding */
+        text-align: center;
+        color: var(--text-color);
+        font-weight: 500;
+      }
+      .dropdown-content {
+        display: flex; /* Dikey olarak liste şeklinde göster */
+        flex-direction: column;
+        position: static; /* Konumlandırmayı iptal et */
+        box-shadow: none; /* Gölgeyi kaldır */
+        border: none; /* Çizgiyi kaldır */
+        border-radius: 0; /* Yuvarlak köşeleri kaldır */
+        background: none; /* Arka planı kaldır */
+        width: 100%; /* Tam genişlikte olsun */
+        padding: 0; /* İç padding'i kaldır */
       }
       .dropdown-content a {
-        padding: 0.6rem 0;
+        padding: 0.6rem 0; /* Mobil menü öğeleriyle aynı padding */
+        text-align: center; /* Ortala */
+        font-weight: 400; /* Daha hafif font */
+      }
+      .dropdown:hover .dropdown-content {
+        display: flex; /* Hover yerine her zaman görünür (toggleMenu ile kontrol edilecek) */
       }
     }
 
-    /* Main Section Stilleri */
+
     main {
-      max-width: 960px;
-      margin: 2rem auto;
-      background: var(--background-light);
-      padding: 2.5rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      color: var(--dark);
-    }
-    h2 {
-      font-size: 2rem;
-      margin-top: 2.5rem;
-      margin-bottom: 1.2rem;
-      color: var(--primary);
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 0.5rem;
-    }
-    h3 {
-      font-size: 1.5rem;
-      margin-top: 1.8rem;
-      margin-bottom: 0.8rem;
-      color: var(--dark);
-    }
+  max-width: 960px;
+  margin: 2rem auto;
+  background: var(--background-light);
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+h1 {
+  font-size: 2rem; /* Boyut küçültüldü: 2.5rem'den 2rem'e */
+  margin-bottom: 1rem; /* Boşluk azaltıldı: 1.5rem'den 1rem'e */
+  text-align: center;
+  color: var(--dark);
+}
+h2 {
+  font-size: 1.6rem; /* Boyut küçültüldü: 2rem'den 1.6rem'e */
+  margin-top: 2.5rem; /* Boşluk azaltıldı: 3rem'den 2.5rem'e */
+  margin-bottom: 1rem; /* Boşluk azaltıldı: 1.5rem'den 1rem'e */
+  text-align: center;
+  color: var(--primary);
+}
+h3 {
+  font-size: 1.3rem; /* Boyut küçültüldü: 1.5rem'den 1.3rem'e */
+  margin-top: 1.2rem; /* Boşluk azaltıldı: 1.5rem'den 1.2rem'e */
+  margin-bottom: 0.6rem; /* Boşluk azaltıldı: 0.8rem'den 0.6rem'e */
+  color: var(--dark);
+}
+    
     p {
       font-size: 1.1rem;
       margin-bottom: 1rem;
@@ -236,156 +259,177 @@
     }
 
 
-    /* Footer Stilleri */
-    footer {
-      background: var(--footer-bg);
-      color: var(--footer-text-color);
-      padding: 3.5rem 1rem;
-      font-size: 0.95rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: flex-start;
-      text-align: left;
-      flex-direction: row;
-      margin-top: 2rem;
-    }
+   
 
-    footer .footer-column {
-      flex: 1;
-      min-width: 220px;
-      margin: 1.5rem;
-    }
+   /* Footer Stilleri */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text-color);
+  padding: 3.5rem 1rem;
+  font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: left;
+  flex-direction: row;
+}
 
-    footer .footer-column h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1.5rem;
-      color: #fff;
-      position: relative;
-      padding-bottom: 0.6rem;
-      font-weight: 700;
-    }
+footer .footer-column {
+  flex: 1;
+  min-width: 220px;
+  margin: 1.5rem;
+}
 
-    footer .footer-column h3::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 60px;
-      height: 3px;
-      background-color: var(--primary);
-    }
+footer .footer-column h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  position: relative;
+  padding-bottom: 0.6rem;
+  font-weight: 700;
+}
 
-    footer .footer-column p,
-    footer .footer-column a {
-      color: var(--footer-text-color);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.8rem;
-      transition: color 0.3s ease;
-    }
+footer .footer-column h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary);
+}
 
-    footer .footer-column p {
-        display: flex;
-        align-items: flex-start;
-    }
+/* İletişim bilgileri için özel stiller */
+footer .footer-column .contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
 
-    footer .footer-column p span {
-        margin-right: 10px;
-        font-size: 1.1rem;
-        color: var(--primary);
-    }
+footer .footer-column .contact-info-item span {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    padding-top: 2px;
+}
 
-    footer .footer-column a:hover {
-      color: var(--primary);
-    }
+footer .footer-column .contact-info-item a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+    word-break: break-word;
+}
 
-    .social-icons {
-        display: flex;
-        gap: 0.8rem;
-        margin-top: 1rem;
-    }
+footer .footer-column .contact-info-item a:hover {
+    color: var(--primary);
+}
 
-    .social-icons a {
-        background-color: #333;
-        color: #fff;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        font-size: 1.2rem;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
+/* Diğer linkler ve paragraflar için genel stil */
+footer .footer-column a:not(.contact-info-item a) {
+  color: var(--footer-text-color);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+}
+footer .footer-column a:not(.contact-info-item a):hover {
+  color: var(--primary);
+}
 
-    .social-icons a:hover {
-        background-color: var(--primary);
-        color: #fff;
-    }
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    justify-content: flex-start;
+}
 
-    footer .notice-container {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        margin-top: 2rem;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+.social-icons a {
+    background-color: transparent;
+    color: var(--footer-text-color);
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
 
-    footer .notice {
-      background-color: transparent;
-      color: var(--footer-text-color);
-      padding: 0;
-      border-radius: 0;
-      font-weight: normal;
-      border: none;
-      text-align: left;
-      max-width: none;
-      box-shadow: none;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
+.social-icons a:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
 
-    footer .notice strong {
-      font-weight: bold;
-      color: #fff;
-      margin-right: 5px;
-    }
+/* İkonun kendisi için ekstra ayarlama */
+.social-icons a i {
+    line-height: 1;
+}
 
-    /* Footer Responsive Düzenlemeler */
-    @media screen and (max-width: 768px) {
-      footer {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+footer .notice-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
-      footer .footer-column {
-        margin-bottom: 2rem;
-        width: 100%;
-        max-width: 300px;
-      }
+footer .notice {
+  background-color: transparent;
+  color: var(--footer-text-color);
+  padding: 0;
+  border-radius: 0;
+  font-weight: normal;
+  border: none;
+  text-align: left;
+  max-width: none;
+  box-shadow: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
 
-      footer .footer-column h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      footer .notice-container {
-          margin-top: 1.5rem;
-          justify-content: center;
-          padding-left: 0;
-          padding-right: 0;
-      }
-      footer .notice {
-        text-align: center;
-      }
-      .social-icons {
-        justify-content: center;
-      }
-    }
+footer .notice strong {
+  font-weight: bold;
+  color: #fff;
+  margin-right: 5px;
+}
+
+/* Footer Responsive Düzenlemeler */
+@media screen and (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  footer .footer-column {
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  footer .footer-column h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  footer .notice-container {
+      margin-top: 1.5rem;
+      justify-content: center;
+      padding-left: 0;
+      padding-right: 0;
+  }
+  footer .notice {
+    text-align: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}
   </style>
    <script src="config.js"></script>
  <script>
@@ -539,9 +583,14 @@
   <footer>
     <div class="footer-column">
       <h3>İletişim</h3>
-      <p><span class="fa-solid fa-location-dot"></span> <a class="company-address"></a></p>
-      <p><span class="fa-solid fa-phone"></span> <a class="company-phone"></a></p>
-      <p><span class="fa-solid fa-envelope"></span> <a class="company-email"></a></p>
+      <div class="contact-info-item"> <span class="fa-solid fa-location-dot"></span> <a class="company-address">Örnek Mah. Örnek Sk. No:1 D:2, Örnek ilçe/İstanbul</a>
+      </div>
+      <div class="contact-info-item">
+        <span class="fa-solid fa-phone"></span> <a class="company-phone">0 (555) 111 22 33 - Hemen Ara!</a>
+      </div>
+      <div class="contact-info-item">
+        <span class="fa-solid fa-envelope"></span> <a class="company-email">info@servisweb.com</a>
+      </div>
     </div>
     <div class="footer-column">
       <h3>Hizmetlerimiz</h3>
