@@ -71,23 +71,23 @@
   </script>
   <style>
     :root {
-  --primary: #1a4f85;
-  --dark: #2c3e50;
-  --light: #ecf0f1;
-  --accent: #007a3d; /* Güncellendi */
-  --text-color: #34495e;
-  --border-color: #bdc3c7;
-  --background-light: #ffffff;
-  --footer-bg: #212121;
-  --footer-text-color: #e0e0e0; /* Güncellendi */
-  }
-  
+      --primary: #1a4f85;
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --accent: #007a3d;
+      --text-color: #34495e;
+      --border-color: #bdc3c7;
+      --background-light: #ffffff;
+      --footer-bg: #212121;
+      --footer-text-color: #e0e0e0;
+    }
+    
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-  
+    
     body {
       font-family: 'Inter', sans-serif;
       background: var(--light);
@@ -96,12 +96,13 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-  
+    
     h1, h2, h3, h4, h5, h6 {
         color: var(--dark);
         line-height: 1.2;
     }
-  
+    
+    /* Header Stilleri */
     header {
       background: var(--background-light);
       border-bottom: 1px solid var(--border-color);
@@ -178,56 +179,101 @@
     .dropdown:hover .dropdown-content {
       display: block;
     }
-  
+    
+    /* --- MOBİL GÖRÜNÜM DÜZENLEMELERİ (768px ve altı) --- */
     @media screen and (max-width: 768px) {
       .menu-toggle {
-        display: block;
+        display: block; /* Hamburger ikonunu göster */
       }
       .menu {
-        display: none;
+        display: none; /* Varsayılan olarak menüyü gizle */
         flex-direction: column;
         width: 100%;
         margin-top: 1rem;
         background: var(--background-light);
         border-radius: 0 0 8px 8px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        padding: 1rem;
+        padding: 0.2rem 1rem; /* Menü kapsayıcısının iç üst/alt paddingini minimalize ettik */
       }
       .menu.show {
-        display: flex;
+        display: flex; /* JavaScript ile menüyü göster */
       }
-      .dropdown {
-        width: 100%;
-        position: static;
-      }
-      .dropdown > span {
+    
+      /* Ana Menü Linkleri İçin Başlık Gibi Stil ve Boşluk Azaltma */
+      /* (Ana Sayfa, Hakkımızda, İletişim) */
+      .menu > a {
         display: block;
-        padding: 0.6rem 0;
+        padding: 0.05rem 0; /* Dikey paddingi ultra-minimalize ettik */
+        line-height: 1; /* Satır yüksekliğini kesinlikle 1'e ayarladık */
         text-align: center;
-        color: var(--text-color);
-        font-weight: 500;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0.1rem; /* Her ana menü öğesi arasına çok az boşluk bıraktık */
+        border-bottom: none; /* !!! ANA SAYFA ALTINDAKİ ÇİZGİYİ KALDIRDIK !!! */
       }
+    
+      /* Hizmetlerimiz linki için özel, garantili stil ve BOŞLUK AZALTMA */
+      .dropdown > a {
+        display: block;
+        padding: 0.05rem 0; /* Dikey paddingi ultra-minimalize ettik */
+        line-height: 1; /* Satır yüksekliğini kesinlikle 1'e ayarladık */
+        text-align: center;
+        color: var(--primary) !important;
+        font-weight: 700 !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0.1rem; /* Hizmetlerimiz ana başlığının altında çok az boşluk */
+      }
+    
+      /* Dropdown dışındaki ana menü linkleri için hover efekti */
+      .menu > a:not(.dropdown > a):hover {
+        color: var(--dark);
+      }
+    
+      /* Dropdown konteynerinin mobil görünümdeki ayarları */
+      .dropdown {
+        width: 100%; /* Kendi genişliğini alsın */
+        position: static; /* Dropdown konumlandırmasını iptal et */
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+      /* Mobil görünümde ".dropdown > span" kuralı gereksiz olduğundan kaldırıldı. */
+    
+      /* Dropdown içeriği (alt menü öğeleri) */
       .dropdown-content {
-        display: flex;
+        display: flex; /* Dikey olarak liste şeklinde göster */
         flex-direction: column;
-        position: static;
-        box-shadow: none;
-        border: none;
-        border-radius: 0;
-        background: none;
-        width: 100%;
-        padding: 0;
+        position: static; /* Konumlandırmayı iptal et */
+        box-shadow: none; /* Gölgeyi kaldır */
+        border: none; /* Çizgiyi kaldır */
+        border-radius: 0; /* Yuvarlak köşeleri kaldır */
+        background: none; /* Arka planı kaldır */
+        width: 100%; /* Tam genişlikte olsun */
+        padding: 0; /* İç padding'i kaldır */
+        margin-top: 0.3rem; /* Hizmetlerimiz başlığı ile ilk alt öğe arasına boşluk */
+        margin-bottom: 0.2rem; /* Son alt öğe (Televizyon) ile Hakkımızda arasındaki boşluk */
       }
       .dropdown-content a {
-        padding: 0.6rem 0;
-        text-align: center;
-        font-weight: 400;
+        padding: 0.4rem 0.5rem; /* Alt öğelerin dikey boşluğunu daha da azalttık */
+        text-align: center; /* Ortala */
+        font-weight: 400; /* Daha hafif font */
+        color: var(--text-color);
+        border-top: 1px dashed var(--border-color); /* Alt öğeler arasında ayırıcı çizgi */
+        font-size: 1rem;
+        line-height: 1.4; /* Alt öğelerin satır yüksekliğini de düşürdük */
       }
+      /* İlk alt menü öğesinde üst çizgiyi kaldır */
+      .dropdown-content a:first-child {
+        border-top: none;
+      }
+    
+      /* Mobil menü açıkken dropdown içeriğinin görünürlüğünü kontrol eder */
       .dropdown:hover .dropdown-content {
-        display: flex;
+        display: flex; /* Hover yerine her zaman görünür (toggleMenu ile kontrol edilecek) */
       }
     }
-  
+    
     /* Main Section Stilleri */
     main {
       max-width: 960px;
@@ -256,7 +302,7 @@
       margin-bottom: 0.6rem;
       color: var(--dark);
     }
-  
+    
     /* İletişim Bilgileri Kartları */
     .contact-section {
       display: flex;
@@ -265,7 +311,7 @@
       gap: 1rem;
       margin-bottom: 2rem;
     }
-  
+    
     .contact-card {
       background: var(--light);
       padding: 1rem;
@@ -280,38 +326,38 @@
       text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-  
+    
     .contact-card:hover {
         transform: translateY(-3px);
         box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.1);
     }
-  
+    
     .contact-card i {
       font-size: 2rem;
       color: var(--primary);
       margin-bottom: 0.7rem;
     }
-  
+    
     .contact-card h3 {
       margin-top: 0;
       margin-bottom: 0.5rem;
       color: var(--dark);
       font-size: 1.15rem;
     }
-  
+    
     .contact-card p {
       margin: 0.3rem 0;
       font-size: 0.95rem;
       color: var(--text-color);
       line-height: 1.4;
     }
-  
+    
     .contact-card p a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 600;
     }
-  
+    
     .contact-card p a:hover {
       text-decoration: underline;
     }
@@ -341,7 +387,7 @@
     .call-to-action-button i {
         margin-right: 10px;
     }
-  
+    
     form {
       display: flex;
       flex-direction: column;
@@ -384,7 +430,7 @@
       background: #2980b9;
       transform: translateY(-1px);
     }
-  
+    
     .notice {
       background: #fff3cd;
       color: #856404;
@@ -399,7 +445,7 @@
     .notice strong {
         color: #6a5000;
     }
-  
+    
     .reviews-section, .faq-section, .article-section {
       margin-top: 3rem;
       padding-top: 2rem;
@@ -451,7 +497,7 @@
     .article-content ul li {
         margin-bottom: 0.5rem;
     }
-  
+    
     /* Hero Section Stilleri */
     .hero {
       background: var(--background-light);
@@ -459,12 +505,12 @@
       text-align: center;
       border-bottom: 1px solid var(--border-color);
     }
-  
+    
     .hero-content {
       max-width: 960px;
       margin: 0 auto;
     }
-  
+    
     .hero h1 {
       font-size: 2.8rem;
       color: var(--primary);
@@ -472,7 +518,7 @@
       line-height: 1.1;
       font-weight: 700;
     }
-  
+    
     .hero p {
       font-size: 1.2rem;
       color: var(--text-color);
@@ -482,7 +528,7 @@
       margin-right: auto;
       font-weight: 400;
     }
-  
+    
     .hero-features {
         display: flex;
         justify-content: center;
@@ -491,7 +537,7 @@
         margin-bottom: 2.5rem;
         flex-wrap: wrap;
     }
-  
+    
     .feature-item {
         display: flex;
         align-items: center;
@@ -500,12 +546,12 @@
         color: var(--dark);
         font-size: 1.1rem;
     }
-  
+    
     .feature-item span {
         font-size: 1.8rem;
         color: var(--accent);
     }
-  
+    
     .action-button {
       display: block;
       width: fit-content;
@@ -530,7 +576,7 @@
     .action-button i {
         margin-right: 10px;
     }
-  
+    
     @media (max-width: 768px) {
         .hero {
             padding: 4rem 1rem;
@@ -552,13 +598,13 @@
             width: 100%; /* Tam genişlik kaplamasını sağla */
         }
         /* -- Mobil görünüm için feature-item düzenlemeleri sonu -- */
-  
+    
         .cta-hero {
             padding: 1rem 2.5rem;
             font-size: 1.1rem;
         }
     }
-  
+    
     /* Genel Bölüm Stilleri (section) */
     section {
       padding: 4rem 1rem;
@@ -583,7 +629,7 @@
         background-color: var(--primary);
         border-radius: 2px;
     }
-  
+    
     /* Kart Grubu ve Kart Stilleri */
     .card-group {
       display: flex;
@@ -637,13 +683,13 @@
         transform: translateY(-2px);
         box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
-  
+    
     /* Müşteri Yorumları Bölümü */
     #customer-reviews {
         background: #f9f9f9;
         padding: 4rem 1rem;
     }
-  
+    
     /* Makale Bölümü Stilleri */
     #article-section {
         background: var(--background-light);
@@ -654,33 +700,33 @@
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
         margin-bottom: 3rem;
     }
-  
+    
     #article-section .article-content {
         line-height: 1.8;
         font-size: 1.1rem;
         color: var(--text-color);
     }
-  
+    
     #article-section .article-content h3 {
         color: var(--dark);
         margin-top: 1.5rem;
         margin-bottom: 0.8rem;
         font-size: 1.5rem;
     }
-  
+    
     #article-section .article-content p {
         margin-bottom: 1.5rem;
     }
-  
+    
     #article-section .article-content ul {
         margin-bottom: 1.5rem;
         margin-left: 1.5rem;
     }
-  
+    
     #article-section .article-content ul li {
         margin-bottom: 0.5rem;
     }
-  
+    
     /* Footer Stilleri */
     footer {
       background: var(--footer-bg);
@@ -694,13 +740,13 @@
       text-align: left;
       flex-direction: row;
     }
-  
+    
     footer .footer-column {
       flex: 1;
       min-width: 220px;
       margin: 1.5rem;
     }
-  
+    
     footer .footer-column h3 {
       font-size: 1.2rem;
       margin-bottom: 1rem;
@@ -709,7 +755,7 @@
       padding-bottom: 0.4rem;
       font-weight: 700;
     }
-  
+    
     footer .footer-column h3::after {
       content: '';
       position: absolute;
@@ -719,14 +765,14 @@
       height: 2px;
       background-color: var(--primary);
     }
-  
+    
     /* İletişim bilgileri için özel stiller */
     footer .footer-column .contact-info-item {
         display: flex;
         align-items: flex-start;
         margin-bottom: 0.8rem;
     }
-  
+    
     footer .footer-column .contact-info-item span {
         margin-right: 10px;
         font-size: 1.1rem;
@@ -734,17 +780,17 @@
         flex-shrink: 0;
         padding-top: 2px;
     }
-  
+    
     footer .footer-column .contact-info-item a {
         color: var(--footer-text-color);
         text-decoration: none;
         word-break: break-word;
     }
-  
+    
     footer .footer-column .contact-info-item a:hover {
         color: var(--primary);
     }
-  
+    
     /* Diğer linkler ve paragraflar için genel stil */
     footer .footer-column a:not(.contact-info-item a) {
       color: var(--footer-text-color);
@@ -756,14 +802,14 @@
     footer .footer-column a:not(.contact-info-item a):hover {
       color: var(--primary);
     }
-  
+    
     .social-icons {
         display: flex;
         gap: 1.5rem;
         margin-top: 1rem;
         justify-content: flex-start;
     }
-  
+    
     .social-icons a {
         background-color: transparent;
         color: var(--footer-text-color);
@@ -777,18 +823,18 @@
         text-decoration: none;
         transition: color 0.3s ease, transform 0.2s ease;
     }
-  
+    
     .social-icons a:hover {
         color: var(--primary);
         transform: translateY(-3px);
     }
-  
+    
     .social-icons a i {
         line-height: 1;
     }
     .social-icons .fa-facebook-f {
     font-size: 1.6rem;
-}
+    }
     footer .notice-container {
         width: 100%;
         display: flex;
@@ -799,7 +845,7 @@
         padding-left: 1rem;
         padding-right: 1rem;
     }
-  
+    
     footer .notice {
       background-color: transparent;
       color: var(--footer-text-color);
@@ -813,104 +859,61 @@
       font-size: 0.9rem;
       line-height: 1.4;
     }
-  
+    
     footer .notice strong {
       font-weight: bold;
       color: #fff;
       margin-right: 5px;
     }
-  
+    
     /* Footer Responsive Düzenlemeler */
     @media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    .menu {
-        display: none;
+      footer {
         flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-        background: var(--background-light);
-        border-radius: 0 0 8px 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        padding: 1rem;
-    }
-    .menu.show {
-        display: flex;
-    }
-
-    /* Tüm Ana Menü Linkleri İçin Başlık Gibi Stil */
-    .menu > a {
-        display: block;
-        padding: 0.5rem 0; /* Boşluğu azalttık (0.8rem'den 0.5rem'e) */
+        align-items: center;
         text-align: center;
-        color: var(--primary);
-        font-weight: 700;
-        font-size: 1.1rem;
-        margin-bottom: 0; /* Boşluk kalmasın */
-    }
-
-    /* Hizmetlerimiz linki için özel, garantili stil */
-    .dropdown > a {
-        display: block;
-        padding: 0.5rem 0; /* Boşluğu azalttık (0.8rem'den 0.5rem'e) */
-        text-align: center;
-        color: var(--primary) !important;
-        font-weight: 700 !important;
-        font-size: 1.1rem !important;
-        margin-bottom: 0; /* Boşluk kalmasın */
-    }
-
-    /* Dropdown dışındaki ana menü linkleri için hover efekti */
-    .menu > a:not(.dropdown > a):hover {
-        color: var(--dark);
-    }
-
-    /* Dropdown konteynerinin mobil görünümdeki ayarları */
-    .dropdown {
+      }
+    
+      footer .footer-column {
+        margin-bottom: 2rem;
         width: 100%;
-        position: static;
-        border-bottom: none;
-        padding-bottom: 0;
-        margin-bottom: 0;
-    }
-
-    /* Dropdown içeriği (alt menü öğeleri) */
-    .dropdown-content {
-        display: flex;
-        flex-direction: column;
-        position: static;
-        box-shadow: none;
-        border: none;
-        border-radius: 0;
-        background: none;
-        width: 100%;
-        padding: 0;
-        margin-top: 0.3rem; /* Alt öğelerin üzerinde boşluğu daha da azalttık */
-        margin-bottom: 0.5rem; /* Alt menünün altında boşluğu azalttık */
-    }
-
-    /* Alt menü linklerinin stili */
-    .dropdown-content a {
-        padding: 0.4rem 0.5rem; /* Alt öğelerin dikey boşluğunu daha da azalttık */
+        max-width: 300px;
+      }
+    
+      footer .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      footer .notice-container {
+          margin-top: 1.5rem;
+          justify-content: center;
+          padding-left: 0;
+          padding-right: 0;
+      }
+      footer .notice {
         text-align: center;
-        font-weight: 400;
-        color: var(--text-color);
-        border-top: 1px dashed var(--border-color);
-        font-size: 1rem;
+      }
+      .social-icons {
+        justify-content: center;
+      }
     }
-
-    /* İlk alt menü öğesinde üst çizgiyi kaldır */
-    .dropdown-content a:first-child {
-        border-top: none;
+    /* Font Awesome Swap */
+    @font-face {
+      font-family: 'Font Awesome 6 Brands';
+      font-style: normal;
+      font-weight: 400;
+      src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2') format('woff2');
+      font-display: swap;
     }
-
-    /* Mobil menü açıkken dropdown içeriğinin görünürlüğünü kontrol eder */
-    .dropdown:hover .dropdown-content {
-        display: flex;
+    
+    @font-face {
+      font-family: 'Font Awesome 6 Free';
+      font-style: normal;
+      font-weight: 900;
+      src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2') format('woff2');
+      font-display: swap;
     }
-}
-  </style>
+    </style>
 </head>
 <body>
     <header>
