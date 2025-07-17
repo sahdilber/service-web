@@ -823,10 +823,10 @@
       </div>
     </div>
   </footer>
+
   <script>
-    window.onload = function () {
-      const urlParams = new URLSearchParams(window.location.search);
-      const service = urlParams.get("service") || "default";
+    const params = new URLSearchParams(window.location.search);
+    const service = params.get("service");
 
       const hizmetler = {
   "beyazesya": {
@@ -894,24 +894,33 @@
       <p>LCD, LED, OLED, QLED fark etmeksizin tüm ekran sorunlarına çözüm sunuyoruz. Anakart, ekran, adaptör ve yazılım güncellemesi işlemleri yapılır.</p>
     `
   },
-  "default": {
-    title: "Hizmet Detayı | ServisWeb",
-    description: "Aradığınız hizmeti bulamadınız mı? Bize ulaşın.",
-    html: `<h2>Hizmet Bulunamadı</h2><p>Geçerli bir hizmet seçilmedi.</p>`
-  }
 };
+    const baslik = document.getElementById("hizmet-baslik");
+    const aciklama = document.getElementById("hizmet-aciklama");
 
-      const veri = hizmetler[service] || hizmetler["default"];
+    if (service) {
+      const veri = veriler[service];
+      const capitalized = service.replace(/[^a-zA-ZçğıöşüÇĞİÖŞÜ0-9]/g, " ").replace(/\s+/g, " ").trim();
+      const formatted = capitalized.charAt(0).toUpperCase() + capitalized.slice(1);
 
-      document.getElementById("baslik").innerText = veri.title;
-      document.getElementById("aciklama").innerHTML = `<p>${veri.description}</p>`;
-      document.getElementById("makale").innerHTML = veri.html;
-      document.title = veri.title;
-
-      document.querySelector('meta[name="description"]').setAttribute("content", veri.description);
-      document.querySelector('meta[property="twitter:description"]').setAttribute("content", veri.description);
-      document.querySelector('meta[property="twitter:title"]').setAttribute("content", veri.title);
-    };
+      if (veri) {
+        document.title = veri.title;
+        document.querySelector('meta[name="description"]').setAttribute("content", veri.description);
+        document.getElementById("dynamic-meta-description").setAttribute("content", veri.description);
+        baslik.textContent = veri.h1;
+        aciklama.textContent = veri.aciklama;
+      } else {
+        document.title = `${formatted} Servisi | ServisWeb`;
+        document.getElementById("dynamic-meta-description").setAttribute("content", `${formatted} hakkında bilgi alın.`);
+        baslik.textContent = `${formatted} Servisi`;
+        aciklama.innerHTML = `<span class="not-found">${formatted} servisi için bilgi bulunamadı. Lütfen bizimle iletişime geçin.</span>`;
+      }
+    } else {
+      document.title = "Hizmet Detayı | ServisWeb";
+      document.getElementById("dynamic-meta-description").setAttribute("content", "Seçilen hizmet bulunamadı.");
+      baslik.textContent = "Hizmet Bulunamadı";
+      aciklama.textContent = "Geçerli bir hizmet seçilmedi.";
+    }
   </script>
 </body>
 </html>
