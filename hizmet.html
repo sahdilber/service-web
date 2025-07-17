@@ -720,7 +720,6 @@ footer .notice strong {
     <h1 id="baslik"></h1>
     <div id="aciklama"></div>
     <section id="makale"></section>
-
     <a class="action-button" href="tel:+905551112233">
       <i class="fas fa-phone-alt"></i> Bizi Arayın
     </a>
@@ -774,5 +773,95 @@ footer .notice strong {
       </div>
     </div>
   </footer>
+  <script>
+    window.onload = function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const service = urlParams.get("service") || "default";
+
+      const hizmetler = {
+  "beyazesya": {
+    title: "Genel Beyaz Eşya Servisi",
+    description: "Buzdolabı, çamaşır ve bulaşık makineleri, fırınlar gibi tüm beyaz eşyalarınız için kapsamlı servis hizmeti sunuyoruz.",
+    html: `
+      <h2>Genel Beyaz Eşya Servisi</h2>
+      <p>Her marka ve model beyaz eşyanız için onarım, bakım ve parça değişimi hizmeti veriyoruz. Garantisi dolmuş cihazlarınıza ekonomik çözümler sunuyoruz.</p>
+      <p>Yerinde servis, hızlı arıza tespiti ve yedek parça desteği ile yanınızdayız.</p>
+    `
+  },
+  "buzdolabi": {
+    title: "Buzdolabı Servisi ve Tamiri",
+    description: "Soğutma problemi, gaz kaçağı, su sızıntısı gibi buzdolabı arızalarında uzman teknik servis.",
+    html: `
+      <h2>Buzdolabı Servisi</h2>
+      <p>Soğutmayan, ses yapan, su akıtan ya da termostat problemi olan buzdolaplarına hızlı müdahale ediyoruz. Gaz dolumu ve motor değişimi gibi işlemleri yerinde gerçekleştiriyoruz.</p>
+    `
+  },
+  "camasirmakinesi": {
+    title: "Çamaşır Makinesi Servisi ve Onarımı",
+    description: "Çamaşır makineniz su almıyor, dönmüyor ya da sıkmıyor mu? Sorunu biz çözelim.",
+    html: `
+      <h2>Çamaşır Makinesi Servisi</h2>
+      <p>Kazan dönmeme, su boşaltmama, titreşim, gürültü ve elektronik kart problemlerinde profesyonel destek sunuyoruz.</p>
+    `
+  },
+  "bulasikmakinesi": {
+    title: "Bulaşık Makinesi Servisi ve Bakımı",
+    description: "Temiz yıkamayan veya çalışmayan bulaşık makineleri için uzman müdahale.",
+    html: `
+      <h2>Bulaşık Makinesi Servisi</h2>
+      <p>Deterjan kapağı açılmıyor, su boşalmıyor, alt/üst sepet yıkamıyor gibi problemler için çözüm sunuyoruz. Pompa değişimi ve rezistans onarımı da yapılır.</p>
+    `
+  },
+  "firin": {
+    title: "Fırın Servisi ve Tamiri",
+    description: "Elektrikli veya gazlı fırınlarda ısıtmama, zamanlayıcı arızası veya gaz kaçağı gibi sorunlar için servis.",
+    html: `
+      <h2>Fırın Tamiri</h2>
+      <p>Rezistans arızası, termostat problemi, fan bozulması veya dijital ekran hatası gibi tüm fırın sorunlarını yerinde çözüyoruz.</p>
+    `
+  },
+  "klima": {
+    title: "Klima Servisi, Bakımı ve Onarımı",
+    description: "Klimanız soğutmuyor, su damlatıyor veya ses mi yapıyor? Profesyonel klima servisi burada.",
+    html: `
+      <h2>Klima Servisi</h2>
+      <p>Gaz dolumu, iç ünite temizliği, fan motor değişimi ve elektronik kart tamiri gibi işlemler tarafımızca yapılmaktadır.</p>
+    `
+  },
+  "kombi": {
+    title: "Kombi Servisi ve Bakımı",
+    description: "Kombi basınç düşürüyor, sıcak su vermiyor ya da arıza kodu mu gösteriyor? Hemen müdahale ediyoruz.",
+    html: `
+      <h2>Kombi Servisi</h2>
+      <p>Kombi su eksiltme, kalorifer ısıtmama, eşanjör ve üç yollu vana problemlerinde yerinde müdahale sağlıyoruz. Periyodik bakımlarla kombinizin ömrünü uzatıyoruz.</p>
+    `
+  },
+  "televizyon": {
+    title: "Televizyon Servisi ve Tamiri",
+    description: "Görüntü gelmiyor, ses yok, çizgi var ya da açılmıyor mu? Televizyon arızalarına profesyonel destek.",
+    html: `
+      <h2>Televizyon Servisi</h2>
+      <p>LCD, LED, OLED, QLED fark etmeksizin tüm ekran sorunlarına çözüm sunuyoruz. Anakart, ekran, adaptör ve yazılım güncellemesi işlemleri yapılır.</p>
+    `
+  },
+  "default": {
+    title: "Hizmet Detayı | ServisWeb",
+    description: "Aradığınız hizmeti bulamadınız mı? Bize ulaşın.",
+    html: `<h2>Hizmet Bulunamadı</h2><p>Geçerli bir hizmet seçilmedi.</p>`
+  }
+};
+
+      const veri = hizmetler[service] || hizmetler["default"];
+
+      document.getElementById("baslik").innerText = veri.title;
+      document.getElementById("aciklama").innerHTML = `<p>${veri.description}</p>`;
+      document.getElementById("makale").innerHTML = veri.html;
+      document.title = veri.title;
+
+      document.querySelector('meta[name="description"]').setAttribute("content", veri.description);
+      document.querySelector('meta[property="twitter:description"]').setAttribute("content", veri.description);
+      document.querySelector('meta[property="twitter:title"]').setAttribute("content", veri.title);
+    };
+  </script>
 </body>
 </html>
