@@ -16,15 +16,13 @@
 <noscript>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </noscript>
-  
-  <meta property="og:title" content="İletişim - ServisWeb" />
+   <meta property="og:title" content="İletişim - ServisWeb" />
   <meta property="og:description" content="Teknik servis talepleriniz ve sorularınız için bizimle iletişime geçin." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://servisweb.com/iletisim.html" />
   <!-- Font Awesome lazy load ve preconnect -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-
 <!-- Lazy-load Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript>
@@ -580,6 +578,7 @@ footer .notice strong {
     justify-content: center;
   }
 }
+/* Font Awesome Swap */
 @font-face {
   font-family: 'Font Awesome 6 Brands';
   font-style: normal;
@@ -607,8 +606,7 @@ footer .notice strong {
     };
   </script>
   <script>
-
-    document.addEventListener("DOMContentLoaded", () => {
+    const updateCompanyInfo = () => {
       // Adres
       document.querySelectorAll(".company-address").forEach(el => {
         el.textContent = companyInfo.address;
@@ -617,7 +615,7 @@ footer .notice strong {
       // Telefon (görsel + tel: link + çağrı butonu)
       document.querySelectorAll(".company-phone").forEach(el => {
         el.href = "tel:" + companyInfo.phoneRaw;
-        el.textContent = companyInfo.phone ;
+        el.textContent = companyInfo.phone;
       });
   
       document.querySelectorAll(".company-phone-link").forEach(el => {
@@ -631,7 +629,7 @@ footer .notice strong {
   
       // E-posta
       document.querySelectorAll(".company-email").forEach(el => {
-        el.href = "mailto:" + companyInfo.email; // Mailto linki eklendi
+        el.href = "mailto:" + companyInfo.email;
         el.textContent = companyInfo.email;
       });
   
@@ -642,11 +640,18 @@ footer .notice strong {
   
       // Başlık ve açıklama
       document.title = companyInfo.name + " | Teknik Servis Hizmetleri";
+  
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
         metaDesc.setAttribute("content", "Garantisi bitmiş cihazlar için teknik servis hizmeti. " + companyInfo.name + " ile güvenli ve hızlı çözüm.");
       }
-    });
+    };
+  
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(updateCompanyInfo);
+    } else {
+      window.addEventListener('load', updateCompanyInfo);
+    }
   </script>
 
   <script type="application/ld+json">
