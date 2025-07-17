@@ -265,6 +265,81 @@
       margin-bottom: 0.5rem;
       color: var(--text-color);
   }
+  /* Müşteri Yorumları Bölümü */
+#customer-reviews {
+    background: #f9f9f9; /* Hafif gri arka plan */
+    padding: 4rem 1rem; /* Üstten ve alttan daha fazla boşluk */
+    margin-top: 3rem; /* Üstten boşluk */
+    border-top: 1px solid var(--border-color); /* Üst çizgi */
+}
+
+/* Bölüm Başlığı Stilleri */
+#customer-reviews .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--dark);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+#customer-reviews .section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+/* Kart Grubu Stilleri */
+#customer-reviews .card-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem; /* Kartlar arası boşluk */
+    margin-top: 2rem;
+}
+
+/* Kart Stilleri */
+#customer-reviews .card {
+    background: var(--background-light); /* Kart arka planı beyaz */
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 350px; /* Kart maksimum genişliği */
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efekti geçişi */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--border-color); /* Hafif kenarlık */
+}
+
+#customer-reviews .card:hover {
+    transform: translateY(-7px); /* Hover'da hafif yukarı kaydırma */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18); /* Hover'da daha belirgin gölge */
+}
+
+#customer-reviews .card p {
+    margin-bottom: 0.8rem; /* Yorum paragrafları arası boşluk */
+    font-style: italic; /* Yorum metni italik */
+    color: var(--text-color);
+}
+
+#customer-reviews .card p strong,
+#customer-reviews .card p:last-child { /* Yorum yapanın adı için stil */
+    display: block;
+    text-align: right;
+    font-size: 1rem;
+    color: var(--dark);
+    font-weight: 600;
+    margin-top: 0.5rem; /* İsimden önce biraz boşluk */
+}
   
   .notice {
     background: #fff3cd;
@@ -306,6 +381,7 @@
   .action-button i {
       margin-right: 10px;
   }
+  
   
   
   /* Footer Stilleri */
@@ -767,13 +843,67 @@
   </header>
 
   <main>
-    <h1 id="baslik"></h1>
+    <h1>Beyaz Eşya Servisi</h1>
+<p class="description">Detaylı bilgi almak için bize ulaşın.</p>
     <div id="aciklama"></div>
     <section id="makale"></section>
     <a class="action-button" href="tel:+905551112233">
       <i class="fas fa-phone-alt"></i> Bizi Arayın
     </a>
   </main>
+  <section id="customer-reviews">
+    <h2 class="section-title">Müşteri Yorumları</h2>
+    <div class="card-group">
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Çamaşır makinem bozulduğunda hemen iletişime geçtim. Çok hızlı ve profesyonel bir şekilde tamir edildi. Teşekkürler!"</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Ayşe Yılmaz</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Klima bakımı için çağırdım, işlerini titizlikle yaptılar. Artık klimam daha verimli çalışıyor."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Mehmet Can</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Buzdolabım aniden soğutmamaya başladı. Servis ekibi kısa sürede gelip arızayı giderdi. Gerçekten çok memnun kaldım."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Zeynep Demir</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Fırınımızın rezistansı değişmesi gerekiyordu. Uygun fiyata ve hızlıca hallettiler. Güvenle tercih edebilirsiniz."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Emre Kaya</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Televizyonumdaki görüntü sorununu çözdüler. Teknik bilgileri çok iyi, işlerini biliyorlar."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Fatma Öztürk</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Kombimizde ses vardı, bakıma geldiler ve sorunu giderdiler. Şimdi sessiz sedasız çalışıyor."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Ali Koç</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Bulaşık makinem su akıtıyordu, tamir ekibi çok kısa sürede geldi ve sorunumu çözdü. Güvenilir hizmet!"</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Elif Yıldırım</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Beyaz eşya servisi konusunda gerçekten profesyoneller. Her şey için teşekkürler."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Caner Solmaz</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Acil servis ihtiyacım oldu, hemen geri dönüş yaptılar ve sorunumu hallettiler. Kesinlikle tavsiye ederim."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Burcu Aksoy</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Kombi bakımı için düzenli olarak çağırıyorum. Her zaman aynı kalitede hizmet alıyorum."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Deniz Avcı</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Eski buzdolabım için parça bulamamıştım, ServisWeb ekibi sağ olsunlar temin edip taktı."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Mert Günay</p>
+      </div>
+      <div class="card">
+        <p style="font-style: italic; margin-bottom: 0.8rem;">"Servis hızı ve çözüm odaklı yaklaşımları takdire şayan. Her kuruşuna değdi."</p>
+        <p style="font-weight: 600; text-align: right; color: var(--dark);">- Pınar Yılmaz</p>
+      </div>
+    </div>
+  </section>
   <footer>
     <div class="footer-column">
       <h3>İletişim</h3>
@@ -827,99 +957,53 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const service = params.get("service");
-
-      const hizmetler = {
-  "beyazesya": {
-    title: "Genel Beyaz Eşya Servisi",
-    description: "Buzdolabı, çamaşır ve bulaşık makineleri, fırınlar gibi tüm beyaz eşyalarınız için kapsamlı servis hizmeti sunuyoruz.",
-    html: `
-      <h2>Genel Beyaz Eşya Servisi</h2>
-      <p>Her marka ve model beyaz eşyanız için onarım, bakım ve parça değişimi hizmeti veriyoruz. Garantisi dolmuş cihazlarınıza ekonomik çözümler sunuyoruz.</p>
-      <p>Yerinde servis, hızlı arıza tespiti ve yedek parça desteği ile yanınızdayız.</p>
-    `
-  },
-  "buzdolabi": {
-    title: "Buzdolabı Servisi ve Tamiri",
-    description: "Soğutma problemi, gaz kaçağı, su sızıntısı gibi buzdolabı arızalarında uzman teknik servis.",
-    html: `
-      <h2>Buzdolabı Servisi</h2>
-      <p>Soğutmayan, ses yapan, su akıtan ya da termostat problemi olan buzdolaplarına hızlı müdahale ediyoruz. Gaz dolumu ve motor değişimi gibi işlemleri yerinde gerçekleştiriyoruz.</p>
-    `
-  },
-  "camasirmakinesi": {
-    title: "Çamaşır Makinesi Servisi ve Onarımı",
-    description: "Çamaşır makineniz su almıyor, dönmüyor ya da sıkmıyor mu? Sorunu biz çözelim.",
-    html: `
-      <h2>Çamaşır Makinesi Servisi</h2>
-      <p>Kazan dönmeme, su boşaltmama, titreşim, gürültü ve elektronik kart problemlerinde profesyonel destek sunuyoruz.</p>
-    `
-  },
-  "bulasikmakinesi": {
-    title: "Bulaşık Makinesi Servisi ve Bakımı",
-    description: "Temiz yıkamayan veya çalışmayan bulaşık makineleri için uzman müdahale.",
-    html: `
-      <h2>Bulaşık Makinesi Servisi</h2>
-      <p>Deterjan kapağı açılmıyor, su boşalmıyor, alt/üst sepet yıkamıyor gibi problemler için çözüm sunuyoruz. Pompa değişimi ve rezistans onarımı da yapılır.</p>
-    `
-  },
-  "firin": {
-    title: "Fırın Servisi ve Tamiri",
-    description: "Elektrikli veya gazlı fırınlarda ısıtmama, zamanlayıcı arızası veya gaz kaçağı gibi sorunlar için servis.",
-    html: `
-      <h2>Fırın Tamiri</h2>
-      <p>Rezistans arızası, termostat problemi, fan bozulması veya dijital ekran hatası gibi tüm fırın sorunlarını yerinde çözüyoruz.</p>
-    `
-  },
-  "klima": {
-    title: "Klima Servisi, Bakımı ve Onarımı",
-    description: "Klimanız soğutmuyor, su damlatıyor veya ses mi yapıyor? Profesyonel klima servisi burada.",
-    html: `
-      <h2>Klima Servisi</h2>
-      <p>Gaz dolumu, iç ünite temizliği, fan motor değişimi ve elektronik kart tamiri gibi işlemler tarafımızca yapılmaktadır.</p>
-    `
-  },
-  "kombi": {
-    title: "Kombi Servisi ve Bakımı",
-    description: "Kombi basınç düşürüyor, sıcak su vermiyor ya da arıza kodu mu gösteriyor? Hemen müdahale ediyoruz.",
-    html: `
-      <h2>Kombi Servisi</h2>
-      <p>Kombi su eksiltme, kalorifer ısıtmama, eşanjör ve üç yollu vana problemlerinde yerinde müdahale sağlıyoruz. Periyodik bakımlarla kombinizin ömrünü uzatıyoruz.</p>
-    `
-  },
-  "televizyon": {
-    title: "Televizyon Servisi ve Tamiri",
-    description: "Görüntü gelmiyor, ses yok, çizgi var ya da açılmıyor mu? Televizyon arızalarına profesyonel destek.",
-    html: `
-      <h2>Televizyon Servisi</h2>
-      <p>LCD, LED, OLED, QLED fark etmeksizin tüm ekran sorunlarına çözüm sunuyoruz. Anakart, ekran, adaptör ve yazılım güncellemesi işlemleri yapılır.</p>
-    `
-  },
-};
-    const baslik = document.getElementById("hizmet-baslik");
-    const aciklama = document.getElementById("hizmet-aciklama");
-
+  
+    // Türkçeleştirme haritası
+    const serviceMap = {
+      beyazesya: "Beyaz Eşya",
+      buzdolabi: "Buzdolabı",
+      camasirmakinesi: "Çamaşır Makinesi",
+      bulasikmakinesi: "Bulaşık Makinesi",
+      firin: "Fırın",
+      klima: "Klima",
+      kombi: "Kombi",
+      televizyon: "Televizyon"
+    };
+  
     if (service) {
-      const veri = veriler[service];
-      const capitalized = service.replace(/[^a-zA-ZçğıöşüÇĞİÖŞÜ0-9]/g, " ").replace(/\s+/g, " ").trim();
-      const formatted = capitalized.charAt(0).toUpperCase() + capitalized.slice(1);
-
-      if (veri) {
-        document.title = veri.title;
-        document.querySelector('meta[name="description"]').setAttribute("content", veri.description);
-        document.getElementById("dynamic-meta-description").setAttribute("content", veri.description);
-        baslik.textContent = veri.h1;
-        aciklama.textContent = veri.aciklama;
-      } else {
-        document.title = `${formatted} Servisi | ServisWeb`;
-        document.getElementById("dynamic-meta-description").setAttribute("content", `${formatted} hakkında bilgi alın.`);
-        baslik.textContent = `${formatted} Servisi`;
-        aciklama.innerHTML = `<span class="not-found">${formatted} servisi için bilgi bulunamadı. Lütfen bizimle iletişime geçin.</span>`;
+      const decoded = decodeURIComponent(service).toLowerCase().replace(/\+/g, ' ').replace(/%20/g, ' ');
+      const readableName = serviceMap[decoded] || decoded.charAt(0).toUpperCase() + decoded.slice(1);
+  
+      // Title
+      document.title = `${readableName} Servisi | ServisWeb`;
+  
+      // Meta Description
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute("content", `${readableName} için teknik servis, bakım ve onarım hizmeti.`);
       }
-    } else {
-      document.title = "Hizmet Detayı | ServisWeb";
-      document.getElementById("dynamic-meta-description").setAttribute("content", "Seçilen hizmet bulunamadı.");
-      baslik.textContent = "Hizmet Bulunamadı";
-      aciklama.textContent = "Geçerli bir hizmet seçilmedi.";
+  
+      // Open Graph title
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) {
+        ogTitle.setAttribute("content", `${readableName} Servisi | ServisWeb`);
+      }
+  
+      // Open Graph description
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) {
+        ogDesc.setAttribute("content", `${readableName} için profesyonel teknik servis hizmeti sunuyoruz.`);
+      }
+  
+      // H1 başlık
+      const h1 = document.querySelector("h1");
+      if (h1) h1.textContent = readableName;
+  
+      // Açıklama metni
+      const paragraph = document.querySelector(".description");
+      if (paragraph) {
+        paragraph.textContent = `${readableName} için bakım, tamir ve onarım hizmeti sunuyoruz.`;
+      }
     }
   </script>
 </body>
