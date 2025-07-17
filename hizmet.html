@@ -438,35 +438,26 @@ footer .notice strong {
 }
   </style>
   <script src="config.js"></script>
-  <script type="application/ld+json" id="dynamic-schema">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Hizmet Detayı - ServisWeb",
-      "image": [
-        "https://servisweb.com/hizmet-default.jpg" 
-       ],
-      "datePublished": "2025-07-16T00:00:00+03:00",
-      "dateModified": "2025-07-16T00:00:00+03:00",
-      "author": {
-        "@type": "Organization",
-        "name": "ServisWeb"
-      },
-      "publisher": {
+      "@type": "Service",
+      "serviceType": "Teknik Servis",
+      "provider": {
         "@type": "Organization",
         "name": "ServisWeb",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://servisweb.com/logo.png"
-        }
+        "url": "https://www.servisweb.com"
       },
-      "description": "Seçtiğiniz servis türü hakkında detaylı bilgi alın. Hızlı ve güvenilir teknik servis çözümleri.",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://servisweb.com/hizmet.html"
+      "areaServed": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "İstanbul",
+          "addressCountry": "TR"
+        }
       }
     }
-  </script>
+    </script>
   <script>
     function toggleMenu() {
       const menu = document.getElementById('main-menu');
