@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </noscript>
   <style>
-   :root {
+:root {
   --primary: #1a4f85;
   --dark: #2c3e50;
   --light: #ecf0f1;
@@ -57,7 +57,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
     /* Header Stilleri */
     header {
       background: var(--background-light);
@@ -215,8 +214,7 @@ body {
     margin-bottom: 0.6rem; /* Boşluk azaltıldı: 0.8rem'den 0.6rem'e */
     color: var(--dark);
   }
-   /* İletişim Bilgileri Kartları */
-.contact-section {
+   /* İletişim Bilgileri Kartları */.contact-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -413,8 +411,7 @@ body {
         margin-bottom: 0.5rem;
     }
 
-
-   /* Footer Stilleri */
+/* Footer */
 footer {
   background: var(--footer-bg);
   color: var(--footer-text-color);
@@ -453,32 +450,30 @@ footer .footer-column h3::after {
   background-color: var(--primary);
 }
 
-/* İletişim bilgileri için özel stiller */
 footer .footer-column .contact-info-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 0.8rem;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
 }
 
 footer .footer-column .contact-info-item span {
-    margin-right: 10px;
-    font-size: 1.1rem;
-    color: var(--primary);
-    flex-shrink: 0;
-    padding-top: 2px;
+  margin-right: 10px;
+  font-size: 1.1rem;
+  color: var(--primary);
+  flex-shrink: 0;
+  padding-top: 2px;
 }
 
 footer .footer-column .contact-info-item a {
-    color: var(--footer-text-color);
-    text-decoration: none;
-    word-break: break-word;
+  color: var(--footer-text-color);
+  text-decoration: none;
+  word-break: break-word;
 }
 
 footer .footer-column .contact-info-item a:hover {
-    color: var(--primary);
+  color: var(--primary);
 }
 
-/* Diğer linkler ve paragraflar için genel stil */
 footer .footer-column a:not(.contact-info-item a) {
   color: var(--footer-text-color);
   text-decoration: none;
@@ -486,50 +481,50 @@ footer .footer-column a:not(.contact-info-item a) {
   margin-bottom: 0.8rem;
   transition: color 0.3s ease;
 }
+
 footer .footer-column a:not(.contact-info-item a):hover {
   color: var(--primary);
 }
 
 .social-icons {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1rem;
-    justify-content: flex-start;
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  justify-content: flex-start;
 }
 
 .social-icons a {
-    background-color: transparent;
-    color: var(--footer-text-color);
-    width: auto;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0;
-    font-size: 1.8rem;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
+  background-color: transparent;
+  color: var(--footer-text-color);
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .social-icons a:hover {
-    color: var(--primary);
-    transform: translateY(-3px);
+  color: var(--primary);
+  transform: translateY(-3px);
 }
 
-/* İkonun kendisi için ekstra ayarlama */
 .social-icons a i {
-    line-height: 1;
+  line-height: 1;
 }
 
 footer .notice-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-left: 1rem;
-    padding-right: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 footer .notice {
@@ -552,29 +547,26 @@ footer .notice strong {
   margin-right: 5px;
 }
 
-/* Footer Responsive Düzenlemeler */
 @media screen and (max-width: 768px) {
   footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   footer .footer-column {
     margin-bottom: 2rem;
     width: 100%;
     max-width: 300px;
   }
-
   footer .footer-column h3::after {
     left: 50%;
     transform: translateX(-50%);
   }
   footer .notice-container {
-      margin-top: 1.5rem;
-      justify-content: center;
-      padding-left: 0;
-      padding-right: 0;
+    margin-top: 1.5rem;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
   }
   footer .notice {
     text-align: center;
@@ -583,6 +575,7 @@ footer .notice strong {
     justify-content: center;
   }
 }
+/* Font Awesome Swap */
 @font-face {
   font-family: 'Font Awesome 6 Brands';
   font-style: normal;
