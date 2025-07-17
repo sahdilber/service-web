@@ -7,7 +7,16 @@
   <meta name="description" content="ServisWeb ile hızlıca iletişime geçin. Teknik servis talepleriniz için bizi arayın veya form üzerinden ulaşın." />
   <link rel="icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+<!-- HEAD bölümüne, mümkünse en üste yerleştir -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Lazy-load Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</noscript>
+  
   <meta property="og:title" content="İletişim - ServisWeb" />
   <meta property="og:description" content="Teknik servis talepleriniz ve sorularınız için bizimle iletişime geçin." />
   <meta property="og:type" content="website" />
@@ -717,17 +726,17 @@ footer .notice strong {
     <div class="contact-section">
       <div class="contact-card">
         <i class="fas fa-phone-alt"></i>
-        <h3>Telefon</h3>
+        <h2>Telefon</h2>
         <p><a class="company-phone-link"></a></p>
       </div>
       <div class="contact-card">
         <i class="fas fa-envelope"></i>
-        <h3>E-posta</h3>
+        <h2>E-posta</h2>
         <p><a class="company-email"></a></p>
       </div>
       <div class="contact-card">
         <i class="fas fa-map-marker-alt"></i>
-        <h3>Adres</h3>
+        <h2>Adres</h2>
         <p><span class="company-address"></span></p>
       </div>
     </div>
