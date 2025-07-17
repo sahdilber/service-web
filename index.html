@@ -857,53 +857,18 @@
     }
   }
 </style>
+<script src="config.js"></script>
   <script>
     function toggleMenu() {
       const menu = document.getElementById("main-menu");
       menu.classList.toggle("show");
     }
   </script>
- <script>
-  const companyInfo = {
-    name: "ServisWeb",
-    taxNumber: "1234567890",
-    address: "Örnek Mah. Örnek Sk. No:1 D:2, Örnek İlçe/İstanbul",
-    phone: "0 (555) 111 22 33",
-    phoneRaw: "+905551112233",
-    email: "info@servisweb.com"
-  };
-</script>
- <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Adres
-    document.querySelectorAll(".company-address").forEach(el => el.textContent = companyInfo.address);
-
-    // Telefon
-    document.querySelectorAll(".company-phone").forEach(el => {
-      el.href = "tel:" + companyInfo.phoneRaw;
-      el.textContent = companyInfo.phone;
-    });
-
-    // E-posta
-    document.querySelectorAll(".company-email").forEach(el => el.textContent = companyInfo.email);
-
-    // Şirket adı (metin alanlarında)
-    document.querySelectorAll(".company-name").forEach(el => el.textContent = companyInfo.name);
-   // Bizi Arayın butonu (tel link)
-   document.querySelectorAll(".company-call-button").forEach(el => {
-  el.setAttribute("href", "tel:" + companyInfo.phoneRaw);
-});
-    // Başlık ve açıklama
-    document.title = companyInfo.name + " | Teknik Servis Hizmetleri";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute("content", "Garantisi bitmiş cihazlar için teknik servis hizmeti. " + companyInfo.name + " ile güvenli ve hızlı çözüm.");
-  });
-</script>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <a href="index.html" class="logo company-name"></a>
+      <a href="index.html" class="logo">ServisWeb</a>
       <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
       <nav class="menu" id="main-menu">
         <a href="index.html">Ana Sayfa</a>
@@ -940,7 +905,7 @@
             <span role="img" aria-label="Uygun Fiyat">💰</span> Uygun Fiyat
         </div>
       </div>
-      <a class="action-button company-call-button">
+      <a class="action-button" href="tel:+905551112233">
         <i class="fas fa-phone-alt"></i> Bizi Arayın
       </a>
     </div>
@@ -1376,13 +1341,17 @@
   <footer>
     <div class="footer-column">
       <h3>İletişim</h3>
-      <div class="contact-info-item"> <span class="fa-solid fa-location-dot"></span> <a class="company-address">Örnek Mah. Örnek Sk. No:1 D:2, Örnek ilçe/İstanbul</a>
+      <div class="contact-info-item">
+        <span class="fa-solid fa-location-dot"></span>
+        <a>Örnek Mah. Örnek Sk. No:1 D:2, Örnek ilçe/İstanbul</a>
       </div>
       <div class="contact-info-item">
-        <span class="fa-solid fa-phone"></span> <a class="company-phone">0 (555) 111 22 33 - Hemen Ara!</a>
+        <span class="fa-solid fa-phone"></span>
+        <a href="tel:+905551112233">0 (555) 111 22 33 - Hemen Ara!</a>
       </div>
       <div class="contact-info-item">
-        <span class="fa-solid fa-envelope"></span> <a class="company-email">info@servisweb.com</a>
+        <span class="fa-solid fa-envelope"></span>
+        <a href="mailto:info@servisweb.com">info@servisweb.com</a>
       </div>
     </div>
     <div class="footer-column">
