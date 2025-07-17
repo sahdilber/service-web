@@ -381,7 +381,9 @@ footer .footer-column a:not(.contact-info-item a):hover {
 .social-icons a i {
     line-height: 1;
 }
-
+.social-icons .fa-facebook-f {
+    font-size: 1.6rem;
+}
 footer .notice-container {
     width: 100%;
     display: flex;
@@ -415,34 +417,93 @@ footer .notice strong {
 
 /* Footer Responsive Düzenlemeler */
 @media screen and (max-width: 768px) {
-  footer {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    .menu-toggle {
+        display: block;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        background: var(--background-light);
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+    }
+    .menu.show {
+        display: flex;
+    }
 
-  footer .footer-column {
-    margin-bottom: 2rem;
-    width: 100%;
-    max-width: 300px;
-  }
+    /* Tüm Ana Menü Linkleri İçin Başlık Gibi Stil */
+    .menu > a {
+        display: block;
+        padding: 0.5rem 0; /* Boşluğu azalttık (0.8rem'den 0.5rem'e) */
+        text-align: center;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0; /* Boşluk kalmasın */
+    }
 
-  footer .footer-column h3::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  footer .notice-container {
-      margin-top: 1.5rem;
-      justify-content: center;
-      padding-left: 0;
-      padding-right: 0;
-  }
-  footer .notice {
-    text-align: center;
-  }
-  .social-icons {
-    justify-content: center;
-  }
+    /* Hizmetlerimiz linki için özel, garantili stil */
+    .dropdown > a {
+        display: block;
+        padding: 0.5rem 0; /* Boşluğu azalttık (0.8rem'den 0.5rem'e) */
+        text-align: center;
+        color: var(--primary) !important;
+        font-weight: 700 !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0; /* Boşluk kalmasın */
+    }
+
+    /* Dropdown dışındaki ana menü linkleri için hover efekti */
+    .menu > a:not(.dropdown > a):hover {
+        color: var(--dark);
+    }
+
+    /* Dropdown konteynerinin mobil görünümdeki ayarları */
+    .dropdown {
+        width: 100%;
+        position: static;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    /* Dropdown içeriği (alt menü öğeleri) */
+    .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: none;
+        width: 100%;
+        padding: 0;
+        margin-top: 0.3rem; /* Alt öğelerin üzerinde boşluğu daha da azalttık */
+        margin-bottom: 0.5rem; /* Alt menünün altında boşluğu azalttık */
+    }
+
+    /* Alt menü linklerinin stili */
+    .dropdown-content a {
+        padding: 0.4rem 0.5rem; /* Alt öğelerin dikey boşluğunu daha da azalttık */
+        text-align: center;
+        font-weight: 400;
+        color: var(--text-color);
+        border-top: 1px dashed var(--border-color);
+        font-size: 1rem;
+    }
+
+    /* İlk alt menü öğesinde üst çizgiyi kaldır */
+    .dropdown-content a:first-child {
+        border-top: none;
+    }
+
+    /* Mobil menü açıkken dropdown içeriğinin görünürlüğünü kontrol eder */
+    .dropdown:hover .dropdown-content {
+        display: flex;
+    }
 }
   </style>
  <script src="config.js"></script>

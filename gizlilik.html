@@ -135,56 +135,94 @@
 
     /* Mobil Görünüm Düzenlemeleri (768px ve altı) */
     @media screen and (max-width: 768px) {
-      .menu-toggle {
-        display: block; /* Hamburger ikonunu göster */
-      }
-      .menu {
-        display: none; /* Varsayılan olarak menüyü gizle */
+    .menu-toggle {
+        display: block;
+    }
+    .menu {
+        display: none;
         flex-direction: column;
         width: 100%;
         margin-top: 1rem;
         background: var(--background-light);
         border-radius: 0 0 8px 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         padding: 1rem;
-      }
-      .menu.show {
-        display: flex; /* JavaScript ile menüyü göster */
-      }
-
-      /* Dropdown'ı mobil görünümde düz listeye çevir */
-      .dropdown {
-        width: 100%; /* Kendi genişliğini alsın */
-        position: static; /* Dropdown konumlandırmasını iptal et */
-      }
-      .dropdown > span { /* "Hizmetlerimiz" metnini blok eleman yap */
-        display: block;
-        padding: 0.6rem 0; /* Menü öğeleriyle aynı padding */
-        text-align: center;
-        color: var(--text-color);
-        font-weight: 500;
-      }
-      .dropdown-content {
-        display: flex; /* Dikey olarak liste şeklinde göster */
-        flex-direction: column;
-        position: static; /* Konumlandırmayı iptal et */
-        box-shadow: none; /* Gölgeyi kaldır */
-        border: none; /* Çizgiyi kaldır */
-        border-radius: 0; /* Yuvarlak köşeleri kaldır */
-        background: none; /* Arka planı kaldır */
-        width: 100%; /* Tam genişlikte olsun */
-        padding: 0; /* İç padding'i kaldır */
-      }
-      .dropdown-content a {
-        padding: 0.6rem 0; /* Mobil menü öğeleriyle aynı padding */
-        text-align: center; /* Ortala */
-        font-weight: 400; /* Daha hafif font */
-      }
-      .dropdown:hover .dropdown-content {
-        display: flex; /* Hover yerine her zaman görünür (toggleMenu ile kontrol edilecek) */
-      }
+    }
+    .menu.show {
+        display: flex;
     }
 
+    /* Tüm Ana Menü Linkleri İçin Başlık Gibi Stil */
+    .menu > a {
+        display: block;
+        padding: 0.5rem 0; /* Boşluğu azalttık (0.8rem'den 0.5rem'e) */
+        text-align: center;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 0; /* Boşluk kalmasın */
+    }
+
+    /* Hizmetlerimiz linki için özel, garantili stil */
+    .dropdown > a {
+        display: block;
+        padding: 0.5rem 0; /* Boşluğu azalttık (0.8rem'den 0.5rem'e) */
+        text-align: center;
+        color: var(--primary) !important;
+        font-weight: 700 !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0; /* Boşluk kalmasın */
+    }
+
+    /* Dropdown dışındaki ana menü linkleri için hover efekti */
+    .menu > a:not(.dropdown > a):hover {
+        color: var(--dark);
+    }
+
+    /* Dropdown konteynerinin mobil görünümdeki ayarları */
+    .dropdown {
+        width: 100%;
+        position: static;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    /* Dropdown içeriği (alt menü öğeleri) */
+    .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: none;
+        width: 100%;
+        padding: 0;
+        margin-top: 0.3rem; /* Alt öğelerin üzerinde boşluğu daha da azalttık */
+        margin-bottom: 0.5rem; /* Alt menünün altında boşluğu azalttık */
+    }
+
+    /* Alt menü linklerinin stili */
+    .dropdown-content a {
+        padding: 0.4rem 0.5rem; /* Alt öğelerin dikey boşluğunu daha da azalttık */
+        text-align: center;
+        font-weight: 400;
+        color: var(--text-color);
+        border-top: 1px dashed var(--border-color);
+        font-size: 1rem;
+    }
+
+    /* İlk alt menü öğesinde üst çizgiyi kaldır */
+    .dropdown-content a:first-child {
+        border-top: none;
+    }
+
+    /* Mobil menü açıkken dropdown içeriğinin görünürlüğünü kontrol eder */
+    .dropdown:hover .dropdown-content {
+        display: flex;
+    }
+}
 
     main {
   max-width: 960px;
@@ -380,6 +418,9 @@ footer .footer-column a:not(.contact-info-item a):hover {
 /* İkonun kendisi için ekstra ayarlama */
 .social-icons a i {
     line-height: 1;
+}
+.social-icons .fa-facebook-f {
+    font-size: 1.6rem;
 }
 
 footer .notice-container {
