@@ -222,48 +222,57 @@ body {
   margin-bottom: 2rem;
 }
 
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Kartlar arasında boşluk */
+  justify-content: center; /* Kartları yatayda ortala */
+  padding: 2rem;
+}
+
 .contact-card {
   background: var(--light);
-  padding: 1rem;
+  padding: 1.5rem; /* İç boşluğu artır */
   border-radius: 8px;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
   flex: 1;
-  min-width: 200px;
-  max-width: 30%;
+  min-width: 250px; /* Minimum genişliği artır */
+  max-width: 30%; /* Maksimum genişliği koru */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* İçeriği yatayda ortala */
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box; /* Padding'in genişliğe dahil olmasını sağla */
 }
 
 .contact-card:hover {
-  transform: translateY(-3px);
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.1);
+  transform: translateY(-5px); /* Hafif yukarı kaydırma efekti */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.15); /* Daha belirgin gölge */
 }
 
 .contact-card i {
-  font-size: 2rem;
+  font-size: 2.5rem; /* İkon boyutunu büyüt */
   color: var(--primary);
-  margin-bottom: 0.7rem;
-  width: 2rem;
-  height: 2rem;
-  display: inline-block;
+  margin-bottom: 1rem; /* İkon ile başlık arasına boşluk ekle */
+  width: auto; /* Genişliği otomatik yap */
+  height: auto; /* Yüksekliği otomatik yap */
+  display: block; /* İkonu blok element yapıp kendi satırına al */
 }
 
-.contact-card h3 {
+.contact-card h2 { /* Burası h3 yerine h2 olarak güncellendi */
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem; /* Başlık ile paragraf arasına boşluk */
   color: var(--dark);
-  font-size: 1.15rem;
-  min-height: 1.5rem;
+  font-size: 1.3rem; /* Başlık font boyutunu artır */
+  min-height: 1.8rem; /* Minimum yüksekliği artır */
 }
 
 .contact-card p {
-  margin: 0.3rem 0;
-  font-size: 0.95rem;
+  margin: 0.5rem 0; /* Paragraflar arasında boşluk */
+  font-size: 1rem; /* Paragraf font boyutunu artır */
   color: var(--text-color);
-  line-height: 1.4;
+  line-height: 1.6; /* Satır yüksekliğini artır */
 }
 
 .contact-card p a {
@@ -685,17 +694,17 @@ footer .notice strong {
       <div class="contact-card">
         <i class="fas fa-phone-alt"></i>
         <h2>Telefon</h2>
-        <p><a class="company-phone-link"></a></p>
+        <p><a href="tel:+905551112233">0 (555) 111 22 33</a></p>
       </div>
       <div class="contact-card">
         <i class="fas fa-envelope"></i>
         <h2>E-posta</h2>
-        <p><a class="company-email"></a></p>
+        <p><a href="mailto:info@servisweb.com">info@servisweb.com</a></p>
       </div>
       <div class="contact-card">
         <i class="fas fa-map-marker-alt"></i>
         <h2>Adres</h2>
-        <p><span class="company-address"></span></p>
+        <p>Örnek Mah. Örnek Sk. No:1 D:2, Örnek ilçe/İstanbul</p>
       </div>
     </div>
     
