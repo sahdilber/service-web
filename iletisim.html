@@ -23,30 +23,17 @@
     <meta name="twitter:description" content="İstanbul içi teknik servis talepleriniz için bizimle iletişime geçin. Hemen arayın veya formu doldurun.">
     <meta name="twitter:image" content="https://www.servisweb.com/images/iletisim-banner.jpg">
   
-    <!-- Favicon ve Apple Icon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  
-    <!-- Fontlar -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    </noscript>
-  
-   <!-- FontAwesome Preconnect -->
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+ <!-- Favicon ve Apple Touch Icon -->
+ <link rel="icon" href="favicon.ico" type="image/x-icon">
+ <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<!-- FontAwesome Preload -->
-<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- Lazy Load FontAwesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-<noscript>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</noscript>
+ <!-- Font Awesome Lazy Load -->
+ <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+ <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+ <noscript>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ </noscript>
   
     <!-- JSON-LD schema.org: Contact Page -->
     <script type="application/ld+json">
@@ -694,22 +681,20 @@
       justify-content: center;
     }
   }
-  /* Font Awesome Swap */
   @font-face {
-    font-family: 'Font Awesome 6 Brands';
-    font-style: normal;
-    font-weight: 400;
-    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2') format('woff2');
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: 'Font Awesome 6 Free';
-    font-style: normal;
-    font-weight: 900;
-    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2') format('woff2');
-    font-display: swap;
-  }
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2') format('woff2');
+}
   </style>
   
   <script src="config.js" defer></script>
