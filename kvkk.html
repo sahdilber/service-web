@@ -550,49 +550,86 @@ footer .notice-container {
   src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2') format('woff2');
 }
 
-  /* Keyframe Animasyonu */
+  /* Keyframe Animasyonları */
   @keyframes pulse {
     0% {
       transform: scale(1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     50% {
-      transform: scale(1.05);
+      transform: scale(1.05); /* Daha belirgin bir büyüme */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 0 5px rgba(0, 122, 61, 0.4); /* Gölgeyi ve halkayı güçlendirdik */
     }
     100% {
       transform: scale(1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
   }
 
-  /* Floating Call Button Styles (Updated with animation) */
+  @keyframes ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    15% { /* Zil çalma efekti için hızlı hareket */
+      transform: rotate(15deg);
+    }
+    30% {
+      transform: rotate(-15deg);
+    }
+    45% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(-10deg);
+    }
+    75% {
+      transform: rotate(5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  /* Floating Call Button Styles (Updated with enhanced animations) */
   .floating-call-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--accent); /* Using your accent color */
+    background-color: var(--accent); /* Your accent color */
     color: #fff;
-    border-radius: 8px; /* Rounded corners for the rectangular shape */
-    padding: 12px 20px; /* Padding inside the button */
+    border-radius: 8px;
+    padding: 12px 20px;
     display: flex;
-    align-items: center; /* Vertically align icon and text */
-    font-size: 1.2rem; /* Font size for the text */
-    font-weight: 600; /* Boldness for the text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Başlangıç gölgesi */
     z-index: 1000;
     text-decoration: none;
-    /* Animasyonu burada uyguluyoruz */
-    animation: pulse 2s infinite ease-in-out; /* 2 saniyede bir tekrarlayan, yumuşak animasyon */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Gölge geçişini de ekledik */
+    animation: pulse 2s infinite ease-in-out; /* Nabız animasyonu */
   }
 
   .floating-call-button i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 1.4rem; /* Icon size, slightly larger than text */
+    margin-right: 8px;
+    font-size: 1.4rem;
+    /* Zil animasyonunu ikona uygula */
+    animation: ring 1.5s ease-in-out infinite 0.5s; /* 0.5s gecikmeyle başla */
+    transform-origin: top center; /* Telefonu yukarıdan sallanır gibi göster */
   }
 
   .floating-call-button:hover {
     background-color: #219d53; /* Slightly darker shade on hover */
     transform: translateY(-2px); /* Lift effect on hover */
-    animation: none; /* Hover durumunda animasyonu durdur */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Hover'da daha belirgin gölge */
+    animation: none; /* Hover durumunda butonun nabız animasyonunu durdur */
   }
+
+  .floating-call-button:hover i {
+    animation: none; /* Hover durumunda ikonun zil animasyonunu durdur */
+    transform: rotate(0deg); /* Animasyon durduğunda normal konumuna dön */
+  }
+
 
   /* Media query for smaller screens */
   @media (max-width: 768px) {
