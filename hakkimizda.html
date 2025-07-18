@@ -26,7 +26,8 @@
   <!-- Favicon / Apple Icon -->
   <link rel="icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-
+<!-- FontAwesome Font Preload -->
+<link rel="preload" href="fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Google Fonts Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,94 +170,21 @@
     display: block;
   }
 
-  @media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    .menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-        background: var(--background-light);
-        border-radius: 0 0 8px 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        padding: 0.5rem 1rem;
-        align-items: flex-start; /* Align menu items to the left */
-    }
-    .menu.show {
-        display: flex;
-    }
+  @font-face {
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/fa-brands-400.woff2") format("woff2");
+  font-display: swap;
+}
 
-    /* All Main Menu Links (Ana Sayfa, Hakkımızda, İletişim, Hizmetlerimiz parent) */
-    .menu > a {
-        display: block;
-        padding: 0.1rem 0;  /* Adjust vertical padding for main items */
-        line-height: 1.2;
-        text-align: left; /* Align text to the left */
-        color: var(--dark); /* Use dark color for consistency with image */
-        font-weight: 700;
-        font-size: 1.1rem;
-        margin-bottom: 0.05rem; /* Small space between main menu items */
-        border-bottom: none;
-        width: 100%; /* Take full width */
-    }
-
-    /* "Hizmetlerimiz" main link inside dropdown parent */
-    .dropdown > a {
-        color: var(--dark) !important; /* Ensure it's dark and bold like others */
-        font-weight: 700 !important;
-        font-size: 1.1rem !important;
-        padding: 0.1rem 0; /* Consistent padding */
-        margin-bottom: 0.06rem; /* Consistent margin */
-    }
-
-    /* Last main menu item */
-    .menu > a:last-of-type {
-        margin-bottom: 0;
-    }
-
-    /* Dropdown container in mobile view */
-    .dropdown {
-        width: 100%;
-        position: static;
-        border-bottom: none;
-        padding-bottom: 0;
-        margin-bottom: 0;
-    }
-
-    /* Dropdown content (sub-menu items) */
-    .dropdown-content {
-        display: flex;
-        flex-direction: column;
-        position: static;
-        box-shadow: none;
-        border: none;
-        border-radius: 0;
-        background: none;
-        width: 100%;
-        padding: 0;
-        margin-top: 0.2rem; /* Small space from "Hizmetlerimiz" title */
-        margin-bottom: 0.5rem; /* Space after the last dropdown item */
-        align-items: flex-start; /* Align sub-menu items to the left */
-    }
-    .dropdown-content a {
-        padding: 0.4rem 1.5rem; /* Indent sub-items and adjust padding */
-        text-align: left; /* Align sub-items to the left */
-        font-weight: 400; /* Normal font weight for sub-items */
-        color: var(--text-color); /* Standard text color for sub-items */
-        border-top: none; /* Remove dashed line */
-        font-size: 1rem;
-        line-height: 1.4;
-        width: 100%; /* Take full width */
-    }
-    /* No need for first-child rule as border-top is removed */
-
-    /* Mobile menu open state controls dropdown content visibility */
-    .dropdown:hover .dropdown-content {
-        display: flex;
-    }
-  }
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/fa-regular-400.woff2") format("woff2");
+  font-display: swap;
+}
 
    main {
 max-width: 960px;
@@ -525,11 +453,11 @@ footer .notice {
 }
 }
 @font-face {
-  font-family: 'Font Awesome 6 Free';
+  font-family: "Font Awesome 6 Free";
   font-style: normal;
   font-weight: 900;
-  src: url('../fonts/fa-solid-900.woff2') format('woff2');
-  font-display: swap; /* 👈 ÖNEMLİ */
+  src: url("fonts/fa-solid-900.woff2") format("woff2");
+  font-display: swap;
 }
 </style>
 <script src="config.js" defer></script>
