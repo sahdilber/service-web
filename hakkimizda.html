@@ -386,6 +386,7 @@ color: var(--primary);
   gap: 1.5rem;
   margin-top: 1rem;
   justify-content: flex-start;
+  align-items: center; /* İkonları dikeyde hizala */
 }
 
 .social-icons a {
@@ -393,13 +394,14 @@ color: var(--primary);
   color: var(--footer-text-color);
   width: auto;
   height: auto;
-  display: flex;
+  display: flex; /* İkonun içindeki <i tagını hizalamak için */
   justify-content: center;
-  align-items: center;
+  align-items: center; /* İkonun kendisini ortalamak için */
   border-radius: 0;
   font-size: 1.8rem;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.2s ease;
+  line-height: 1; /* İkonların kendi içindeki satır yüksekliğini sıfırla */
 }
 
 .social-icons a:hover {
@@ -409,11 +411,17 @@ color: var(--primary);
 
 /* İkonun kendisi için ekstra ayarlama */
 .social-icons a i {
-  line-height: 1;
+  line-height: 1; /* i etiketlerinin satır yüksekliğini ayarla */
 }
 .social-icons .fa-facebook-f {
-  font-size: 1.6rem;
+  font-size: 1.6rem; /
 }
+
+/* X (Twitter) ikonu için ayarlama */
+.social-icons .fa-x-twitter {
+    font-size: 1.7rem; /* X ikonunu diğerleriyle daha uyumlu yapmak için ayar */
+}
+
 footer .notice-container {
   width: 100%;
   display: flex;

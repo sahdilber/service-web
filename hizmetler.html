@@ -180,100 +180,94 @@
       display: block;
     }
     
-    /* --- MOBİL GÖRÜNÜM DÜZENLEMELERİ (768px ve altı) --- */
     @media screen and (max-width: 768px) {
-      .menu-toggle {
-        display: block; /* Hamburger ikonunu göster */
-      }
-      .menu {
-        display: none; /* Varsayılan olarak menüyü gizle */
+    .menu-toggle {
+        display: block;
+    }
+    .menu {
+        display: none;
         flex-direction: column;
         width: 100%;
         margin-top: 1rem;
         background: var(--background-light);
         border-radius: 0 0 8px 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        padding: 0.2rem 1rem; /* Menü kapsayıcısının iç üst/alt paddingini minimalize ettik */
-      }
-      .menu.show {
-        display: flex; /* JavaScript ile menüyü göster */
-      }
-    
-      /* Ana Menü Linkleri İçin Başlık Gibi Stil ve Boşluk Azaltma */
-      /* (Ana Sayfa, Hakkımızda, İletişim) */
-      .menu > a {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        padding: 0.5rem 1rem;
+        align-items: flex-start; /* Align menu items to the left */
+    }
+    .menu.show {
+        display: flex;
+    }
+
+    /* All Main Menu Links (Ana Sayfa, Hakkımızda, İletişim, Hizmetlerimiz parent) */
+    .menu > a {
         display: block;
-        padding: 0.05rem 0; /* Dikey paddingi ultra-minimalize ettik */
-        line-height: 1; /* Satır yüksekliğini kesinlikle 1'e ayarladık */
-        text-align: center;
-        color: var(--primary);
+        padding: 0.1rem 0;  /* Adjust vertical padding for main items */
+        line-height: 1.2;
+        text-align: left; /* Align text to the left */
+        color: var(--dark); /* Use dark color for consistency with image */
         font-weight: 700;
         font-size: 1.1rem;
-        margin-bottom: 0.1rem; /* Her ana menü öğesi arasına çok az boşluk bıraktık */
-        border-bottom: none; /* !!! ANA SAYFA ALTINDAKİ ÇİZGİYİ KALDIRDIK !!! */
-      }
-    
-      /* Hizmetlerimiz linki için özel, garantili stil ve BOŞLUK AZALTMA */
-      .dropdown > a {
-        display: block;
-        padding: 0.05rem 0; /* Dikey paddingi ultra-minimalize ettik */
-        line-height: 1; /* Satır yüksekliğini kesinlikle 1'e ayarladık */
-        text-align: center;
-        color: var(--primary) !important;
+        margin-bottom: 0.05rem; /* Small space between main menu items */
+        border-bottom: none;
+        width: 100%; /* Take full width */
+    }
+
+    /* "Hizmetlerimiz" main link inside dropdown parent */
+    .dropdown > a {
+        color: var(--dark) !important; /* Ensure it's dark and bold like others */
         font-weight: 700 !important;
         font-size: 1.1rem !important;
-        margin-bottom: 0.1rem; /* Hizmetlerimiz ana başlığının altında çok az boşluk */
-      }
-    
-      /* Dropdown dışındaki ana menü linkleri için hover efekti */
-      .menu > a:not(.dropdown > a):hover {
-        color: var(--dark);
-      }
-    
-      /* Dropdown konteynerinin mobil görünümdeki ayarları */
-      .dropdown {
-        width: 100%; /* Kendi genişliğini alsın */
-        position: static; /* Dropdown konumlandırmasını iptal et */
+        padding: 0.1rem 0; /* Consistent padding */
+        margin-bottom: 0.06rem; /* Consistent margin */
+    }
+
+    /* Last main menu item */
+    .menu > a:last-of-type {
+        margin-bottom: 0;
+    }
+
+    /* Dropdown container in mobile view */
+    .dropdown {
+        width: 100%;
+        position: static;
         border-bottom: none;
         padding-bottom: 0;
         margin-bottom: 0;
-      }
-      /* Mobil görünümde ".dropdown > span" kuralı gereksiz olduğundan kaldırıldı. */
-    
-      /* Dropdown içeriği (alt menü öğeleri) */
-      .dropdown-content {
-        display: flex; /* Dikey olarak liste şeklinde göster */
-        flex-direction: column;
-        position: static; /* Konumlandırmayı iptal et */
-        box-shadow: none; /* Gölgeyi kaldır */
-        border: none; /* Çizgiyi kaldır */
-        border-radius: 0; /* Yuvarlak köşeleri kaldır */
-        background: none; /* Arka planı kaldır */
-        width: 100%; /* Tam genişlikte olsun */
-        padding: 0; /* İç padding'i kaldır */
-        margin-top: 0.3rem; /* Hizmetlerimiz başlığı ile ilk alt öğe arasına boşluk */
-        margin-bottom: 0.2rem; /* Son alt öğe (Televizyon) ile Hakkımızda arasındaki boşluk */
-      }
-      .dropdown-content a {
-        padding: 0.4rem 0.5rem; /* Alt öğelerin dikey boşluğunu daha da azalttık */
-        text-align: center; /* Ortala */
-        font-weight: 400; /* Daha hafif font */
-        color: var(--text-color);
-        border-top: 1px dashed var(--border-color); /* Alt öğeler arasında ayırıcı çizgi */
-        font-size: 1rem;
-        line-height: 1.4; /* Alt öğelerin satır yüksekliğini de düşürdük */
-      }
-      /* İlk alt menü öğesinde üst çizgiyi kaldır */
-      .dropdown-content a:first-child {
-        border-top: none;
-      }
-    
-      /* Mobil menü açıkken dropdown içeriğinin görünürlüğünü kontrol eder */
-      .dropdown:hover .dropdown-content {
-        display: flex; /* Hover yerine her zaman görünür (toggleMenu ile kontrol edilecek) */
-      }
     }
-    
+
+    /* Dropdown content (sub-menu items) */
+    .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: none;
+        width: 100%;
+        padding: 0;
+        margin-top: 0.2rem; /* Small space from "Hizmetlerimiz" title */
+        margin-bottom: 0.5rem; /* Space after the last dropdown item */
+        align-items: flex-start; /* Align sub-menu items to the left */
+    }
+    .dropdown-content a {
+        padding: 0.4rem 1.5rem; /* Indent sub-items and adjust padding */
+        text-align: left; /* Align sub-items to the left */
+        font-weight: 400; /* Normal font weight for sub-items */
+        color: var(--text-color); /* Standard text color for sub-items */
+        border-top: none; /* Remove dashed line */
+        font-size: 1rem;
+        line-height: 1.4;
+        width: 100%; /* Take full width */
+    }
+    /* No need for first-child rule as border-top is removed */
+
+    /* Mobile menu open state controls dropdown content visibility */
+    .dropdown:hover .dropdown-content {
+        display: flex;
+    }
+  }
     /* Main Section Stilleri */
     main {
       max-width: 960px;
@@ -804,37 +798,45 @@
     }
     
     .social-icons {
-        display: flex;
-        gap: 1.5rem;
-        margin-top: 1rem;
-        justify-content: flex-start;
-    }
-    
-    .social-icons a {
-        background-color: transparent;
-        color: var(--footer-text-color);
-        width: auto;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0;
-        font-size: 1.8rem;
-        text-decoration: none;
-        transition: color 0.3s ease, transform 0.2s ease;
-    }
-    
-    .social-icons a:hover {
-        color: var(--primary);
-        transform: translateY(-3px);
-    }
-    
-    .social-icons a i {
-        line-height: 1;
-    }
-    .social-icons .fa-facebook-f {
-    font-size: 1.6rem;
-    }
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  justify-content: flex-start;
+  align-items: center; /* İkonları dikeyde hizala */
+}
+
+.social-icons a {
+  background-color: transparent;
+  color: var(--footer-text-color);
+  width: auto;
+  height: auto;
+  display: flex; /* İkonun içindeki <i tagını hizalamak için */
+  justify-content: center;
+  align-items: center; /* İkonun kendisini ortalamak için */
+  border-radius: 0;
+  font-size: 1.8rem;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+  line-height: 1; /* İkonların kendi içindeki satır yüksekliğini sıfırla */
+}
+
+.social-icons a:hover {
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* İkonun kendisi için ekstra ayarlama */
+.social-icons a i {
+  line-height: 1; /* i etiketlerinin satır yüksekliğini ayarla */
+}
+.social-icons .fa-facebook-f {
+  font-size: 1.6rem; /
+}
+
+/* X (Twitter) ikonu için ayarlama */
+.social-icons .fa-x-twitter {
+    font-size: 1.7rem; /* X ikonunu diğerleriyle daha uyumlu yapmak için ayar */
+}
     footer .notice-container {
         width: 100%;
         display: flex;
