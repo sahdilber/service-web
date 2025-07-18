@@ -620,20 +620,21 @@
 .social-icons .fa-x-twitter {
     font-size: 1.7rem; /* X ikonunu diğerleriyle daha uyumlu yapmak için ayar */
 }
-  footer .notice-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-left: 1rem;
-    padding-right: 1rem;
+footer .notice-container {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 0.05rem; /* Uyarı üst boşluğu azaltıldı */
+      padding-top: 0.3rem; /* Uyarı iç üst boşluğu azaltıldı */
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-left: 1rem;
+      padding-right: 1rem;
   }
-  
+
   footer .notice {
     background-color: transparent;
     color: var(--footer-text-color);
+    margin-top: 0.5rem; 
     padding: 0;
     border-radius: 0;
     font-weight: normal;
@@ -644,33 +645,55 @@
     font-size: 0.9rem;
     line-height: 1.4;
   }
-  
+
   footer .notice strong {
     font-weight: bold;
     color: #fff;
     margin-right: 5px;
   }
-  
+
+
+  /* Telif Hakkı Bölümü */
+  .copyright-section {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0.5rem; /* Üst ve alt boşluklar ayarlandı */
+    color: var(--footer-text-color);
+    font-size: 0.8rem; /* Telif hakkı metni font boyutu küçültüldü */
+    margin-top: 1rem; /* Uyarı ile telif hakkı arasında boşluk azaltıldı */
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .copyright-section p {
+    margin: 0;
+    color: inherit;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.4;
+  }
+
+  /* Footer Responsive Düzenlemeler */
   @media screen and (max-width: 768px) {
     footer {
       flex-direction: column;
       align-items: center;
       text-align: center;
     }
-  
+
     footer .footer-column {
       margin-bottom: 2rem;
       width: 100%;
       max-width: 300px;
     }
-  
+
     footer .footer-column h3::after {
       left: 50%;
       transform: translateX(-50%);
     }
     footer .notice-container {
-        margin-top: 1.5rem;
+        margin-top: 0.5rem;
         justify-content: center;
+        padding-top: 0.1rem;
         padding-left: 0;
         padding-right: 0;
     }
@@ -679,6 +702,10 @@
     }
     .social-icons {
       justify-content: center;
+    }
+    .copyright-section {
+        padding: 0.8rem; /* Mobil görünümde daha az boşluk */
+        margin-top: 0.8rem; /* Mobil görünümde daha az üst boşluk */
     }
   }
   @font-face {
@@ -885,6 +912,9 @@
       <div class="notice">
         <strong>Uyarı:</strong> Bu site yetkili servis değildir. Garantisi olmayan cihazlara hizmet verilmektedir.
       </div>
+    </div>
+    <div class="copyright-section">
+      <p>&copy; 2025 ServisWeb. Tüm hakları saklıdır.</p>
     </div>
   </footer>
 </body>
