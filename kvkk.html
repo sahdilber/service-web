@@ -7,27 +7,22 @@
     <title>KVKK Aydınlatma Metni | ServisWeb Teknik Servis</title>
     <meta name="description" content="ServisWeb olarak kişisel verilerinizi 6698 sayılı KVK Kanunu kapsamında titizlikle işliyor ve koruyoruz. Detaylı aydınlatma metnimizi inceleyin." />
   
-    <!-- Canonical -->
     <link rel="canonical" href="https://www.servisweb.com/kvkk.html">
   
-    <!-- OG Meta Tags -->
     <meta property="og:title" content="KVKK Aydınlatma Metni | ServisWeb Teknik Servis" />
     <meta property="og:description" content="ServisWeb, kişisel verilerinizi yasalara uygun şekilde işler ve korur. KVKK kapsamında detaylı bilgilendirme için tıklayın." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.servisweb.com/kvkk.html" />
     <meta property="og:image" content="https://www.servisweb.com/kvkk-banner.jpg" />
   
-    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="KVKK Aydınlatma Metni | ServisWeb Teknik Servis" />
     <meta name="twitter:description" content="ServisWeb kişisel verilerinizin korunmasına önem verir. KVKK Aydınlatma Metni için tıklayın." />
     <meta name="twitter:image" content="https://www.servisweb.com/kvkk-banner.jpg" />
   
-    <!-- Favicon ve Apple Touch Icon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Font Awesome Lazy Load -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -35,7 +30,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   </noscript>
   
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -496,12 +490,13 @@ footer .notice-container {
   }
 
   .copyright-section p {
-    margin: 0;
-    color: inherit;
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.4;
-  }
+  margin: 0;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.4;
+  text-align: center; /* EKLENECEK SATIR */
+}
 
   /* Footer Responsive Düzenlemeler */
   @media screen and (max-width: 768px) {
@@ -535,6 +530,7 @@ footer .notice-container {
       justify-content: center;
     }
     .copyright-section {
+      text-align: center;
         padding: 0.8rem; /* Mobil görünümde daha az boşluk */
         margin-top: 0.8rem; /* Mobil görünümde daha az üst boşluk */
     }
@@ -553,6 +549,64 @@ footer .notice-container {
   font-display: swap;
   src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2') format('woff2');
 }
+
+  /* Keyframe Animasyonu */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Floating Call Button Styles (Updated with animation) */
+  .floating-call-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent); /* Using your accent color */
+    color: #fff;
+    border-radius: 8px; /* Rounded corners for the rectangular shape */
+    padding: 12px 20px; /* Padding inside the button */
+    display: flex;
+    align-items: center; /* Vertically align icon and text */
+    font-size: 1.2rem; /* Font size for the text */
+    font-weight: 600; /* Boldness for the text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-decoration: none;
+    /* Animasyonu burada uyguluyoruz */
+    animation: pulse 2s infinite ease-in-out; /* 2 saniyede bir tekrarlayan, yumuşak animasyon */
+  }
+
+  .floating-call-button i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.4rem; /* Icon size, slightly larger than text */
+  }
+
+  .floating-call-button:hover {
+    background-color: #219d53; /* Slightly darker shade on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+    animation: none; /* Hover durumunda animasyonu durdur */
+  }
+
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .floating-call-button {
+      padding: 10px 15px; /* Adjust padding for mobile */
+      font-size: 1rem; /* Adjust font size for mobile */
+      bottom: 15px;
+      right: 15px;
+    }
+    .floating-call-button i {
+      font-size: 1.2rem; /* Adjust icon size for mobile */
+      margin-right: 6px;
+    }
+  }
   </style>
  <script src="config.js" defer></script>
 
@@ -665,7 +719,7 @@ footer .notice-container {
       <h3>İletişim</h3>
       <div class="contact-info-item">
         <span class="fa-solid fa-location-dot"></span>
-        <a>Örnek Mah. Örnek Sk. No:1 D:2, Örnek ilçe/İstanbul</a>
+        <a>Örnek Mah. Örnek Sk. No:1 D:2, Kadıköy/İstanbul</a>
       </div>
       <div class="contact-info-item">
         <span class="fa-solid fa-phone"></span>
@@ -712,5 +766,10 @@ footer .notice-container {
       <p>&copy; 2025 ServisWeb. Tüm hakları saklıdır.</p>
     </div>
   </footer>
+
+  <a href="tel:+905551112233" class="floating-call-button" aria-label="Bizi Arayın">
+    <i class="fa-solid fa-phone"></i>
+    <span>Bizi Arayın</span>
+  </a>
 </body>
 </html>
