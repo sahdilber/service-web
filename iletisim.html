@@ -1,40 +1,96 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>İletişim | ServisWeb</title>
-  <meta name="description" content="ServisWeb ile hızlıca iletişime geçin. Teknik servis talepleriniz için bizi arayın veya form üzerinden ulaşın." />
-  <link rel="icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<!-- HEAD bölümüne, mümkünse en üste yerleştir -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Lazy-load Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</noscript>
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="İletişim - ServisWeb">
-<meta name="twitter:description" content="Teknik servis talepleriniz için bizimle iletişime geçin.">
-<meta name="twitter:image" content="https://www.servisweb.com/images/iletisim-banner.jpg">
-  <meta property="og:title" content="İletişim - ServisWeb" />
-  <meta property="og:description" content="Teknik servis talepleriniz ve sorularınız için bizimle iletişime geçin." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://servisweb.com/iletisim.html" />
-  <meta property="og:image" content="https://www.servisweb.com/images/iletisim-banner.jpg">
-  <link rel="canonical" href="https://www.servisweb.com/iletisim.html">
-  <!-- Font Awesome lazy load ve preconnect -->
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-
-<!-- Lazy-load Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-<noscript>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</noscript>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <title>İletişim | Teknik Servis Desteği Alın - ServisWeb</title>
+    <meta name="description" content="ServisWeb ile iletişime geçin.Türkiye geneli teknik servis taleplerinizi telefon, e-posta veya form ile bize iletin. Hızlı destek alın." />
+  
+    <!-- Canonical -->
+    <link rel="canonical" href="https://www.servisweb.com/iletisim.html" />
+  
+    <!-- Open Graph -->
+    <meta property="og:title" content="İletişim | Teknik Servis Desteği Alın - ServisWeb" />
+    <meta property="og:description" content="ServisWeb ile hızlı ve güvenilir iletişim kurun. Teknik servis için destek alın." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.servisweb.com/iletisim.html" />
+    <meta property="og:image" content="https://www.servisweb.com/images/iletisim-banner.jpg" />
+  
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="İletişim | ServisWeb Teknik Destek">
+    <meta name="twitter:description" content="İstanbul içi teknik servis talepleriniz için bizimle iletişime geçin. Hemen arayın veya formu doldurun.">
+    <meta name="twitter:image" content="https://www.servisweb.com/images/iletisim-banner.jpg">
+  
+    <!-- Favicon ve Apple Icon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  
+    <!-- Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    </noscript>
+  
+    <!-- Font Awesome -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </noscript>
+  
+    <!-- JSON-LD schema.org: Contact Page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "İletişim - ServisWeb",
+      "url": "https://www.servisweb.com/iletisim.html",
+      "description": "İstanbul genelinde beyaz eşya servis ihtiyaçlarınız için ServisWeb ile iletişime geçin.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ServisWeb"
+      }
+    }
+    </script>
+  
+    <!-- JSON-LD schema.org: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hangi beyaz eşyaların tamirini yapıyorsunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Buzdolabı, çamaşır makinesi, bulaşık makinesi, fırın, klima, kombi ve televizyon gibi garantisi sona ermiş tüm beyaz eşyaların tamirini yapmaktayız."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Yetkili servis misiniz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, ServisWeb yetkili servis değildir. Sadece garantisi sona ermiş cihazlar için özel teknik servis hizmeti sunmaktayız."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Tamir sonrası garanti veriyor musunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet, yaptığımız tamiratlar ve değişen parçalar için belirli bir süre garanti vermekteyiz. Detaylı bilgi için lütfen bizimle iletişime geçin."
+          }
+        }
+      ]
+    }
+    </script>
 <style>
   :root {
     --primary: #1a4f85;
@@ -651,51 +707,7 @@
   }
   </style>
   <script src="config.js"></script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "name": "İletişim - ServisWeb",
-      "url": "https://www.servisweb.com/iletisim.html",
-      "description": "ServisWeb ile iletişime geçin.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "ServisWeb"
-      }
-    }
-    </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Hangi beyaz eşyaların tamirini yapıyorsunuz?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Buzdolabı, çamaşır makinesi, bulaşık makinesi, fırın, klima, kombi ve televizyon gibi garantisi sona ermiş tüm beyaz eşyaların tamirini yapmaktayız."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Yetkili servis misiniz?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Hayır, ServisWeb yetkili servis değildir. Sadece garantisi sona ermiş cihazlar için özel teknik servis hizmeti sunmaktayız."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Tamir sonrası garanti veriyor musunuz?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Evet, yaptığımız tamiratlar ve değişen parçalar için belirli bir süre garanti vermekteyiz. Detaylı bilgi için lütfen bizimle iletişime geçin."
-          }
-        }
-      ]
-    }
-  </script>
+ 
   <script>
     function toggleMenu() {
       const menu = document.getElementById('main-menu');

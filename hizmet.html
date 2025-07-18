@@ -21,6 +21,27 @@
 <noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </noscript>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Teknik Servis",
+    "provider": {
+      "@type": "Organization",
+      "name": "ServisWeb",
+      "url": "https://www.servisweb.com"
+    },
+    "areaServed": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
+      }
+    }
+  }
+  </script>
+  
 <style>
   /* Global Renk Paleti ve Temel Stiller */
   :root {
@@ -610,26 +631,6 @@
   }
   </style>
   <script src="config.js"></script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Teknik Servis",
-      "provider": {
-        "@type": "Organization",
-        "name": "ServisWeb",
-        "url": "https://www.servisweb.com"
-      },
-      "areaServed": {
-        "@type": "Place",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "İstanbul",
-          "addressCountry": "TR"
-        }
-      }
-    }
-    </script>
   <script>
     function toggleMenu() {
       const menu = document.getElementById('main-menu');
