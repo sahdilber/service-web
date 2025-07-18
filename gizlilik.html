@@ -24,7 +24,7 @@
   
 
   <!-- Favicon ve Apple Touch Icon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <!-- Font Awesome Lazy Load -->
@@ -539,6 +539,100 @@ footer .notice-container {
         margin-top: 0.8rem; /* Mobil görünümde daha az üst boşluk */
     }
   }
+  /* Keyframe Animasyonları */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.05); /* Daha belirgin bir büyüme */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 0 5px rgba(0, 122, 61, 0.4); /* Gölgeyi ve halkayı güçlendirdik */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% { /* Zil çalma efekti için hızlı hareket */
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  45% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Floating Call Button Styles (Updated with enhanced animations) */
+.floating-call-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--accent); /* Your accent color */
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Başlangıç gölgesi */
+  z-index: 1000;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Gölge geçişini de ekledik */
+  animation: pulse 2s infinite ease-in-out; /* Nabız animasyonu */
+}
+
+.floating-call-button i {
+  margin-right: 8px;
+  font-size: 1.4rem;
+  /* Zil animasyonunu ikona uygula */
+  animation: ring 1.5s ease-in-out infinite 0.5s; /* 0.5s gecikmeyle başla */
+  transform-origin: top center; /* Telefonu yukarıdan sallanır gibi göster */
+}
+
+.floating-call-button:hover {
+  background-color: #219d53; /* Slightly darker shade on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Hover'da daha belirgin gölge */
+  animation: none; /* Hover durumunda butonun nabız animasyonunu durdur */
+}
+
+.floating-call-button:hover i {
+  animation: none; /* Hover durumunda ikonun zil animasyonunu durdur */
+  transform: rotate(0deg); /* Animasyon durduğunda normal konumuna dön */
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .floating-call-button {
+    padding: 10px 15px; /* Adjust padding for mobile */
+    font-size: 1rem; /* Adjust font size for mobile */
+    bottom: 15px;
+    right: 15px;
+  }
+  .floating-call-button i {
+    font-size: 1.2rem; /* Adjust icon size for mobile */
+    margin-right: 6px;
+  }
+}
 @font-face {
   font-family: 'FontAwesome';
   font-style: normal;
@@ -696,5 +790,9 @@ footer .notice-container {
       <p>&copy; 2025 ServisWeb. Tüm hakları saklıdır.</p>
     </div>
   </footer>
+  <a href="tel:+905551112233" class="floating-call-button" aria-label="Bizi Arayın">
+    <i class="fa-solid fa-phone"></i>
+    <span>Bizi Arayın</span>
+  </a>
 </body>
 </html>

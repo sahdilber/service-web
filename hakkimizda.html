@@ -7,28 +7,22 @@
   <title>Hakkımızda | İstanbul Teknik Servis - ServisWeb</title>
   <meta name="description" content="ServisWeb, İstanbul'da garantisi bitmiş beyaz eşya ve elektronik cihazlar için uzman teknik servis hizmeti sunar. Hızlı, uygun fiyatlı ve güvenilir servis." />
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://www.servisweb.com/hakkimizda.html">
 
-  <!-- OG (Facebook, LinkedIn) -->
   <meta property="og:title" content="Hakkımızda | İstanbul Teknik Servis - ServisWeb" />
   <meta property="og:description" content="Garantisi bitmiş cihazlarınıza özel hızlı, ekonomik ve profesyonel teknik servis çözümleri sunuyoruz." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.servisweb.com/hakkimizda.html" />
   <meta property="og:image" content="https://www.servisweb.com/social-image.jpg" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hakkımızda | ServisWeb Teknik Servis" />
   <meta name="twitter:description" content="İstanbul genelinde beyaz eşya ve elektronik cihazlarınıza garantili teknik servis hizmeti sunuyoruz." />
   <meta name="twitter:image" content="https://www.servisweb.com/social-image.jpg" />
 
-
-  <!-- Favicon ve Apple Touch Icon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <!-- Font Awesome Lazy Load -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -556,6 +550,101 @@ footer .notice-container {
   font-display: swap;
   src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2') format('woff2');
 }
+
+/* Keyframe Animasyonları */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.05); /* Daha belirgin bir büyüme */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 0 5px rgba(0, 122, 61, 0.4); /* Gölgeyi ve halkayı güçlendirdik */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% { /* Zil çalma efekti için hızlı hareket */
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  45% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Floating Call Button Styles (Updated with enhanced animations) */
+.floating-call-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--accent); /* Your accent color */
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Başlangıç gölgesi */
+  z-index: 1000;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Gölge geçişini de ekledik */
+  animation: pulse 2s infinite ease-in-out; /* Nabız animasyonu */
+}
+
+.floating-call-button i {
+  margin-right: 8px;
+  font-size: 1.4rem;
+  /* Zil animasyonunu ikona uygula */
+  animation: ring 1.5s ease-in-out infinite 0.5s; /* 0.5s gecikmeyle başla */
+  transform-origin: top center; /* Telefonu yukarıdan sallanır gibi göster */
+}
+
+.floating-call-button:hover {
+  background-color: #219d53; /* Slightly darker shade on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Hover'da daha belirgin gölge */
+  animation: none; /* Hover durumunda butonun nabız animasyonunu durdur */
+}
+
+.floating-call-button:hover i {
+  animation: none; /* Hover durumunda ikonun zil animasyonunu durdur */
+  transform: rotate(0deg); /* Animasyon durduğunda normal konumuna dön */
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .floating-call-button {
+    padding: 10px 15px; /* Adjust padding for mobile */
+    font-size: 1rem; /* Adjust font size for mobile */
+    bottom: 15px;
+    right: 15px;
+  }
+  .floating-call-button i {
+    font-size: 1.2rem; /* Adjust icon size for mobile */
+    margin-right: 6px;
+  }
+}
 </style>
 <script src="config.js" defer></script>
 
@@ -593,7 +682,9 @@ footer .notice-container {
   </header>
   <main>
     <h1>Hakkımızda</h1>
-    <p>ServisWeb, garantisi sona ermiş beyaz eşya ve elektronik ürünleriniz için güvenilir ve hızlı servis çözümleri sunmak amacıyla kurulmuştur. Deneyimli teknik ekibimizle, yerinde müdahale ve müşteri memnuniyeti odaklı yaklaşımımızla sizlere en iyi hizmeti vermeyi amaçlıyoruz. Sektördeki yenilikleri takip ederek, cihazlarınızın ömrünü uzatmayı ve ilk günkü performansına kavuşmasını sağlamayı hedefliyoruz.</p>
+      <p><strong>Firma adı:</strong> ServisWeb Teknik Hizmetler Ltd. Şti.</p>
+      <p><strong>Firma adresi:</strong> Örnek Mah. Örnek Sk. No:1 D:2, Kadıköy/İstanbul</p>
+      <p><strong>Hakkımızda:</strong>ServisWeb, garantisi sona ermiş beyaz eşya ve elektronik ürünleriniz için güvenilir ve hızlı servis çözümleri sunmak amacıyla kurulmuştur. Deneyimli teknik ekibimizle, yerinde müdahale ve müşteri memnuniyeti odaklı yaklaşımımızla sizlere en iyi hizmeti vermeyi amaçlıyoruz. Sektördeki yenilikleri takip ederek, cihazlarınızın ömrünü uzatmayı ve ilk günkü performansına kavuşmasını sağlamayı hedefliyoruz.</p>
     <p>Amacımız, yüksek servis ücretleri veya uzun bekleme süreleri olmadan, ekonomik ve etkili çözümler sunarak kullanıcı deneyimini artırmak ve teknik servis alanında güvenilir bir marka haline gelmektir. Her zaman şeffaf fiyatlandırma ve kaliteli hizmet anlayışıyla hareket etmekteyiz.</p>
 
     <h2>Değerlerimiz</h2>
@@ -661,5 +752,10 @@ footer .notice-container {
       <p>&copy; 2025 ServisWeb. Tüm hakları saklıdır.</p>
     </div>
   </footer>
+
+  <a href="tel:+905551112233" class="floating-call-button" aria-label="Bizi Arayın">
+    <i class="fa-solid fa-phone"></i>
+    <span>Bizi Arayın</span>
+  </a>
 </body>
 </html>
