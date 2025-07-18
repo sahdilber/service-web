@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<url>
+  <loc>http://serviceweb123.netlify.app/</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hizmetler</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hizmet?service=beyazesya</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hizmet?service=buzdolabi</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hizmet?service=camasirmakinesi</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hizmet?service=bulasikmakinesi</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hizmet?service=firin</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hizmet?service=klima</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hizmet?service=kombi</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hizmet?service=televizyon</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/hakkimizda</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/iletisim</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/tel:+905551112233</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/gizlilik</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://serviceweb123.netlify.app/kvkk</loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc></loc>
+  <priority>0.5</priority>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>
