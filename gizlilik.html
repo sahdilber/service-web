@@ -13,32 +13,19 @@
     <meta property="og:description" content="Kullanıcı gizliliğini ciddiyetle ele alıyoruz. Verilerinizin nasıl işlendiğini şeffaf bir şekilde öğrenin." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.servisweb.com/gizlilik.html" />
-    <!-- Görsel yoksa, og:image satırını kaldırmak LCP'ye olumlu etki eder -->
-    <!-- <meta property="og:image" content="https://www.servisweb.com/privacy-banner.jpg" /> -->
+    <meta property="og:image" content="https://www.servisweb.com/privacy-banner.jpg" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Gizlilik Politikası | ServisWeb Teknik Servis" />
     <meta name="twitter:description" content="ServisWeb gizliliğinize önem verir. Kişisel verilerinizi nasıl koruduğumuzu öğrenin." />
-    <!-- <meta name="twitter:image" content="https://www.servisweb.com/privacy-banner.jpg" /> -->
+    <meta name="twitter:image" content="https://www.servisweb.com/privacy-banner.jpg" />
 
     <!-- Favicon ve Apple Touch Icon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <!-- Font preload ve kritik font -->
-    <!-- Eğer Inter fontunu harici bir kaynaktan çekiyorsanız, aşağıdaki preload'u kendi woff2 dosyanıza göre güncelleyin -->
-    <!-- <link rel="preload" href="/fonts/Inter.woff2" as="font" type="font/woff2" crossorigin> -->
-    <style>
-      @font-face {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('/fonts/Inter.woff2') format('woff2');
-      }
-    </style>
-    <!-- FontAwesome preload (hala gerekiyorsa) -->
+    <!-- Preload Fonts (critical for above-the-fold text) -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -69,6 +56,8 @@
       }
     }
     </script>
+
+    <!-- INLINE CRITICAL CSS (extracted from your <style>) -->
     <style>
       :root {
         --primary: #1a4f85;
@@ -178,13 +167,7 @@
         border-radius: 12px;
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
       }
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        text-align: center;
-        color: var(--dark);
-        /* font-display: swap ile fontun geç yüklenmesi LCP'yi etkilemesin */
-      }
+      h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; color: var(--dark);}
       h2 { font-size: 1.6rem; margin-top: 2.5rem; margin-bottom: 1rem; text-align: center; color: var(--primary);}
       h3 { font-size: 1.3rem; margin-top: 1.2rem; margin-bottom: 0.6rem; color: var(--dark);}
       p { font-size: 1.1rem; margin-bottom: 1rem; text-align: justify; color: var(--text-color);}
@@ -292,8 +275,16 @@
         src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2') format('woff2');
       }
     </style>
+
+    <!-- DEFER JS, LAZY LOAD IMAGES -->
     <script src="config.js" defer></script>
     <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        // Lazy-load all <img> elements
+        document.querySelectorAll('img').forEach(function(img) {
+          img.setAttribute('loading', 'lazy');
+        });
+      });
       function toggleMenu() {
         const menu = document.getElementById('main-menu');
         menu.classList.toggle('show');
