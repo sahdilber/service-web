@@ -119,9 +119,32 @@
         .dropdown > a { color: var(--dark)!important; font-weight: 700!important; font-size: 1.1rem!important; padding: 0.1rem 0; margin-bottom: 0.06rem;}
         .menu > a:last-of-type { margin-bottom: 0;}
         .dropdown { width: 100%; position: static; border-bottom: none; padding-bottom: 0; margin-bottom: 0;}
-        .dropdown-content { display: flex; flex-direction: column; position: static; box-shadow: none; border: none; border-radius: 0; background: none; width: 100%; padding: 0; margin-top: 0.2rem; margin-bottom: 0.5rem; align-items: flex-start;}
-        .dropdown-content a { padding: 0.4rem 1.5rem; text-align: left; font-weight: 400; color: var(--text-color); border-top: none; font-size: 1rem; line-height: 1.4; width: 100%;}
+        /*.dropdown-content { display: flex; flex-direction: column; position: static; box-shadow: none; border: none; border-radius: 0; background: none; width: 100%; padding: 0; margin-top: 0.2rem; margin-bottom: 0.5rem; align-items: flex-start;}
+        .dropdown-content a { padding: 0.4rem 1.5rem; text-align: left; font-weight: 400; color: var(--text-color); border-top: none; font-size: 1rem; line-height: 1.4; width: 100%;}*/
         .dropdown:hover .dropdown-content { display: flex;}
+        .dropdown-content {
+    position: static !important;
+    display: none;
+    flex-direction: column;
+    box-shadow: none;
+    border: none;
+    background: none;
+    width: 100%;
+    padding: 0;
+    margin: 0.3rem 0 0.5rem 0;
+  }
+
+  .dropdown-content.mobile-show {
+    display: flex !important;
+  }
+
+  .dropdown-content a {
+    padding: 0.4rem 1.2rem;
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--text-color);
+  }
       }
   main {
         max-width: 960px;
@@ -198,12 +221,12 @@
         animation: none;
       }
       .floating-call-button svg {
-  margin-right: 8px;
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  animation: ring 1.5s ease-in-out infinite 0.5s;
-}
+          margin-right: 8px;
+          width: 20px;
+          height: 20px;
+          flex-shrink: 0;
+          animation: ring 1.5s ease-in-out infinite 0.5s;
+        }
 
 .floating-call-button:hover svg {
   animation: none;
@@ -231,16 +254,29 @@
     <!-- DEFER JS, LAZY LOAD IMAGES -->
     <script src="config.js" defer></script>
     <script defer>
-      window.addEventListener('DOMContentLoaded', function() {
-        // Lazy-load all <img> elements
-        document.querySelectorAll('img').forEach(function(img) {
-          img.setAttribute('loading', 'lazy');
-        });
-      });
       function toggleMenu() {
         const menu = document.getElementById('main-menu');
         menu.classList.toggle('show');
       }
+    
+      function toggleDropdown(event) {
+        event.preventDefault();
+        const dropdown = event.target.nextElementSibling;
+    
+        // Sadece mobilde çalıştır
+        if (window.innerWidth <= 768) {
+          dropdown.classList.toggle("mobile-show");
+        }
+      }
+    
+      // Menü dışına tıklayınca kapanması
+      window.addEventListener("click", function(e) {
+        if (!e.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown-content.mobile-show').forEach(el => {
+            el.classList.remove("mobile-show");
+          });
+        }
+      });
     </script>
 </head>
 <body>
@@ -345,7 +381,7 @@
       <h3>İletişim</h3>
       <div class="contact-info-item">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#1a4f85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        <a>Örnek Mah. Örnek Sk. No:1 D:2, Kadıköy/İstanbul</a>
+        <a href="tel:+905551112233">Örnek Mah. Örnek Sk. No:1 D:2, Kadıköy/İstanbul</a>
       </div>
       <div class="contact-info-item">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#1a4f85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.51 19.51 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72 12.4 12.4 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.4 12.4 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
