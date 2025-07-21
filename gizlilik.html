@@ -38,7 +38,7 @@
     </noscript>
 
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" defer>
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
@@ -72,7 +72,7 @@
       }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         background: var(--light);
         color: var(--text-color);
         line-height: 1.6;
@@ -278,7 +278,7 @@
 
     <!-- DEFER JS, LAZY LOAD IMAGES -->
     <script src="config.js" defer></script>
-    <script>
+    <script defer>
       window.addEventListener('DOMContentLoaded', function() {
         // Lazy-load all <img> elements
         document.querySelectorAll('img').forEach(function(img) {
