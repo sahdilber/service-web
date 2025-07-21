@@ -704,53 +704,50 @@
   #article-section .article-content ul li {
       margin-bottom: 0.5rem;
   }
-
-  /* Footer Stilleri */
   footer {
     background: var(--footer-bg);
     color: var(--footer-text-color);
-    padding: 3.5rem 1rem;
+    padding: 2.5rem 1rem;
     font-size: 0.95rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content:center;
     align-items: flex-start;
     text-align: left;
     flex-direction: row;
   }
-
+  
   footer .footer-column {
-    flex: 1;
     min-width: 220px;
-    margin: 1.5rem;
+    margin: 1rem;
   }
-
+  
   footer .footer-column h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
     color: #fff;
     position: relative;
-    padding-bottom: 0.4rem;
+    padding-bottom: 0.6rem;
     font-weight: 700;
   }
-
+  
   footer .footer-column h3::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 50px;
-    height: 2px;
+    width: 60px;
+    height: 3px;
     background-color: var(--primary);
   }
-
+  
   /* İletişim bilgileri için özel stiller */
   footer .footer-column .contact-info-item {
       display: flex;
       align-items: flex-start;
       margin-bottom: 0.8rem;
   }
-
+  
   footer .footer-column .contact-info-item span {
       margin-right: 10px;
       font-size: 1.1rem;
@@ -758,17 +755,17 @@
       flex-shrink: 0;
       padding-top: 2px;
   }
-
+  
   footer .footer-column .contact-info-item a {
       color: var(--footer-text-color);
       text-decoration: none;
       word-break: break-word;
   }
-
+  
   footer .footer-column .contact-info-item a:hover {
       color: var(--primary);
   }
-
+  
   /* Diğer linkler ve paragraflar için genel stil */
   footer .footer-column a:not(.contact-info-item a) {
     color: var(--footer-text-color);
@@ -780,6 +777,7 @@
   footer .footer-column a:not(.contact-info-item a):hover {
     color: var(--primary);
   }
+  
   .social-icons {
   display: flex;
   gap: 1.5rem;
@@ -865,12 +863,13 @@ footer .notice-container {
   }
 
   .copyright-section p {
-    margin: 0;
-    color: inherit;
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.4;
-  }
+  margin: 0;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.4;
+  text-align: center; /* EKLENECEK SATIR */
+}
 
   /* Footer Responsive Düzenlemeler */
   @media screen and (max-width: 768px) {
@@ -878,12 +877,15 @@ footer .notice-container {
       flex-direction: column;
       align-items: center;
       text-align: center;
+      gap: 0;
     }
 
     footer .footer-column {
-      margin-bottom: 2rem;
+      margin-bottom: 0;
       width: 100%;
       max-width: 300px;
+      margin-left: auto; /* Center individual columns */
+    margin-right: auto; /* Center individual columns */
     }
 
     footer .footer-column h3::after {
@@ -904,11 +906,11 @@ footer .notice-container {
       justify-content: center;
     }
     .copyright-section {
+      text-align: center;
         padding: 0.8rem; /* Mobil görünümde daha az boşluk */
         margin-top: 0.8rem; /* Mobil görünümde daha az üst boşluk */
     }
   }
-  /* Keyframe Animasyonları */
 @keyframes pulse {
   0% {
     transform: scale(1);

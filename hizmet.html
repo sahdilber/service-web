@@ -435,26 +435,22 @@
       margin-bottom: 0.5rem;
   }
 
-  
-  
-  /* Footer Stilleri */
   footer {
     background: var(--footer-bg);
     color: var(--footer-text-color);
-    padding: 3.5rem 1rem;
+    padding: 2.5rem 1rem;
     font-size: 0.95rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content:center;
     align-items: flex-start;
     text-align: left;
     flex-direction: row;
   }
   
   footer .footer-column {
-    flex: 1;
     min-width: 220px;
-    margin: 1.5rem;
+    margin: 1rem;
   }
   
   footer .footer-column h3 {
@@ -512,6 +508,7 @@
   footer .footer-column a:not(.contact-info-item a):hover {
     color: var(--primary);
   }
+  
   .social-icons {
   display: flex;
   gap: 1.5rem;
@@ -611,12 +608,15 @@ footer .notice-container {
       flex-direction: column;
       align-items: center;
       text-align: center;
+      gap: 0;
     }
 
     footer .footer-column {
-      margin-bottom: 2rem;
+      margin-bottom: 0;
       width: 100%;
       max-width: 300px;
+      margin-left: auto; /* Center individual columns */
+    margin-right: auto; /* Center individual columns */
     }
 
     footer .footer-column h3::after {
@@ -637,6 +637,7 @@ footer .notice-container {
       justify-content: center;
     }
     .copyright-section {
+      text-align: center;
         padding: 0.8rem; /* Mobil görünümde daha az boşluk */
         margin-top: 0.8rem; /* Mobil görünümde daha az üst boşluk */
     }
