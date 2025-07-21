@@ -24,39 +24,7 @@
     <!-- Favicon ve Apple Touch Icon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-    <!-- Preload Fonts (critical for above-the-fold text) -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-
-    <!-- Font Awesome Lazy Load (defer non-blocking) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    </noscript>
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json" defer>
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Gizlilik Politikası",
-      "url": "https://www.servisweb.com/gizlilik.html",
-      "description": "ServisWeb gizlilik politikası, kullanıcı verilerinin nasıl toplandığını ve korunduğunu açıklar.",
-      "publisher": {
-        "@type": "Organization",
-        "name": "ServisWeb Teknik Hizmetler",
-        "url": "https://www.servisweb.com",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.servisweb.com/logo.png"
-        }
-      }
-    }
-    </script>
-
+  
     <!-- INLINE CRITICAL CSS (extracted from your <style>) -->
     <style>
       :root {
@@ -177,23 +145,23 @@
       .notice strong { color: #6a5000;}
       .action-button { display: block; width: fit-content; margin: 2.5rem auto 1.5rem auto; padding: 1rem 2rem; background: var(--accent); color: #fff; border: none; border-radius: 8px; font-size: 1.4rem; font-weight: 700; cursor: pointer; text-decoration: none; text-align: center; transition: background 0.3s ease, transform 0.2s ease; box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3);}
       .action-button:hover { background: #219d53; transform: translateY(-2px);}
-      .action-button i { margin-right: 10px;}
+      .action-button svg {margin-right: 10px;width: 20px;height: 20px;flex-shrink: 0;}
       footer { background: var(--footer-bg); color: var(--footer-text-color); padding: 2.5rem 1rem; font-size: 0.95rem; display: flex; flex-wrap: wrap; justify-content:center; align-items: flex-start; text-align: left; flex-direction: row;}
       footer .footer-column { min-width: 220px; margin: 1rem;}
       footer .footer-column h3 { font-size: 1.3rem; margin-bottom: 1.5rem; color: #fff; position: relative; padding-bottom: 0.6rem; font-weight: 700;}
       footer .footer-column h3::after { content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 3px; background-color: var(--primary);}
       footer .footer-column .contact-info-item { display: flex; align-items: flex-start; margin-bottom: 0.8rem;}
-      footer .footer-column .contact-info-item span { margin-right: 10px; font-size: 1.1rem; color: var(--primary); flex-shrink: 0; padding-top: 2px;}
+      footer .footer-column .contact-info-item svg { margin-right:3px; font-size: 1.1rem; color: var(--primary); flex-shrink: 0; padding-top: 2px;}
       footer .footer-column .contact-info-item a { color: var(--footer-text-color); text-decoration: none; word-break: break-word;}
       footer .footer-column .contact-info-item a:hover { color: var(--primary);}
       footer .footer-column a:not(.contact-info-item a) { color: var(--footer-text-color); text-decoration: none; display: block; margin-bottom: 0.8rem; transition: color 0.3s ease;}
       footer .footer-column a:not(.contact-info-item a):hover { color: var(--primary);}
       .social-icons { display: flex; gap: 1.5rem; margin-top: 1rem; justify-content: flex-start; align-items: center;}
-      .social-icons a { background-color: transparent; color: var(--footer-text-color); width: auto; height: auto; display: flex; justify-content: center; align-items: center; border-radius: 0; font-size: 1.8rem; text-decoration: none; transition: color 0.3s ease, transform 0.2s ease; line-height: 1;}
-      .social-icons a:hover { color: var(--primary); transform: translateY(-3px);}
-      .social-icons a i { line-height: 1;}
-      .social-icons .fa-facebook-f { font-size: 1.6rem;}
-      .social-icons .fa-x-twitter { font-size: 1.7rem;}
+      .social-icons svg {width: 28px; height: 28px;display: block; margin: 0 auto;}
+      .social-icons .icon-facebook {width: 24px; height: 24px; margin-top: 2px;}
+      .social-icons .icon-x {width: 28px;height: 28px}
+      .social-icons .icon-instagram { width: 28px;height: 28px;}
+      .social-icons a:hover svg { transform: scale(1.1);}
       footer .notice-container { width: 100%; display: flex; justify-content: flex-start; margin-top: 0.05rem; padding-top: 0.3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-left: 1rem; padding-right: 1rem;}
       footer .notice { background-color: transparent; color: var(--footer-text-color); margin-top: 0.5rem; padding: 0; border-radius: 0; font-weight: normal; border: none; text-align: left; max-width: none; box-shadow: none; font-size: 0.9rem; line-height: 1.4;}
       footer .notice strong { font-weight: bold; color: #fff; margin-right: 5px;}
@@ -226,25 +194,26 @@
         transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
         animation: pulse 2s infinite ease-in-out;
       }
-      .floating-call-button i {
-        margin-right: 8px;
-        font-size: 1.4rem;
-        animation: ring 1.5s ease-in-out infinite 0.5s;
-        transform-origin: top center;
-      }
       .floating-call-button:hover {
         background-color: #219d53;
         transform: translateY(-2px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         animation: none;
       }
-      .floating-call-button:hover i {
-        animation: none;
-        transform: rotate(0deg);
-      }
+      .floating-call-button svg {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  animation: ring 1.5s ease-in-out infinite 0.5s;
+}
+
+.floating-call-button:hover svg {
+  animation: none;
+  transform: rotate(0deg);
+}
       @media (max-width: 768px) {
         .floating-call-button { padding: 10px 15px; font-size: 1rem; bottom: 15px; right: 15px;}
-        .floating-call-button i { font-size: 1.2rem; margin-right: 6px;}
       }
       @keyframes pulse {
         0% { transform: scale(1); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);}
@@ -259,20 +228,6 @@
         60% { transform: rotate(-10deg);}
         75% { transform: rotate(5deg);}
         100% { transform: rotate(0deg);}
-      }
-      @font-face {
-        font-family: 'FontAwesome';
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-solid-900.woff2') format('woff2');
-      }
-      @font-face {
-        font-family: 'FontAwesome';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/webfonts/fa-brands-400.woff2') format('woff2');
       }
     </style>
 
@@ -368,20 +323,20 @@
       <div class="footer-column">
         <h3>İletişim</h3>
         <div class="contact-info-item">
-          <span class="fa-solid fa-location-dot"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#1a4f85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           <a>Örnek Mah. Örnek Sk. No:1 D:2, Kadıköy/İstanbul</a>
         </div>
         <div class="contact-info-item">
-          <span class="fa-solid fa-phone"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#1a4f85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.51 19.51 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72 12.4 12.4 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.4 12.4 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
           <a href="tel:+905551112233">0 (555) 111 22 33 - Hemen Ara!</a>
         </div>
         <div class="contact-info-item">
-          <span class="fa-solid fa-envelope"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#1a4f85" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><path d="m22 6-10 7L2 6"/></svg>
           <a href="mailto:info@servisweb.com">info@servisweb.com</a>
         </div>
       </div>
       <div class="footer-column">
-        <h3><a href="hizmetler.html" style="text-decoration: none; color: inherit;">Hizmetlerimiz</a></h3>
+        <h3>Hizmetlerimiz</h3>
         <a href="hizmet.html?service=beyazesya">Beyaz Eşya Servisi</a>
         <a href="hizmet.html?service=buzdolabi">Buzdolabı Tamiri</a>
         <a href="hizmet.html?service=camasirmakinesi">Çamaşır Makinesi Servisi</a>
@@ -402,9 +357,26 @@
       <div class="footer-column">
         <h3>Bizi Takip Edin</h3>
         <div class="social-icons">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <!-- Facebook -->
+          <a href="#" aria-label="Facebook">
+            <svg class="icon-facebook" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 320 512">
+              <path d="M279.14 288l14.22-92.66h-88.91V127.56c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S263.52 0 225.36 0C141.09 0 89.09 54.42 89.09 154.22V195.3H0v92.66h89.09V512h107.81V288z"/>
+            </svg>
+          </a>
+        
+          <!-- X (Twitter) -->
+          <a href="#" aria-label="Twitter">
+            <svg class="icon-x" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 512 512">
+              <path d="M461.2 64L296.5 244.6 471 448h-97.7L256.3 305.5 126.2 448H0L183.7 260.2 13.8 64H114l121.5 128.2L365.7 64h95.5z"/>
+            </svg>
+          </a>
+        
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram">
+            <svg class="icon-instagram" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 448 512">
+              <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.9 224.1 370.9 339 319.6 339 255.9 287.7 141 224.1 141zm0 186c-39.3 0-71.1-31.8-71.1-71.1S184.8 184 224.1 184 295.2 215.8 295.2 255.9 263.4 327 224.1 327zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9C384.6 14.7 353.2 6.5 317.9 4.8 281.5 3 166.5 3 130.1 4.8 94.8 6.5 63.4 14.7 37.1 41c-26.3 26.3-34.5 57.7-36.2 92.9C-1 168.3-1 283.3.8 319.7c1.7 35.3 9.9 66.7 36.2 92.9 26.3 26.3 57.7 34.5 92.9 36.2 36.4 1.8 151.4 1.8 187.8 0 35.3-1.7 66.7-9.9 92.9-36.2 26.3-26.3 34.5-57.7 36.2-92.9 1.8-36.4 1.8-151.4 0-187.8zM398.8 388c-7.8 19.5-22.9 34.6-42.4 42.4-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.5-7.8-34.6-22.9-42.4-42.4-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.5 22.9-34.6 42.4-42.4 29.4-11.7 99.2-9 132.3-9s102.9-2.6 132.3 9c19.5 7.8 34.6 22.9 42.4 42.4 11.7 29.4 9 99.2 9 132.3s2.7 102.9-9 132.3z"/>
+            </svg>
+          </a>
         </div>
       </div>
       <div class="notice-container">
@@ -417,8 +389,30 @@
       </div>
     </footer>
     <a href="tel:+905551112233" class="floating-call-button" aria-label="Bizi Arayın">
-      <i class="fa-solid fa-phone"></i>
-      <span>Bizi Arayın</span>
-    </a>
+      <a href="tel:+905551112233" class="floating-call-button" aria-label="Bizi Arayın">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 10px;">
+          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24 11.36 11.36 0 0 0 3.58.57 1 1 0 0 1 1 1v3.61a1 1 0 0 1-1 1A16 16 0 0 1 2 5a1 1 0 0 1 1-1h3.6a1 1 0 0 1 1 1 11.36 11.36 0 0 0 .57 3.58 1 1 0 0 1-.24 1.05l-2.3 2.3z"/>
+        </svg>
+        <span>Bizi Arayın</span>
+      </a>
+     <!-- JSON-LD Structured Data -->
+     <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Gizlilik Politikası",
+        "url": "https://www.servisweb.com/gizlilik.html",
+        "description": "ServisWeb gizlilik politikası, kullanıcı verilerinin nasıl toplandığını ve korunduğunu açıklar.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "ServisWeb Teknik Hizmetler",
+          "url": "https://www.servisweb.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.servisweb.com/logo.png"
+          }
+        }
+      }
+      </script>
   </body>
 </html>
