@@ -203,25 +203,29 @@
     const menu = document.getElementById('main-menu');
     menu.classList.toggle('show');
   }
-
+/*
   function toggleDropdown(event) {
     event.preventDefault();
-    const dropdown = event.target.nextElementSibling;
+    const dropdown = event.target.nextElementSibling;*/
 
-    // Sadece mobilde çalıştır
-    if (window.innerWidth <= 768) {
-      dropdown.classList.toggle("mobile-show");
-    }
-  }
+  function toggleDropdown(event) {
+if (window.innerWidth > 768) return; // Sadece mobilde çalışsın
 
-  // Menü dışına tıklayınca kapanması
-  window.addEventListener("click", function(e) {
-    if (!e.target.closest('.dropdown')) {
-      document.querySelectorAll('.dropdown-content.mobile-show').forEach(el => {
-        el.classList.remove("mobile-show");
-      });
-    }
-  });
+const dropdownLink = event.target;
+const dropdownMenu = dropdownLink.nextElementSibling;
+
+// Menü zaten açıksa: artık yönlenmeye izin ver
+if (dropdownMenu.classList.contains("mobile-show")) {
+return; // bu sefer sayfa yönlenebilir
+}
+
+// İlk tıklama: menüyü aç
+event.preventDefault();
+document.querySelectorAll('.dropdown-content.mobile-show').forEach(el => {
+el.classList.remove("mobile-show");
+});
+dropdownMenu.classList.add("mobile-show");
+}
 </script>
 </head>
 <body>
@@ -232,7 +236,7 @@
       <nav class="menu" id="main-menu">
         <a href="index.html">Ana Sayfa</a>
         <div class="dropdown">
-          <a href="hizmetler.html" style="cursor:pointer; font-weight:500; color:var(--text-color); display: block;">Hizmetlerimiz</a>
+          <a href="hizmetler.html" onclick="toggleDropdown(event)" class="dropdown-link">Hizmetlerimiz</a>
           <div class="dropdown-content">
             <a href="hizmet.html?service=beyazesya">Beyaz Eşya</a>
             <a href="hizmet.html?service=buzdolabi">Buzdolabı</a>
