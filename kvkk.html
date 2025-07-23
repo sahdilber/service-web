@@ -250,28 +250,21 @@
         100% { transform: rotate(0deg);}
       }
   </style>
-
-    <!-- DEFER JS, LAZY LOAD IMAGES -->
     <script src="config.js" defer></script>
     <script defer>
       function toggleMenu() {
         const menu = document.getElementById('main-menu');
         menu.classList.toggle('show');
       }
-    /*
-      function toggleDropdown(event) {
-        event.preventDefault();
-        const dropdown = event.target.nextElementSibling;*/
     
       function toggleDropdown(event) {
-  if (window.innerWidth > 768) return; // Sadece mobilde çalışsın
+  if (window.innerWidth > 768) return;
 
   const dropdownLink = event.target;
   const dropdownMenu = dropdownLink.nextElementSibling;
 
-  // Menü zaten açıksa: artık yönlenmeye izin ver
   if (dropdownMenu.classList.contains("mobile-show")) {
-    return; // bu sefer sayfa yönlenebilir
+    return;
   }
 
   // İlk tıklama: menüyü aç
